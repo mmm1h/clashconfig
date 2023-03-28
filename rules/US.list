@@ -1,5 +1,6 @@
-#hbo规则
+#美国节点专用
 
+#hbo
 DOMAIN-SUFFIX,hbo.com
 DOMAIN-SUFFIX,hbogo.com
 DOMAIN-SUFFIX,hbomax.com
@@ -20,3 +21,7 @@ DOMAIN,hbounify-prod.evergent.com
 DOMAIN-SUFFIX,hboasia.com
 DOMAIN-SUFFIX,hbogoasia.com
 DOMAIN-SUFFIX,hbogoasia.hk
+
+
+#openai
+DOMAIN-KEYWORD,openai
