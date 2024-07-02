@@ -6,6 +6,8 @@ DOMAIN-KEYWORD,37games
 DOMAIN-SUFFIX,hmhi.top
 DOMAIN-KEYWORD,wallpaperengine
 
+#steam下载
+DOMAIN,steamcdn-a.akamaihd.net
 DOMAIN-SUFFIX,cm.steampowered.com
 DOMAIN-SUFFIX,steamserver.net
 IP-CIDR,45.121.184.0/24
