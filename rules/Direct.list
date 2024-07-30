@@ -7,8 +7,8 @@ DOMAIN-SUFFIX,hmhi.top
 DOMAIN-KEYWORD,wallpaperengine
 
 #huggingface模型下载
-DOMAIN,cdn-lfs.huggingface.co
-DOMAIN,cdn-lfs-us-1.huggingface.co
+#DOMAIN,cdn-lfs.huggingface.co
+#DOMAIN-SUFFIX,cdn-lfs-us-1.huggingface.co
 
 
 #steam下载
