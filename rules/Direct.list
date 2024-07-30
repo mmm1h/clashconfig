@@ -1,10 +1,11 @@
 # 个人直连列表
 
-#小鹅通
+#直连
 DOMAIN-KEYWORD,xiaoeknow
 DOMAIN-KEYWORD,37games
 DOMAIN-SUFFIX,hmhi.top
 DOMAIN-KEYWORD,wallpaperengine
+DOMAIN-SUFFIX,cdn-lfs.huggingface.co
 
 #steam下载
 DOMAIN,steamcdn-a.akamaihd.net
