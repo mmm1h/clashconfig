@@ -2,7 +2,7 @@
 
 #魅影机场
 DOMAIN-SUFFIX,maying.co
-DOMAIN-SUFFIX,hmhi.ac.cn
+#DOMAIN-SUFFIX,hmhi.ac.cn
 
 #win10显示无网络修复，走vpn流量
 DOMAIN-SUFFIX,msftconnecttest.com
