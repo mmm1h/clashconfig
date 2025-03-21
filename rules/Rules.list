@@ -3,7 +3,8 @@
 #魅影机场
 DOMAIN-SUFFIX,maying.co
 DOMAIN-SUFFIX,mikanani.me
-#DOMAIN-SUFFIX,hmhi.ac.cn
+DOMAIN-KEYWORD,bangumi
+
 
 #win10显示无网络修复，走vpn流量
 DOMAIN-SUFFIX,msftconnecttest.com
