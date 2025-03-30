@@ -1,13 +1,10 @@
-# 个人翻墙列表
+# 个人列表
 
-#魅影机场
 DOMAIN-SUFFIX,maying.co
-
-
-DOMAIN-SUFFIX,mikanani.me #蜜柑计划
+DOMAIN-SUFFIX,mikanani.me
 DOMAIN-SUFFIX,bangumi.tv
-DOMAIN-KEYWORD,civitai  #c站
-DOMAIN-SUFFIX,greasyfork.org  #油猴
+DOMAIN-KEYWORD,civitai
+DOMAIN-SUFFIX,greasyfork.org
 
 #win10显示无网络修复，走vpn流量
 DOMAIN-SUFFIX,msftconnecttest.com
