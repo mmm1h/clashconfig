@@ -1,8 +1,12 @@
 # 个人列表
 DOMAIN-SUFFIX,maying.co
+
+#蜜柑
 DOMAIN-KEYWORD,mikanani
 DOMAIN-SUFFIX,bangumi.tv
+#c站不显示大图
 DOMAIN-KEYWORD,civitai
+#油猴
 DOMAIN-SUFFIX,greasyfork.org
 
 #win10显示无网络修复，走vpn流量
