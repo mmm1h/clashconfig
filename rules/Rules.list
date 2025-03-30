@@ -3,10 +3,11 @@
 #魅影机场
 DOMAIN-SUFFIX,maying.co
 
-#蜜柑计划
-DOMAIN-SUFFIX,mikanani.me
+
+DOMAIN-SUFFIX,mikanani.me #蜜柑计划
 DOMAIN-SUFFIX,bangumi.tv
-DOMAIN-KEYWORD,civitai
+DOMAIN-KEYWORD,civitai  #c站
+DOMAIN-SUFFIX,greasyfork.org  #油猴
 
 #win10显示无网络修复，走vpn流量
 DOMAIN-SUFFIX,msftconnecttest.com
