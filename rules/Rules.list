@@ -8,6 +8,7 @@ DOMAIN-SUFFIX,api.bgm.tv
 DOMAIN-KEYWORD,civitai
 #油猴
 DOMAIN-SUFFIX,greasyfork.org
+DOMAIN-SUFFIX,wallhaven.cc
 
 #win10显示无网络修复，走vpn流量
 DOMAIN-SUFFIX,msftconnecttest.com
