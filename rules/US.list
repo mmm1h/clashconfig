@@ -1,5 +1,7 @@
 #美国节点专用
 
+#gemini
+DOMAIN-SUFFIX,gemini.com
 #hbo
 DOMAIN-SUFFIX,hbo.com
 DOMAIN-SUFFIX,hbogo.com
