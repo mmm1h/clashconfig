@@ -1,8 +1,7 @@
 # 个人直连列表
 
 #直连
-DOMAIN-KEYWORD,xiaoeknow
-DOMAIN-KEYWORD,37games
+DOMAIN-SUFFIX,ntfy.sh
 DOMAIN-SUFFIX,hmhi.top
 DOMAIN-SUFFIX,hmhi.ac.cn
 DOMAIN-KEYWORD,wallpaperengine
