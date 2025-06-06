@@ -3,7 +3,6 @@
 #直连
 DOMAIN-SUFFIX,ntfy.sh
 DOMAIN-SUFFIX,hmhi.top
-DOMAIN-SUFFIX,hmhi.ac.cn
 DOMAIN-KEYWORD,wallpaperengine
 
 #huggingface模型下载
