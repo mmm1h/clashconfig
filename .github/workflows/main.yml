@@ -1,4 +1,4 @@
-# .github/workflows/generate_mihomo_test_js.yml
+# .github/workflows/generate_mihomo_js.yml
 
 name: Generate mihomo_test.js from alc4.ini
 
