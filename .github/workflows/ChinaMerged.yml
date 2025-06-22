@@ -1,0 +1,101 @@
+# 工作流的名称
+name: Sync External Lists (with Header)
+
+# 控制工作流触发的条件
+on:
+  # 允许您从“Actions”选项卡手动运行此工作流
+  workflow_dispatch:
+
+  # 设置定时任务，使用 cron 语法
+  # 这里的 '0 1 * * *' 表示每天的 UTC 时间 1:00 运行
+  schedule:
+    - cron: '0 1 * * *'
+
+# 定义一个或多个作业（job）
+jobs:
+  # 作业的唯一ID
+  sync-job:
+    # 作业运行的虚拟环境
+    runs-on: ubuntu-latest
+
+    # 作业中包含的一系列步骤
+    steps:
+      # 第一步：检出（checkout）您的仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 第二步：拉取远程文件、处理并生成带头信息的文件
+      - name: Fetch, process, and generate list with header
+        run: |
+          # --- 配置 ---
+          TARGET_FILE="ChinaMerged.list"
+          AUTHOR="mmm1h"
+          # 创建两个临时文件：一个用于存放原始下载内容，一个用于存放处理后的干净内容
+          RAW_TEMP_FILE=$(mktemp)
+          CLEANED_TEMP_FILE=$(mktemp)
+          
+          # 定义要拉取的远程文件URL列表
+          URLS=(
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaIpV6.list"
+          )
+          
+          # --- 下载 ---
+          # 循环遍历URL列表，下载内容并追加到原始临时文件中
+          for url in "${URLS[@]}"; do
+            echo "Fetching from $url"
+            curl -L -sS "$url" >> $RAW_TEMP_FILE || echo "Warning: Failed to fetch $url"
+          done
+          
+          # --- 处理数据 ---
+          echo "Processing and cleaning the combined list..."
+          # 过滤原始文件中的注释和空行，然后排序去重，存入干净的临时文件
+          cat $RAW_TEMP_FILE | grep -vE '(^#|^\s*$)' | sort -u > $CLEANED_TEMP_FILE
+          
+          # --- 生成文件头 ---
+          echo "Generating metadata header..."
+          # 获取当前的UTC时间
+          UPDATE_TIME=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          # 计算处理后文件中的行数（即规则数量）
+          RULE_COUNT=$(wc -l < $CLEANED_TEMP_FILE | xargs)
+          
+          # --- 合并文件 ---
+          # 先将文件头写入最终的目标文件
+          {
+            echo "# 更新时间：$UPDATE_TIME"
+            echo "# 数量：${RULE_COUNT}条"
+            INDEX=1
+            for url in "${URLS[@]}"; do
+              echo "# 来源${INDEX}：$url"
+              ((INDEX++))
+            done
+            echo "# 作者：$AUTHOR"
+            echo "" # 添加一个空行以作分隔
+          } > $TARGET_FILE
+          
+          # 然后将干净的规则列表追加到目标文件后面
+          cat $CLEANED_TEMP_FILE >> $TARGET_FILE
+          
+          # --- 清理 ---
+          # 删除不再需要的临时文件
+          rm $RAW_TEMP_FILE $CLEANED_TEMP_FILE
+          
+          echo "Final list with header has been created at $TARGET_FILE"
+
+      # 第三步：提交并推送文件更改
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # 更新了提交信息
+          commit_message: 'docs(lists): 自动同步并生成带元数据头的文件'
+          
+          # 要提交的文件名
+          file_pattern: 'ChinaMerged.list'
+          
+          # 提交者和作者的 git 用户信息
+          commit_user_name: GitHub Actions Bot
+          commit_user_email: actions@github.com
+          commit_author: GitHub Actions Bot <actions@github.com>
