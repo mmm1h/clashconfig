@@ -1,5 +1,5 @@
 # 工作流的名称
-name: Sync External Lists (with Header)
+name: Sync China Lists (with Header)
 
 # 控制工作流触发的条件
 on:
@@ -40,7 +40,10 @@ jobs:
             "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
             "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
             "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list"
-            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaIpV6.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIpV6.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list"
+            "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEase.list"
           )
           
           # --- 下载 ---
