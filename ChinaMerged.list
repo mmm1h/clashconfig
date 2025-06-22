@@ -1,3 +1,12 @@
+# 更新时间：2025-06-22 10:05:44 UTC
+# 数量：2927条
+# 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
+# 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+# 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+# 来源4：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+# 来源5：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaIpV6.list
+# 作者：mmm1h
+
 DOMAIN,apiintl.biliapi.net
 DOMAIN,auth.wosms.cn
 DOMAIN,config.cmpassport.com
