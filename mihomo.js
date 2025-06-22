@@ -253,27 +253,11 @@ function main(config) {
       interval: 86400,
       format: "text"
     },
-    "ACL4SSR_LocalAreaNetwork": {
-      type: "http",
-      behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list",
-      path: "./ruleset/ACL4SSR_LocalAreaNetwork.yaml",
-      interval: 86400,
-      format: "text"
-    },
     "ACL4SSR_UnBan": {
       type: "http",
       behavior: "classical",
       url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list",
       path: "./ruleset/ACL4SSR_UnBan.yaml",
-      interval: 86400,
-      format: "text"
-    },
-    "ACL4SSR_NetEaseMusic": {
-      type: "http",
-      behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list",
-      path: "./ruleset/ACL4SSR_NetEaseMusic.yaml",
       interval: 86400,
       format: "text"
     },
@@ -309,11 +293,11 @@ function main(config) {
       interval: 86400,
       format: "text"
     },
-    "ACL4SSR_ChinaMedia": {
+    "ACL4SSR_ChinaMerged": {
       type: "http",
       behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list",
-      path: "./ruleset/ACL4SSR_ChinaMedia.yaml",
+      url: "https://raw.githubusercontent.com/mmm1h/clashconfig/main/ChinaMerged.list",
+      path: "./ruleset/ACL4SSR_ChinaMerged.yaml",
       interval: 86400,
       format: "text"
     },
@@ -492,30 +476,6 @@ function main(config) {
       path: "./ruleset/ACL4SSR_Telegram.yaml",
       interval: 86400,
       format: "text"
-    },
-    "ACL4SSR_ChinaDomain": {
-      type: "http",
-      behavior: "classical", // Or "domain"
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list",
-      path: "./ruleset/ACL4SSR_ChinaDomain.yaml",
-      interval: 86400,
-      format: "text"
-    },
-    "ACL4SSR_ChinaCompanyIp": {
-      type: "http",
-      behavior: "classical", // Or "ipcidr"
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list",
-      path: "./ruleset/ACL4SSR_ChinaCompanyIp.yaml",
-      interval: 86400,
-      format: "text"
-    },
-    "ACL4SSR_Download": {
-      type: "http",
-      behavior: "classical",
-      url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list",
-      path: "./ruleset/ACL4SSR_Download.yaml",
-      interval: 86400,
-      format: "text"
     }
   };
   config["rule-providers"] = Object.assign(config["rule-providers"], myRuleProviders);
@@ -531,14 +491,11 @@ function main(config) {
 
     // ;直连规则 & 分流规则 (Order from INI)
     "RULE-SET,blackmatrix7_WeChat,🎯 全球直连",
-    "RULE-SET,ACL4SSR_LocalAreaNetwork,🎯 全球直连",
     "RULE-SET,ACL4SSR_UnBan,🎯 全球直连",
-    "RULE-SET,ACL4SSR_NetEaseMusic,🎯 全球直连",
     "RULE-SET,ACL4SSR_GoogleFCM,🎯 全球直连",
     "RULE-SET,ACL4SSR_GoogleCN,🎯 全球直连",
     "RULE-SET,ACL4SSR_SteamCN,🎯 全球直连",
     "RULE-SET,ACL4SSR_OneDrive,🎯 全球直连",
-    "RULE-SET,ACL4SSR_ChinaMedia,🎯 全球直连",
     "RULE-SET,ACL4SSR_Microsoft,Ⓜ️ 微软服务",
     "RULE-SET,ACL4SSR_OpenAi,🥦 OPENAI",
     "RULE-SET,ACL4SSR_AI,🥦 OPENAI",
@@ -563,9 +520,7 @@ function main(config) {
     "RULE-SET,ACL4SSR_Telegram,🚀 节点选择",
 
     // ;中国大陆IP和域名直连
-    "RULE-SET,ACL4SSR_ChinaDomain,🎯 全球直连",
-    "RULE-SET,ACL4SSR_ChinaCompanyIp,🎯 全球直连",
-    "RULE-SET,ACL4SSR_Download,🎯 全球直连",
+    "RULE-SET,ACL4SSR_ChinaMerged,🎯 全球直连",
 
     // ;局域网和中国大陆IP直连 (GEOIP,CN)
     "GEOIP,CN,🎯 全球直连",
