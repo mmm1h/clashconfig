@@ -6,6 +6,7 @@ DOMAIN-SUFFIX,anthropic.com
 
 #notebooklm
 DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,notebooklm.google.com
 
 #内容：gemini
 DOMAIN-KEYWORD,gemini
