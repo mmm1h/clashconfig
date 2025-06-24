@@ -1,5 +1,5 @@
-# 更新时间：2025-06-24 02:45:01 UTC
-# 数量：2998条
+# 更新时间：2025-06-24 07:59:32 UTC
+# 数量：3003条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
@@ -8,6 +8,11 @@
 # 来源6：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
 # 来源7：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEaseMusic.list
 # 来源8：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/NetEase.list
+# 来源9：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/CCTV.list
+# 来源10：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/CN.list
+# 来源11：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ChinaDNS.list
+# 来源12：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ChinaNet.list
+# 来源13：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ChinaOneKeyLogin.list
 # 作者：mmm1h
 
 DOMAIN,apiintl.biliapi.net
@@ -75,6 +80,7 @@ DOMAIN-SUFFIX,17173.com
 DOMAIN-SUFFIX,178.com
 DOMAIN-SUFFIX,17k.com
 DOMAIN-SUFFIX,21cn.com
+DOMAIN-SUFFIX,21cn.com# 内容：ChinaOneKeyLogin 运营商一键登录
 DOMAIN-SUFFIX,360.com
 DOMAIN-SUFFIX,360buy.com
 DOMAIN-SUFFIX,360buyimg.com
@@ -380,6 +386,7 @@ DOMAIN-SUFFIX,letvimg.com
 DOMAIN-SUFFIX,letvlive.com
 DOMAIN-SUFFIX,letvstore.com
 DOMAIN-SUFFIX,livechina.com
+DOMAIN-SUFFIX,livechina.com# 内容： CN域名直连
 DOMAIN-SUFFIX,lizhi.fm
 DOMAIN-SUFFIX,lizhi.io
 DOMAIN-SUFFIX,lizhifm.com
@@ -626,6 +633,7 @@ DOMAIN-SUFFIX,xmcdn.com
 DOMAIN-SUFFIX,xn--55qx5d
 DOMAIN-SUFFIX,xn--fiqs8s
 DOMAIN-SUFFIX,xn--io0a7i
+DOMAIN-SUFFIX,xn--io0a7i# 内容：China DNS
 DOMAIN-SUFFIX,xslb.net
 DOMAIN-SUFFIX,xueqiu.com
 DOMAIN-SUFFIX,xunlei.com
@@ -640,6 +648,7 @@ DOMAIN-SUFFIX,yinyuetai.com
 DOMAIN-SUFFIX,yixia.com
 DOMAIN-SUFFIX,ykimg.com
 DOMAIN-SUFFIX,youdao.com
+DOMAIN-SUFFIX,youdao.com# 内容：CCTV
 DOMAIN-SUFFIX,youku.com
 DOMAIN-SUFFIX,ys168.com
 DOMAIN-SUFFIX,yuewen.com
@@ -676,6 +685,7 @@ DOMAIN-SUFFIX,zmzfile.com
 DOMAIN-SUFFIX,zte.home
 IP-CIDR,0.0.0.0/8,no-resolve
 IP-CIDR,1.12.12.12/32,no-resolve
+IP-CIDR,1.12.12.12/32,no-resolve# 内容：ChinaNet
 IP-CIDR,10.0.0.0/8,no-resolve
 IP-CIDR,100.64.0.0/10,no-resolve
 IP-CIDR,101.198.128.0/18,no-resolve
