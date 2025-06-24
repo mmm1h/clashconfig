@@ -1,7 +1,27 @@
 #美国节点专用
 
-#gemini
+# 内容：Claude
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
+
+#notebooklm
+DOMAIN-SUFFIX,notebooklm.google
+
+#内容：gemini
 DOMAIN-KEYWORD,gemini
+DOMAIN-KEYWORD,colab
+DOMAIN-KEYWORD,developerprofiles
+DOMAIN-KEYWORD,generativelanguage
+DOMAIN,ai.google.dev
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN,makersuite.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+DOMAIN-SUFFIX,apis.google.com
 #hbo
 DOMAIN-SUFFIX,hbo.com
 DOMAIN-SUFFIX,hbogo.com
