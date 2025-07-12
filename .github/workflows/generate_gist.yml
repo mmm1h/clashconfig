@@ -1,0 +1,35 @@
+# .github/workflows/generate_gist.yml
+
+name: Generate Private Clash Gist
+
+# 这个 action 会在你推送到 'main' 分支时自动运行
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # 也允许你手动触发运行
+
+jobs:
+  build-and-gist:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出你的仓库代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 将你配置文件中的占位符替换为真实的 secret URL
+      - name: Replace URL placeholders
+        uses: cuchi/file-contents-replacement-action@v1.3.0
+        with:
+          files: "mihomo.yaml" # 你的配置文件名
+
+      # 3. 使用一个专门的 action 来创建或更新私有 Gist
+      # 第一次运行时它会创建一个新的 Gist，之后会自动更新同一个 Gist
+      - name: Create or Update Private Gist
+        uses: exuanbo/actions-gist@v1
+        with:
+          token: ${{ secrets.GIST_TOKEN }} # 用于操作 Gist 的个人访问令牌
+          gist_id: ${{ secrets.GIST_ID }}   # 你的 Gist ID (首次运行可留空)
+          file_name: "mihomo-private.yaml"  # Gist 中的文件名
+          content_file: "mihomo.yaml"       # 要上传的本地文件
+          is_public: false                  # 确保 Gist 是私有的
