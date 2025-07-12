@@ -48,6 +48,6 @@ jobs:
             echo "------------------------------------------------------------------"
           else
             echo "GIST_ID found. Updating existing Gist..."
-            gh gist edit "$GIST_ID" mihomo.yaml --filename "mihomo-private.yaml"
+            gh gist edit "$GIST_ID" mihomo.yaml --filename "mihomo.yaml"
             echo "Gist updated successfully."
           fi
