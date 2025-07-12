@@ -1,0 +1,43 @@
+# .github/workflows/generate_gist.yml
+
+name: Generate Private Clash Gist
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-gist:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 检出您的仓库代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 读取配置文件内容
+      - name: Read config file
+        id: read_file
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./mihomo.yaml # 您的配置文件路径
+
+      # 3. 使用 sed 命令替换占位符
+      # sed 是一个强大的 Linux 工具，-i 表示直接修改文件
+      - name: Replace URL placeholders
+        run: |
+          sed -i 's|__MEIYING_URL__|${{ secrets.MEIYING_URL }}|g' mihomo.yaml
+          sed -i 's|__YUNDONG_URL__|${{ secrets.YUNDONG_URL }}|g' mihomo.yaml
+        env:
+          MEIYING_URL: ${{ secrets.MEIYING_URL }}
+          YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
+
+      # 4. 使用一个当前维护的 Action 来创建或更新私有 Gist
+      - name: Create or Update Private Gist
+        uses: nathan-mitchell/actions-gist-updater@v1.0.0
+        with:
+          gist_id: ${{ secrets.GIST_ID }}      # 您的 Gist ID (首次运行可留空)
+          gist_token: ${{ secrets.GIST_TOKEN }} # 您的个人访问令牌
+          file_path: 'mihomo.yaml'              # 要上传的本地配置文件名
+          file_name: 'mihomo-private.yaml'      # 在 Gist 中显示的文件名
