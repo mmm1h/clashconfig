@@ -1,5 +1,5 @@
 # 工作流的名称
-name: Sync AIMerged Lists (with Header)
+name: Sync GameMerged Lists (with Header)
 
 # 控制工作流触发的条件
 on:
