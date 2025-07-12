@@ -1,5 +1,5 @@
-# 更新时间：2025-07-12 04:19:48 UTC
-# 数量：10392条
+# 更新时间：2025-07-12 10:01:32 UTC
+# 数量：10448条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
@@ -14,16 +14,27 @@
 # 来源12：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ChinaDNS.list
 # 来源13：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ChinaNet.list
 # 来源14：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ChinaOneKeyLogin.list
+# 来源15：https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/WeChat/WeChat.list
+# 来源16：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Wechat.list
+# 来源17：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
 # 作者：mmm1h
 
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net
 DOMAIN,apiintl.biliapi.net
+DOMAIN,app.adjust.com
 DOMAIN,auth.wosms.cn
+DOMAIN,bdtj.tagtic.cn
+DOMAIN,btrace.qq.com
 DOMAIN,config.cmpassport.com
 DOMAIN,csgo.wmsj.cn
+DOMAIN,dl.google.com
 DOMAIN,dl.steam.clngaa.com
 DOMAIN,dl.steam.ksyna.com
+DOMAIN,dldir1.qq.com
 DOMAIN,dota2.wmsj.cn
 DOMAIN,enrichgw.10010.com
+DOMAIN,errlog.umeng.com
+DOMAIN,fairplay.l.qq.com
 DOMAIN,hmrz.wo.cn
 DOMAIN,id.mail.wo.cn
 DOMAIN,instant.arubanetworks.com
@@ -31,21 +42,33 @@ DOMAIN,intel-cache.m.iqiyi.com
 DOMAIN,intel-cache.video.iqiyi.com
 DOMAIN,intl-rcd.iqiyi.com
 DOMAIN,intl-subscription.iqiyi.com
+DOMAIN,livew.l.qq.com
 DOMAIN,log.cmpassport.com
 DOMAIN,log1.cmpassport.com
 DOMAIN,mdn.open.wo.cn
+DOMAIN,msg.umeng.com
+DOMAIN,msg.umengcloud.com
 DOMAIN,nishub1.10010.com
 DOMAIN,opencloud.wostore.cn
+DOMAIN,origin-a.akamaihd.net
+DOMAIN,rewards.hypixel.net
 DOMAIN,router.asus.com
 DOMAIN,setmeup.arubanetworks.com
+DOMAIN,slife.xy-asia.com
+DOMAIN,soup.v.qq.com
 DOMAIN,st.dl.bscstorage.net
 DOMAIN,st.dl.eccdnx.com
 DOMAIN,st.dl.pinyuncloud.com
 DOMAIN,steampipe.steamcontent.tnkjmec.com
 DOMAIN,steampowered.com.8686c.com
 DOMAIN,steamstatic.com.8686c.com
+DOMAIN,tracking.miui.com
 DOMAIN,upos-hz-mirrorakam.akamaized.net
+DOMAIN,vd.l.qq.com
+DOMAIN,vweixinf.tc.qq.com
+DOMAIN,weixin110.qq.com
 DOMAIN,wmsjsteam.com
+DOMAIN,wup.imtt.qq.com
 DOMAIN,www.asusrouter.com
 DOMAIN,xz.pphimalayanrt.com
 DOMAIN,ye.dun.163yun.com
@@ -227,6 +250,7 @@ DOMAIN-SUFFIX,didialift.com
 DOMAIN-SUFFIX,didiglobal.com
 DOMAIN-SUFFIX,dilidili.wang
 DOMAIN-SUFFIX,dingtalk.com
+DOMAIN-SUFFIX,dizhensubao.getui.com
 DOMAIN-SUFFIX,dns.alidns.com
 DOMAIN-SUFFIX,doh.360.cn
 DOMAIN-SUFFIX,doh.pub
@@ -275,6 +299,7 @@ DOMAIN-SUFFIX,ghpym.com
 DOMAIN-SUFFIX,gifshow.com
 DOMAIN-SUFFIX,go2map.com
 DOMAIN-SUFFIX,godic.net
+DOMAIN-SUFFIX,googletraveladservices.com
 DOMAIN-SUFFIX,got001.com
 DOMAIN-SUFFIX,gtimg.com
 DOMAIN-SUFFIX,guazi.com
@@ -330,6 +355,7 @@ DOMAIN-SUFFIX,infzm.com
 DOMAIN-SUFFIX,inter.iqiyi.com
 DOMAIN-SUFFIX,inter.ptqy.gitv.tv
 DOMAIN-SUFFIX,intl.iqiyi.com
+DOMAIN-SUFFIX,iot-tencent.com
 DOMAIN-SUFFIX,ip6-localhost
 DOMAIN-SUFFIX,ip6-loopback
 DOMAIN-SUFFIX,ipip.net
@@ -359,6 +385,8 @@ DOMAIN-SUFFIX,kanimg.com
 DOMAIN-SUFFIX,kankan.com
 DOMAIN-SUFFIX,kaola.com
 DOMAIN-SUFFIX,knewone.com
+DOMAIN-SUFFIX,koodomobile.ca
+DOMAIN-SUFFIX,koodomobile.com
 DOMAIN-SUFFIX,koowo.com
 DOMAIN-SUFFIX,koyso.com
 DOMAIN-SUFFIX,ksosoft.com
@@ -375,6 +403,7 @@ DOMAIN-SUFFIX,lanzou.com
 DOMAIN-SUFFIX,lanzoui.com
 DOMAIN-SUFFIX,lanzoux.com
 DOMAIN-SUFFIX,laomo.me
+DOMAIN-SUFFIX,lbs.gtimg.com
 DOMAIN-SUFFIX,le.com
 DOMAIN-SUFFIX,lecloud.com
 DOMAIN-SUFFIX,leike.cc
@@ -399,6 +428,7 @@ DOMAIN-SUFFIX,lvmama.com
 DOMAIN-SUFFIX,lxdns.com
 DOMAIN-SUFFIX,mam.netease.com
 DOMAIN-SUFFIX,maoyan.com
+DOMAIN-SUFFIX,map.qq.com
 DOMAIN-SUFFIX,meilishuo.com
 DOMAIN-SUFFIX,meipai.com
 DOMAIN-SUFFIX,meitu.com
@@ -438,10 +468,12 @@ DOMAIN-SUFFIX,myunlu.com
 DOMAIN-SUFFIX,netease.com
 DOMAIN-SUFFIX,nruan.com
 DOMAIN-SUFFIX,nuomi.com
+DOMAIN-SUFFIX,ol.epicgames.com
 DOMAIN-SUFFIX,onedns.net
 DOMAIN-SUFFIX,oneplus.com
 DOMAIN-SUFFIX,onlinedown.net
 DOMAIN-SUFFIX,open.e.189.cn
+DOMAIN-SUFFIX,open.e.189.cn# NAME: WeChat
 DOMAIN-SUFFIX,oppo.com
 DOMAIN-SUFFIX,oppoer.me
 DOMAIN-SUFFIX,oppomobile.com
@@ -484,6 +516,8 @@ DOMAIN-SUFFIX,qiniudn.com
 DOMAIN-SUFFIX,qiushibaike.com
 DOMAIN-SUFFIX,qiyi.com
 DOMAIN-SUFFIX,qiyipic.com
+DOMAIN-SUFFIX,qlogo.cn
+DOMAIN-SUFFIX,qpic.cn
 DOMAIN-SUFFIX,qq.com
 DOMAIN-SUFFIX,qqmail.com
 DOMAIN-SUFFIX,qqurl.com
@@ -503,6 +537,7 @@ DOMAIN-SUFFIX,runoob.com
 DOMAIN-SUFFIX,sandai.net
 DOMAIN-SUFFIX,sankuai.com
 DOMAIN-SUFFIX,segmentfault.com
+DOMAIN-SUFFIX,servicewechat.com
 DOMAIN-SUFFIX,sf-express.com
 DOMAIN-SUFFIX,shumilou.net
 DOMAIN-SUFFIX,simplecd.me
@@ -576,6 +611,7 @@ DOMAIN-SUFFIX,toutiaohao.net
 DOMAIN-SUFFIX,toutiaoimg.com
 DOMAIN-SUFFIX,toutiaopage.com
 DOMAIN-SUFFIX,tplogin.cn
+DOMAIN-SUFFIX,tracking-protection.cdn.mozilla.net
 DOMAIN-SUFFIX,trip.com
 DOMAIN-SUFFIX,ttmeiju.com
 DOMAIN-SUFFIX,tudou.com
@@ -585,6 +621,7 @@ DOMAIN-SUFFIX,ucweb.com
 DOMAIN-SUFFIX,udache.com
 DOMAIN-SUFFIX,umengcloud.com
 DOMAIN-SUFFIX,unrealengine.com
+DOMAIN-SUFFIX,up-hl.3g.qq.com
 DOMAIN-SUFFIX,upaiyun.com
 DOMAIN-SUFFIX,upyun.com
 DOMAIN-SUFFIX,uxengine.net
@@ -597,9 +634,13 @@ DOMAIN-SUFFIX,vivo.com
 DOMAIN-SUFFIX,vmall.com
 DOMAIN-SUFFIX,vmallres.com
 DOMAIN-SUFFIX,vv.video.qq.com
+DOMAIN-SUFFIX,vweixinthumb.tc.qq.com
 DOMAIN-SUFFIX,wandoujia.com
 DOMAIN-SUFFIX,weather.com
 DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,wechatlegal.net
+DOMAIN-SUFFIX,wechatos.net
+DOMAIN-SUFFIX,wechatpay.com
 DOMAIN-SUFFIX,weibo.cn
 DOMAIN-SUFFIX,weibo.com
 DOMAIN-SUFFIX,weibocdn.cn
@@ -609,11 +650,18 @@ DOMAIN-SUFFIX,weidian.com
 DOMAIN-SUFFIX,weiphone.com
 DOMAIN-SUFFIX,weiphone.net
 DOMAIN-SUFFIX,weixin.com
+DOMAIN-SUFFIX,weixin.qq.com
+DOMAIN-SUFFIX,weixinbridge.com
+DOMAIN-SUFFIX,weixinsxy.com
 DOMAIN-SUFFIX,weiyun.com
 DOMAIN-SUFFIX,wifi.cmcc
 DOMAIN-SUFFIX,womai.com
 DOMAIN-SUFFIX,wscdns.com
 DOMAIN-SUFFIX,wukong.com
+DOMAIN-SUFFIX,wx.gtimg.com
+DOMAIN-SUFFIX,wx.qq.com
+DOMAIN-SUFFIX,wxapp.tc.qq.com
+DOMAIN-SUFFIX,wxs.qq.com
 DOMAIN-SUFFIX,xdrig.com
 DOMAIN-SUFFIX,xhscdn.com
 DOMAIN-SUFFIX,xiachufang.com
@@ -653,6 +701,7 @@ DOMAIN-SUFFIX,youdao.com# 内容：CCTV
 DOMAIN-SUFFIX,youku.com
 DOMAIN-SUFFIX,ys168.com
 DOMAIN-SUFFIX,yuewen.com
+DOMAIN-SUFFIX,yun-hl.3g.qq.com
 DOMAIN-SUFFIX,yunjiasu-cdn.net
 DOMAIN-SUFFIX,yximgs.com
 DOMAIN-SUFFIX,yy.com
@@ -684,6 +733,7 @@ DOMAIN-SUFFIX,zmzapi.com
 DOMAIN-SUFFIX,zmzapi.net
 DOMAIN-SUFFIX,zmzfile.com
 DOMAIN-SUFFIX,zte.home
+IP-ASN,132203,no-resolve
 IP-CIDR,0.0.0.0/8,no-resolve
 IP-CIDR,1.0.1.0/24,no-resolve
 IP-CIDR,1.0.2.0/23,no-resolve
@@ -839,6 +889,13 @@ IP-CIDR,101.251.64.0/18,no-resolve
 IP-CIDR,101.251.8.0/21,no-resolve
 IP-CIDR,101.252.0.0/15,no-resolve
 IP-CIDR,101.254.0.0/16,no-resolve
+IP-CIDR,101.32.104.4/32,no-resolve
+IP-CIDR,101.32.104.41/32,no-resolve
+IP-CIDR,101.32.104.56/32,no-resolve
+IP-CIDR,101.32.118.25/32,no-resolve
+IP-CIDR,101.32.133.16/32,no-resolve
+IP-CIDR,101.32.133.209/32,no-resolve
+IP-CIDR,101.32.133.53/32,no-resolve
 IP-CIDR,101.33.128.0/17,no-resolve
 IP-CIDR,101.34.0.0/15,no-resolve
 IP-CIDR,101.36.0.0/18,no-resolve
@@ -4647,6 +4704,8 @@ IP-CIDR,128.107.24.0/23,no-resolve
 IP-CIDR,128.108.0.0/16,no-resolve
 IP-CIDR,129.204.0.0/16,no-resolve
 IP-CIDR,129.211.0.0/16,no-resolve
+IP-CIDR,129.226.107.244/32,no-resolve
+IP-CIDR,129.226.3.47/32,no-resolve
 IP-CIDR,129.28.0.0/16,no-resolve
 IP-CIDR,13.104.184.80/28,no-resolve
 IP-CIDR,130.214.218.0/23,no-resolve
