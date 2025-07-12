@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 
   # 设置定时任务，使用 cron 语法
-  # 这里的 '0 1 * * *' 表示每天的 UTC 时间 1:00 运行
+  # 这里的 '0 5 * * *' 表示每天的 UTC 时间 5:00 运行
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 5 * * *'
 
 # 定义一个或多个作业（job）
 jobs:
