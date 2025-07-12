@@ -3,20 +3,26 @@
 name: Generate Private Clash Gist
 
 on:
+  # 1. 当有代码推送到 main 分支时触发
   push:
     branches:
       - main
+    # 2. 仅当 mihomo.yaml 文件发生变化时才运行
+    paths:
+      - 'mihomo.yaml'
+
+  # 3. 允许您在 Actions 页面手动触发此工作流
   workflow_dispatch:
 
 jobs:
   build-and-gist:
     runs-on: ubuntu-latest
     steps:
-      # 1. 检出您的仓库代码
+      # 检出您的仓库代码
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 使用 sed 命令替换占位符
+      # 使用 sed 命令替换占位符
       - name: Replace URL placeholders
         run: |
           sed -i 's|__MEIYING_URL__|${{ secrets.MEIYING_URL }}|g' mihomo.yaml
@@ -25,7 +31,7 @@ jobs:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
 
-      # 3. 使用官方 GitHub CLI 创建或更新 Gist
+      # 使用官方 GitHub CLI 创建或更新 Gist
       - name: Create or Update Private Gist using GitHub CLI
         env:
           GH_TOKEN: ${{ secrets.GIST_TOKEN }}
@@ -33,7 +39,6 @@ jobs:
         run: |
           if [[ -z "$GIST_ID" ]]; then
             echo "GIST_ID not found. Creating a new secret Gist..."
-            # 修正：移除了错误的 --private 参数。默认就是创建 secret Gist。
             gh gist create mihomo.yaml --desc "Private Clash Configuration"
             echo "------------------------------------------------------------------"
             echo "IMPORTANT: A new Gist has been created."
