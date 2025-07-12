@@ -7,7 +7,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: https://www.gstatic.com/generate_203
+      url: https://www.gstatic.com/generate_204
 
   云洞:
     type: http
