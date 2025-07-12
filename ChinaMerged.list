@@ -1,4 +1,4 @@
-# 更新时间：2025-07-12 10:01:32 UTC
+# 更新时间：2025-07-12 10:08:54 UTC
 # 数量：10448条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
@@ -17,6 +17,7 @@
 # 来源15：https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/WeChat/WeChat.list
 # 来源16：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Wechat.list
 # 来源17：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+# 来源18：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bilibili.list
 # 作者：mmm1h
 
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net
