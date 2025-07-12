@@ -16,15 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 读取配置文件内容
-      - name: Read config file
-        id: read_file
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./mihomo.yaml # 您的配置文件路径
-
-      # 3. 使用 sed 命令替换占位符
-      # sed 是一个强大的 Linux 工具，-i 表示直接修改文件
+      # 2. 使用 sed 命令替换占位符 (此步骤不变，非常稳定)
       - name: Replace URL placeholders
         run: |
           sed -i 's|__MEIYING_URL__|${{ secrets.MEIYING_URL }}|g' mihomo.yaml
@@ -33,11 +25,27 @@ jobs:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
 
-      # 4. 使用一个当前维护的 Action 来创建或更新私有 Gist
-      - name: Create or Update Private Gist
-        uses: nathan-mitchell/actions-gist-updater@v1.0.0
-        with:
-          gist_id: ${{ secrets.GIST_ID }}      # 您的 Gist ID (首次运行可留空)
-          gist_token: ${{ secrets.GIST_TOKEN }} # 您的个人访问令牌
-          file_path: 'mihomo.yaml'              # 要上传的本地配置文件名
-          file_name: 'mihomo-private.yaml'      # 在 Gist 中显示的文件名
+      # 3. 使用官方 GitHub CLI 创建或更新 Gist
+      - name: Create or Update Private Gist using GitHub CLI
+        env:
+          # GIST_TOKEN 是必须的，因为默认的 GITHUB_TOKEN 没有权限操作 Gist
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.GIST_ID }}
+        run: |
+          # 检查 GIST_ID secret 是否已设置
+          if [[ -z "$GIST_ID" ]]; then
+            # 如果 GIST_ID 为空，说明是首次运行，则创建新的 Gist
+            echo "GIST_ID not found. Creating a new Gist..."
+            gh gist create --private mihomo.yaml --desc "Private Clash Configuration"
+            echo "------------------------------------------------------------------"
+            echo "IMPORTANT: A new Gist has been created."
+            echo "Please go to your Gist page (https://gist.github.com), find the new Gist,"
+            echo "and copy its ID from the URL (e.g., a0b1c2d3e4f5...)."
+            echo "Then, create a new repository secret named 'GIST_ID' with this value for future updates."
+            echo "------------------------------------------------------------------"
+          else
+            # 如果 GIST_ID 已存在，则编辑现有的 Gist
+            echo "GIST_ID found. Updating existing Gist..."
+            gh gist edit "$GIST_ID" mihomo.yaml --filename "mihomo-private.yaml"
+            echo "Gist updated successfully."
+          fi
