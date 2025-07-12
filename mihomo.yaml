@@ -1,7 +1,7 @@
 proxy-providers:
   魅影:
     type: http
-    url: "${{ secrets.MEIYING_URL }}"
+    url: "__MEIYING_URL__"
     interval: 86400
     path: "./providers/魅影.yaml"
     health-check:
@@ -11,7 +11,7 @@ proxy-providers:
 
   云洞:
     type: http
-    url: "${{ secrets.YUNDONG_URL }}"
+    url: "__YUNDONG_URL__"
     interval: 86400
     path: "./providers/云洞.yaml"
     health-check:
