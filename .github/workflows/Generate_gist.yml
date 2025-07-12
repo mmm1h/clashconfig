@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 使用 sed 命令替换占位符 (此步骤不变，非常稳定)
+      # 2. 使用 sed 命令替换占位符
       - name: Replace URL placeholders
         run: |
           sed -i 's|__MEIYING_URL__|${{ secrets.MEIYING_URL }}|g' mihomo.yaml
@@ -28,15 +28,13 @@ jobs:
       # 3. 使用官方 GitHub CLI 创建或更新 Gist
       - name: Create or Update Private Gist using GitHub CLI
         env:
-          # GIST_TOKEN 是必须的，因为默认的 GITHUB_TOKEN 没有权限操作 Gist
           GH_TOKEN: ${{ secrets.GIST_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
         run: |
-          # 检查 GIST_ID secret 是否已设置
           if [[ -z "$GIST_ID" ]]; then
-            # 如果 GIST_ID 为空，说明是首次运行，则创建新的 Gist
-            echo "GIST_ID not found. Creating a new Gist..."
-            gh gist create --private mihomo.yaml --desc "Private Clash Configuration"
+            echo "GIST_ID not found. Creating a new secret Gist..."
+            # 修正：移除了错误的 --private 参数。默认就是创建 secret Gist。
+            gh gist create mihomo.yaml --desc "Private Clash Configuration"
             echo "------------------------------------------------------------------"
             echo "IMPORTANT: A new Gist has been created."
             echo "Please go to your Gist page (https://gist.github.com), find the new Gist,"
@@ -44,7 +42,6 @@ jobs:
             echo "Then, create a new repository secret named 'GIST_ID' with this value for future updates."
             echo "------------------------------------------------------------------"
           else
-            # 如果 GIST_ID 已存在，则编辑现有的 Gist
             echo "GIST_ID found. Updating existing Gist..."
             gh gist edit "$GIST_ID" mihomo.yaml --filename "mihomo-private.yaml"
             echo "Gist updated successfully."
