@@ -1,4 +1,4 @@
-# 更新时间：2025-07-17 04:42:00 UTC
+# 更新时间：2025-07-17 08:07:28 UTC
 # 数量：50条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
@@ -50,8 +50,8 @@ DOMAIN-SUFFIX,sonyentertainmentnetwork.com# 内容：Steam
 DOMAIN-SUFFIX,steam-chat.com
 DOMAIN-SUFFIX,steamcommunity.com
 DOMAIN-SUFFIX,steamgames.com
-#DOMAIN-SUFFIX,steampowered.com
-#DOMAIN-SUFFIX,steamserver.net
+DOMAIN-SUFFIX,steampowered.com
+DOMAIN-SUFFIX,steamserver.net
 DOMAIN-SUFFIX,steamstat.us
 DOMAIN-SUFFIX,steamstatic.com
 DOMAIN-SUFFIX,underlords.com
