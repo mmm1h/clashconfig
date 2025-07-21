@@ -59,7 +59,7 @@ proxy-groups:
     type: select
     use:
       - 魅影
-    filter: '(?i)(4x|2x)'
+    filter: '(?i)(U-4x|U-2x)'
 
   - name: "Ⓜ️ 微软服务"
     type: select
