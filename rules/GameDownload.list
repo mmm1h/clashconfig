@@ -13,4 +13,14 @@ DOMAIN,uplaypc-s-ubisoft.cdn.ubi.com
 DOMAIN,origin-a.akamaihd.net
 DOMAIN-SUFFIX,ssl-lvlt.cdn.ea.com
 
-#epic游戏下载
+#PlayStation
+DOMAIN,gs2.ww.prod.dl.playstation.net
+DOMAIN,gst.prod.dl.playstation.net
+DOMAIN-SUFFIX,prod.dl.playstation.net
+DOMAIN-SUFFIX,gs2.sonycoment.loris-e.llnwd.net
+
+#Nintendo
+DOMAIN,bugyo.hac.lp1.eshop.nintendo.net
+DOMAIN,dragons.hac.lp1.dragons.nintendo.net
+DOMAIN,atum.hac.lp1.d4c.nintendo.net
+DOMAIN-SUFFIX,eda.lp1.d4c.nintendo.net
