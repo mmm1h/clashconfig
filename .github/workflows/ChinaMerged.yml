@@ -66,7 +66,7 @@ jobs:
           # --- 处理数据 ---
           echo "Processing and cleaning the combined list..."
           # 过滤原始文件中的注释和空行，然后排序去重，存入干净的临时文件
-          cat $RAW_TEMP_FILE | grep -vE '(^#|^\s*$|^URL-REGEX,|^USER-AGENT,)' | sort -u > $CLEANED_TEMP_FILE
+          cat $RAW_TEMP_FILE | grep -vE '(^#|^\s*$|^URL-REGEX,|^USER-AGENT,|playstation|playstationnetwork|sony|sonyentertainmentnetwork)' | sort -u > $CLEANED_TEMP_FILE
           
           # --- 生成文件头 ---
           echo "Generating metadata header..."
