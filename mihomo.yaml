@@ -296,25 +296,25 @@ rule-providers:
     format: text
 
 rules:
+  # --- 自定义规则 ---
+  - RULE-SET,US,🇺🇸 美国
+  - RULE-SET,JP,🇯🇵 日本
+  - RULE-SET,Rules,🚀 节点选择
+  - RULE-SET,Direct,🎯 全球直连
+  - RULE-SET,GameDownload,🎯 全球直连
+
   # --- 直连规则 ---
   - RULE-SET,Apple,🎯 全球直连
-  - RULE-SET,GameDownload,🎯 全球直连
-  - RULE-SET,Direct,🎯 全球直连
   - RULE-SET,GoogleFCM,🎯 全球直连
   - RULE-SET,GoogleCN,🎯 全球直连
   - RULE-SET,SteamCN,🎯 全球直连
   - RULE-SET,OneDrive,🎯 全球直连
   - RULE-SET,ChinaMerged,🎯 全球直连
   
-  # --- 自定义规则 ---
-  - RULE-SET,US,🇺🇸 美国
-  - RULE-SET,JP,🇯🇵 日本
-  - RULE-SET,Rules,🚀 节点选择
+  # --- 默认规则 ---
   - RULE-SET,AIMerged,🤖 AI节点
   - RULE-SET,GameMerged,🎮 游戏专用
   - RULE-SET,ProxyMediaMerged,📺 国外媒体
-  
-  # --- 默认规则 ---
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Bahamut,🇹🇼 台湾
   - RULE-SET,Telegram,🚀 节点选择
