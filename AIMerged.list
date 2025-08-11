@@ -1,5 +1,5 @@
-# 更新时间：2025-08-10 03:05:26 UTC
-# 数量：52条
+# 更新时间：2025-08-11 03:03:29 UTC
+# 数量：57条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ClaudeAI.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Gemini.list
@@ -7,6 +7,7 @@
 # 作者：mmm1h
 
 DOMAIN,ai.google.dev
+DOMAIN,aistudio.google.com
 DOMAIN,alkalimakersuite-pa.clients6.google.com
 DOMAIN,api.githubcopilot.com
 DOMAIN,api.groq.com
@@ -32,9 +33,12 @@ DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,challenges.cloudflare.com
 DOMAIN-SUFFIX,chatgpt.com
 DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claudeusercontent.com
 DOMAIN-SUFFIX,client-api.arkoselabs.com
 DOMAIN-SUFFIX,copilot.cloud.microsoft
 DOMAIN-SUFFIX,copilot.microsoft.com
+DOMAIN-SUFFIX,curosr.com
+DOMAIN-SUFFIX,curosr.sh
 DOMAIN-SUFFIX,deepmind.com
 DOMAIN-SUFFIX,deepmind.google
 DOMAIN-SUFFIX,events.statsigapi.net
@@ -56,5 +60,6 @@ DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN-SUFFIX,perplexity.ai
 DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
 DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,sora.com
 DOMAIN-SUFFIX,sora.com# 内容：Claude
 DOMAIN-SUFFIX,stripe.com
