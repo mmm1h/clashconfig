@@ -1,5 +1,5 @@
-# 更新时间：2025-08-10 04:46:16 UTC
-# 数量：48条
+# 更新时间：2025-08-11 04:50:44 UTC
+# 数量：49条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Epic.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Origin.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Sony.list
@@ -39,6 +39,7 @@ DOMAIN-SUFFIX,nintendo.jp
 DOMAIN-SUFFIX,nintendo.net
 DOMAIN-SUFFIX,nintendo.nl
 DOMAIN-SUFFIX,nintendowifi.net
+DOMAIN-SUFFIX,ol.epicgames.com
 DOMAIN-SUFFIX,origin.com# 内容：Sony
 DOMAIN-SUFFIX,paragon.com
 DOMAIN-SUFFIX,playartifact.com
@@ -53,5 +54,5 @@ DOMAIN-SUFFIX,steamgames.com
 DOMAIN-SUFFIX,steamstat.us
 DOMAIN-SUFFIX,steamstatic.com
 DOMAIN-SUFFIX,underlords.com
-DOMAIN-SUFFIX,unrealengine.com# 内容：Origin
+DOMAIN-SUFFIX,unrealengine.com
 DOMAIN-SUFFIX,valvesoftware.com#内容：Nintendo
