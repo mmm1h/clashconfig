@@ -66,6 +66,7 @@ proxy-groups:
     proxies:
       - DIRECT
       - 🚀 节点选择
+      - 🎮 游戏专用
 
   - name: "🤖 AI节点"
     type: url-test
