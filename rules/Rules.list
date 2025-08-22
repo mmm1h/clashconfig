@@ -10,7 +10,7 @@ DOMAIN-KEYWORD,civitai
 #油猴
 DOMAIN-SUFFIX,greasyfork.org
 DOMAIN-SUFFIX,wallhaven.cc
-DOMAIN-SUFFIX,gdstudio.xyz
+#DOMAIN-SUFFIX,gdstudio.xyz
 DOMAIN-SUFFIX,manhuabika.com
 #win10显示无网络修复，走vpn流量
 DOMAIN-SUFFIX,msftconnecttest.com
