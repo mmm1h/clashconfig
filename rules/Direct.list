@@ -1,7 +1,7 @@
 # 个人直连列表
 
 #直连
-DOMAIN-KEYWORD,gdstudio
+#DOMAIN-KEYWORD,gdstudio
 DOMAIN-SUFFIX,ntfy.sh
 DOMAIN-SUFFIX,hmhi.top
 DOMAIN-KEYWORD,wallpaperengine
