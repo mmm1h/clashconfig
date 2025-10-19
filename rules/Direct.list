@@ -11,6 +11,8 @@ DOMAIN-SUFFIX,assets2.xboxlive.com
 #DOMAIN-SUFFIX,cdn-lfs.huggingface.co
 #DOMAIN-SUFFIX,cdn-lfs-us-1.huggingface.co
 
+#播客
+DOMAIN-SUFFIX,fireside.fm
 
 #steam下载
 DOMAIN,steamcdn-a.akamaihd.net
