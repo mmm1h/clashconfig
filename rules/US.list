@@ -10,6 +10,7 @@ DOMAIN-SUFFIX,notebooklm.google.com
 
 #内容：gemini
 DOMAIN-SUFFIX,clients2.google.com
+DOMAIN-SUFFIX,clients4.google.com
 DOMAIN-SUFFIX,clients6.google.com
 DOMAIN,alkalicore-pa.clients6.google.com
 DOMAIN-SUFFIX,geller-pa.googleapis.com
