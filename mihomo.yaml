@@ -76,7 +76,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '^(?=.*(?i)(US|America|United States|GPT|美国))(?!.*(?i)(4x)).*$'
+    filter: '^(?=.*(?i)(US|America|United States|GPT|美国|SG|Singapore|狮城|JP|Japan|日本))(?!.*(?i)(4x)).*$'
 
   - name: "🎯 全球直连"
     type: select
@@ -297,6 +297,9 @@ rule-providers:
     format: text
 
 rules:
+  # --- 广告屏蔽 ---
+  - RULE-SET,AdBlockMerged,🚫 广告屏蔽
+  
   # --- 自定义规则 ---
   - RULE-SET,US,🇺🇸 美国
   - RULE-SET,JP,🇯🇵 日本
@@ -321,10 +324,8 @@ rules:
   - RULE-SET,Telegram,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   
-  # --- 广告屏蔽 ---
-  - RULE-SET,AdBlockMerged,🚫 广告屏蔽
-
   # --- GEOIP兜底 ---
   - GEOIP,CN,🎯 全球直连
+  
   # --- 最终匹配 ---
   - MATCH,🐟 漏网之鱼
