@@ -41,6 +41,12 @@ jobs:
             "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list"
             "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list"
             "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list"
+            "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Advertising.list"
+            "https://raw.githubusercontent.com/ConnersHua/RuleGo/master/Surge/Ruleset/Extra/Reject/Tracking.list"
+            "https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/HTTPDNS.Block.list"
+            # "https://raw.githubusercontent.com/As-Lucky/Lucky/main/Ruleset/AdBlock.list"
+            # "https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/AdRule.list"
+            "https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Tracking.list"
           )
           
           # --- 下载 ---
