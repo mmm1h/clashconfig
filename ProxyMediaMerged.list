@@ -1,5 +1,5 @@
-# 更新时间：2025-12-03 05:14:45 UTC
-# 数量：1941条
+# 更新时间：2025-12-04 04:42:34 UTC
+# 数量：1939条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AmazonIp.list
@@ -61,7 +61,7 @@ DOMAIN,itvpnpmobile-a.akamaihd.net
 DOMAIN,kktv-theater.kk.stream
 DOMAIN,ktpx.amazon.com
 DOMAIN,litvfreemobile-hichannel.cdn.hinet.net
-DOMAIN,music.youtube.com# 内容：BilibiliHMT 哔哩哔哩 港澳台番剧
+DOMAIN,music.youtube.com
 DOMAIN,mytvsuperlimited.hb.omtrdc.net
 DOMAIN,mytvsuperlimited.sc.omtrdc.net
 DOMAIN,netflix.com.edgesuite.net
@@ -346,7 +346,6 @@ DOMAIN-SUFFIX,youtubegaming.com
 DOMAIN-SUFFIX,youtubekids.com
 DOMAIN-SUFFIX,yt.be
 DOMAIN-SUFFIX,ytimg.com
-DOMAIN-SUFFIX,ytimg.com# 内容：Netflix
 IP-CIDR,1.178.4.0/22,no-resolve
 IP-CIDR,1.178.64.0/23,no-resolve
 IP-CIDR,1.178.72.0/21,no-resolve
@@ -1036,7 +1035,6 @@ IP-CIDR,207.171.160.0/19,no-resolve
 IP-CIDR,207.45.72.0/22,no-resolve
 IP-CIDR,208.110.48.0/20,no-resolve
 IP-CIDR,208.75.76.0/22,no-resolve
-IP-CIDR,208.75.76.0/22,no-resolve# 内容：AmazonIp
 IP-CIDR,208.78.128.0/21,no-resolve
 IP-CIDR,208.86.88.0/22,no-resolve
 IP-CIDR,209.54.176.0/20,no-resolve
@@ -1044,7 +1042,7 @@ IP-CIDR,216.137.32.0/19,no-resolve
 IP-CIDR,216.182.224.0/20,no-resolve
 IP-CIDR,216.216.0.0/15,no-resolve
 IP-CIDR,216.244.0.0/21,no-resolve
-IP-CIDR,216.244.8.0/23,no-resolve# 内容：国外媒体列表
+IP-CIDR,216.244.8.0/23,no-resolve
 IP-CIDR,216.39.136.0/21,no-resolve
 IP-CIDR,216.39.152.0/21,no-resolve
 IP-CIDR,216.39.160.0/20,no-resolve
