@@ -54,6 +54,9 @@ jobs:
           for url in "${URLS[@]}"; do
             echo "Fetching from $url"
             curl -L -sS "$url" >> $RAW_TEMP_FILE || echo "Warning: Failed to fetch $url"
+
+            # 【修复关键】手动添加一个换行符，防止文件首尾相连
+            echo "" >> $RAW_TEMP_FILE
           done
           
           # --- 处理数据 ---
