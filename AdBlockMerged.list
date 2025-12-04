@@ -1,5 +1,5 @@
-# 更新时间：2025-12-04 03:12:14 UTC
-# 数量：82799条
+# 更新时间：2025-12-04 10:22:35 UTC
+# 数量：82798条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
@@ -269,7 +269,7 @@ DOMAIN,pgdt.gtimg.com
 DOMAIN,pgdt.ugdtimg.com
 DOMAIN,pin.hpplay.cn
 DOMAIN,pl.cp31.ott.cibntv.net
-DOMAIN,pvnapp.zol.com.cn# Privacy
+DOMAIN,pvnapp.zol.com.cn
 DOMAIN,r.51wnl-cq.com
 DOMAIN,rd.autohome.com.cn
 DOMAIN,regist.fotoable.com
@@ -304,7 +304,6 @@ DOMAIN,toots-a.akamaihd.net
 DOMAIN,track.58.com
 DOMAIN,track.tenjin.com
 DOMAIN,track.tenjin.io
-DOMAIN,track.tenjin.io#!name=🍟 Fries: 🚫 Block HTTPDNS
 DOMAIN,track.tiara.daum.net
 DOMAIN,track.tiara.kakao.com
 DOMAIN,tracking.intl.miui.com
@@ -82689,7 +82688,7 @@ IP-CIDR,180.76.76.200/32
 IP-CIDR,182.254.116.117/32
 IP-CIDR,182.254.118.119/32
 IP-CIDR,185.149.120.173/32,no-resolve
-IP-CIDR,185.193.38.148/32,no-resolve# Advertising
+IP-CIDR,185.193.38.148/32,no-resolve
 IP-CIDR,188.42.84.110/32,no-resolve
 IP-CIDR,188.42.84.137/32,no-resolve
 IP-CIDR,188.42.84.159/32,no-resolve
@@ -82726,8 +82725,8 @@ IP-CIDR,203.195.121.70/32,no-resolve
 IP-CIDR,203.195.121.72/32,no-resolve
 IP-CIDR,203.195.121.73/32,no-resolve
 IP-CIDR,203.195.121.74/32,no-resolve
-IP-CIDR,205.209.138.102/32,no-resolve# 广告列表 adblock rules
-IP-CIDR,212.117.186.252/32,no-resolve# 广告列表 adblock rules
+IP-CIDR,205.209.138.102/32,no-resolve
+IP-CIDR,212.117.186.252/32,no-resolve
 IP-CIDR,223.87.176.139/32,no-resolve
 IP-CIDR,223.87.176.176/32,no-resolve
 IP-CIDR,223.87.177.180/32,no-resolve
