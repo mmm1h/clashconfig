@@ -52,7 +52,13 @@ jobs:
           # --- 处理数据 ---
           echo "Processing and cleaning the combined list..."
           # 过滤原始文件中的注释和空行，然后排序去重，存入干净的临时文件
-          cat $RAW_TEMP_FILE | grep -vE '(^#|^\s*$|^URL-REGEX,|^USER-AGENT,)' | sort -u > $CLEANED_TEMP_FILE
+          # 1. 使用 sed 去除行内注释（匹配 # 及其后的所有内容）和行尾空格
+          # 2. 使用 grep 过滤掉处理后产生的空行、以及不需要的规则类型
+          # 3. sort -u 排序并去重
+          sed 's/[[:blank:]]*#.*$//' $RAW_TEMP_FILE \
+          | grep -vE '^\s*$' \
+          | grep -vE '(^URL-REGEX,|^USER-AGENT,)' \
+          | sort -u > $CLEANED_TEMP_FILE
           
           # --- 生成文件头 ---
           echo "Generating metadata header..."
