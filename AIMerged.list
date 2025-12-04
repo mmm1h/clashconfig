@@ -1,5 +1,5 @@
-# 更新时间：2025-12-04 02:48:52 UTC
-# 数量：57条
+# 更新时间：2025-12-04 03:21:39 UTC
+# 数量：56条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ClaudeAI.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Gemini.list
@@ -27,7 +27,7 @@ DOMAIN-KEYWORD,generativelanguage
 DOMAIN-KEYWORD,openai
 DOMAIN-SUFFIX,ai.azure.com
 DOMAIN-SUFFIX,anthropic.com
-DOMAIN-SUFFIX,apis.google.com# 内容：OpenAi
+DOMAIN-SUFFIX,apis.google.com
 DOMAIN-SUFFIX,auth0.com
 DOMAIN-SUFFIX,bard.google.com
 DOMAIN-SUFFIX,challenges.cloudflare.com
@@ -61,5 +61,4 @@ DOMAIN-SUFFIX,perplexity.ai
 DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,sora.com
-DOMAIN-SUFFIX,sora.com# 内容：Claude
 DOMAIN-SUFFIX,stripe.com
