@@ -76,7 +76,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '^(?=.*(?i)(US|America|United States|GPT|美国|SG|Singapore|狮城|JP|Japan|日本))(?!.*(?i)(4x)).*$'
+    filter: '^(?=.*(?i)(US|America|United States|GPT|美国|SG|Singapore|狮城))(?!.*(?i)(4x)).*$'
 
   - name: "🎯 全球直连"
     type: select
