@@ -324,6 +324,12 @@ rules:
   - RULE-SET,Telegram,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   
+  # Google&CloudFlare DNS
+  - IP-CIDR,8.8.8.8/32,🎯 代理,no-resolve
+  - IP-CIDR,8.8.4.4/32,🎯 代理,no-resolve
+  - IP-CIDR,1.1.1.1/32,🎯 代理,no-resolve
+  - IP-CIDR,1.0.0.1/32,🎯 代理,no-resolve
+
   # --- GEOIP兜底 ---
   - GEOIP,CN,🎯 全球直连
   
