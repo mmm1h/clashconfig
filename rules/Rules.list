@@ -1,4 +1,14 @@
+# --- 第一道防线：域名规则 (针对 Sniffer 嗅探结果) ---
+- DOMAIN,dns.google,🚀 节点选择
+- DOMAIN,cloudflare-dns.com,🚀 节点选择
+- DOMAIN,1.1.1.1,🚀 节点选择
+- DOMAIN,8.8.8.8,🚀 节点选择
 
+# --- 第二道防线：IP 规则 (针对嗅探失败的情况) ---
+- IP-CIDR,8.8.8.8/32,🚀 节点选择,no-resolve
+- IP-CIDR,8.8.4.4/32,🚀 节点选择,no-resolve
+- IP-CIDR,1.1.1.1/32,🚀 节点选择,no-resolve
+- IP-CIDR,1.0.0.1/32,🚀 节点选择,no-resolve
 
 # 个人列表
 DOMAIN-SUFFIX,maying.co
