@@ -5,7 +5,7 @@ import re
 from datetime import datetime, timezone, timedelta
 
 # --- 核心配置 ---
-SOURCE_URL = "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/bytedance.txt"
+SOURCE_URL = "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance"
 OUTPUT_FILE = "force_ttl_rules.txt"
 
 # 主 DNS (字节跳动权威DNS)
