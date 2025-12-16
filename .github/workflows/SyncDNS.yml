@@ -1,0 +1,42 @@
+name: Update PaoPaoDNS Rules
+
+on:
+  schedule:
+    # 每天北京时间早上 4 点运行 (UTC 20:00)
+    - cron: '0 20 * * *'
+  workflow_dispatch: # 允许手动点击按钮触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # 赋予写权限以便提交代码
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Run processing script
+      run: |
+        # 确保脚本有执行权限（如果需要）
+        python scripts/update_dns.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add force_ttl_rules.txt
+        # 只有当文件发生变化时才提交，防止空提交报错
+        git diff-index --quiet HEAD || git commit -m "Auto-update PaoPaoDNS rules via Action"
+        git push
