@@ -183,6 +183,13 @@ rule-providers:
     path: ./ruleset/US.yaml
     interval: 86400
     format: text
+  AI:
+    type: http
+    behavior: classical
+    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/AI.list'
+    path: ./ruleset/US.yaml
+    interval: 86400
+    format: text
   JP:
     type: http
     behavior: classical
@@ -301,6 +308,7 @@ rules:
   - RULE-SET,AdBlockMerged,🚫 广告屏蔽
   
   # --- 自定义规则 ---
+  - RULE-SET,AI,🤖 AI节点
   - RULE-SET,US,🇺🇸 美国
   - RULE-SET,JP,🇯🇵 日本
   - RULE-SET,Rules,🚀 节点选择
@@ -312,7 +320,6 @@ rules:
   - RULE-SET,GoogleFCM,🎯 全球直连
   - RULE-SET,GoogleCN,🎯 全球直连
   - RULE-SET,SteamCN,🎯 全球直连
-  - RULE-SET,OneDrive,🎯 全球直连
   - RULE-SET,ChinaMerged,🎯 全球直连
   
   # --- 默认规则 ---
@@ -320,6 +327,7 @@ rules:
   - RULE-SET,GameMerged,🎮 游戏专用
   - RULE-SET,ProxyMediaMerged,📺 国外媒体
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,OneDrive,Ⓜ️ 微软服务
   - RULE-SET,Bahamut,🇹🇼 台湾
   - RULE-SET,Telegram,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
