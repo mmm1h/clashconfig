@@ -2,7 +2,7 @@ proxy-providers:
   魅影:
     type: http
     url: "__MEIYING_URL__"
-    interval: 86400
+    interval: 7200
     path: "./providers/魅影.yaml"
     health-check:
       enable: true
@@ -12,7 +12,7 @@ proxy-providers:
   云洞:
     type: http
     url: "__YUNDONG_URL__"
-    interval: 86400
+    interval: 7200
     path: "./providers/云洞.yaml"
     health-check:
       enable: true
@@ -187,7 +187,7 @@ rule-providers:
     type: http
     behavior: classical
     url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/AI.list'
-    path: ./ruleset/US.yaml
+    path: ./ruleset/AI.yaml
     interval: 86400
     format: text
   JP:
