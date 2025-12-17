@@ -81,7 +81,7 @@ jobs:
           echo "Generating metadata header..."
           # 获取当前的UTC时间
           UPDATE_TIME=$(date +"%Y-%m-%d %H:%M:%S")
-          echo "COMMIT_DATE=$CURRENT_TIME" >> $GITHUB_ENV
+          echo "COMMIT_DATE=$UPDATE_TIME" >> $GITHUB_ENV
           # 计算处理后文件中的行数（即规则数量）
           RULE_COUNT=$(wc -l < $CLEANED_TEMP_FILE | xargs)
           
