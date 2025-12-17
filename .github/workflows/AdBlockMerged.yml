@@ -73,7 +73,8 @@ jobs:
           # --- 生成文件头 ---
           echo "Generating metadata header..."
           # 获取当前的UTC时间
-          UPDATE_TIME=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          UPDATE_TIME=$(date +"%Y-%m-%d %H:%M:%S")
+          echo "COMMIT_DATE=$CURRENT_TIME" >> $GITHUB_ENV
           # 计算处理后文件中的行数（即规则数量）
           RULE_COUNT=$(wc -l < $CLEANED_TEMP_FILE | xargs)
           
@@ -105,7 +106,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           # 更新了提交信息
-          commit_message: "自动更新: $(date +'%Y-%m-%d %H:%M:%S')"
+          commit_message: "自动更新: ${{ env.COMMIT_DATE }}"
           
           # 要提交的文件名
           file_pattern: 'AdBlockMerged.list'

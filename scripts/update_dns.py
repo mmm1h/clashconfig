@@ -156,7 +156,7 @@ def fetch_and_process():
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             f.write(f"# ==========================================\n")
             f.write(f"# PaoPaoDNS Force TTL Rules (Bytedance)\n")
-            f.write(f"# Updated: {get_current_time_str()} (Beijing Time)\n")
+            f.write(f"# Updated: {get_current_time_str()} (北京时间)\n")
             f.write(f"# Count:   {len(final_rules)} domains\n")
             f.write(f"# DNS:     {target_dns}\n")
             for i, url in enumerate(SOURCE_URLS, 1):
