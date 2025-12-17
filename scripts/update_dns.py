@@ -159,7 +159,8 @@ def fetch_and_process():
             f.write(f"# Updated: {get_current_time_str()} (Beijing Time)\n")
             f.write(f"# Count:   {len(final_rules)} domains\n")
             f.write(f"# DNS:     {target_dns}\n")
-            f.write(f"# Sources: {len(SOURCE_URLS)} URLs aggregated\n")
+            for i, url in enumerate(SOURCE_URLS, 1):
+                f.write(f"# Source {i}:  {url}\n")
             f.write(f"# Author:  GitHub Action Bot\n")
             f.write(f"# ==========================================\n\n")
             

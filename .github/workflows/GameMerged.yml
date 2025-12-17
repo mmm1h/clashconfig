@@ -17,7 +17,8 @@ jobs:
   sync-job:
     # 作业运行的虚拟环境
     runs-on: ubuntu-latest
-
+    env:
+      TZ: Asia/Shanghai
     # 作业中包含的一系列步骤
     steps:
       # 第一步：检出（checkout）您的仓库代码
@@ -98,7 +99,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           # 更新了提交信息
-          commit_message: 'docs(lists): 自动同步并生成带元数据头的文件'
+          commit_message: "自动更新: $(date +'%Y-%m-%d %H:%M:%S')"
           
           # 要提交的文件名
           file_pattern: 'GameMerged.list'
