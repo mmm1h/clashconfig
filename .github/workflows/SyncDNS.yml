@@ -32,7 +32,7 @@ jobs:
           pip install requests
 
       - name: Run update script
-        run: python update_dns.py
+        run: python scripts/update_dns.py
 
       - name: Commit and push changes
         run: |
