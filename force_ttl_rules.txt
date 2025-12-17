@@ -1,9 +1,9 @@
 # ==========================================
 # PaoPaoDNS Force TTL Rules (Bytedance)
-# Updated: 2025-12-17 04:33:32 (Beijing Time)
-# Count:   314 domains
+# Updated: 2025-12-17 19:35:14 (Beijing Time)
+# Count:   320 domains
 # DNS:     180.184.1.1:53
-# Source:  https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance
+# Sources: 2 URLs aggregated
 # Author:  GitHub Action Bot
 # ==========================================
 
@@ -87,7 +87,6 @@ byted.org@180.184.1.1:53
 bytedance-boe.net@180.184.1.1:53
 bytedance.cn@180.184.1.1:53
 bytedance.com@180.184.1.1:53
-bytedance.map.fastly.net@180.184.1.1:53
 bytedance.net@180.184.1.1:53
 bytedance.org@180.184.1.1:53
 bytedanceapi.com@180.184.1.1:53
@@ -153,7 +152,11 @@ cdndns1.com@180.184.1.1:53
 cdndns2.com@180.184.1.1:53
 doubo03.com@180.184.1.1:53
 douyin.com@180.184.1.1:53
+douyincdn.com@180.184.1.1:53
 douyinec.com@180.184.1.1:53
+douyinpic.com@180.184.1.1:53
+douyinstatic.com@180.184.1.1:53
+douyinvod.com@180.184.1.1:53
 draftstatic.com@180.184.1.1:53
 druid.vip@180.184.1.1:53
 ecombdapi.com@180.184.1.1:53
@@ -178,6 +181,7 @@ ibytedapm.com@180.184.1.1:53
 ibytedtos.com@180.184.1.1:53
 ibyteimg.com@180.184.1.1:53
 icphoto.cn@180.184.1.1:53
+idouyinvod.com@180.184.1.1:53
 iluckysf.net@180.184.1.1:53
 itmanager.club@180.184.1.1:53
 itoutiaoliving.com@180.184.1.1:53
@@ -191,6 +195,7 @@ jokecommunity.net@180.184.1.1:53
 jstti.com@180.184.1.1:53
 jtamac.com@180.184.1.1:53
 kuailepipixia.com@180.184.1.1:53
+lf3-static.bytednsdoc.com@180.184.1.1:53
 livecdnstatic.com@180.184.1.1:53
 local-ip.online@180.184.1.1:53
 luckysf.net@180.184.1.1:53
@@ -273,6 +278,7 @@ ttjisu.com@180.184.1.1:53
 ttwebview.com@180.184.1.1:53
 ugshare-img.com@180.184.1.1:53
 ulikecam.com@180.184.1.1:53
+v5-dy-o-abtest.zjcdn.com@180.184.1.1:53
 vcloud-byte.com@180.184.1.1:53
 vcloudapi.com@180.184.1.1:53
 vestack-beta.com@180.184.1.1:53
