@@ -1,4 +1,4 @@
-#美国节点专用
+DOMAIN-SUFFIX,chat.openai.com
 
 # 内容：Claude
 DOMAIN-SUFFIX,claude.ai
