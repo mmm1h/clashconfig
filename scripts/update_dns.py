@@ -1,11 +1,17 @@
 import requests
-import os
 import socket
 import re
 from datetime import datetime, timezone, timedelta
 
 # --- 核心配置 ---
-SOURCE_URL = "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance"
+# 规则源列表 (支持多源)
+SOURCE_URLS = [
+    # 源1: v2fly (纯域名/full格式)
+    "https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance",
+    # 源2: Blackmatrix7 (Clash格式)
+    "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin.list"
+]
+
 OUTPUT_FILE = "force_ttl_rules.txt"
 
 # 主 DNS (字节跳动权威DNS)
@@ -15,7 +21,6 @@ FALLBACK_DNS = "223.5.5.5"
 DNS_PORT = 53
 
 # 严格的格式校验正则：确保是 域名@IP:端口 格式
-# 例如: douyin.com@180.184.1.1:53
 VALID_RULE_PATTERN = re.compile(r'^[a-zA-Z0-9][-a-zA-Z0-9.]+\.[a-zA-Z]{2,}@\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+$')
 
 def get_current_time_str():
@@ -39,7 +44,7 @@ def test_dns_connectivity(ip, port):
         return False
 
 def determine_target_dns():
-    """确定最终使用的 DNS"""
+    """确定最终使用的 DNS (主备切换逻辑)"""
     if test_dns_connectivity(PRIMARY_DNS, DNS_PORT):
         return f"{PRIMARY_DNS}:{DNS_PORT}"
     
@@ -52,82 +57,115 @@ def determine_target_dns():
     print("❌ 所有 DNS 服务器均不可达，停止生成以防止配置错误！")
     return None
 
+def parse_domain(line):
+    """
+    智能解析每一行，提取纯域名
+    支持: v2fly格式, Clash格式, 纯域名
+    """
+    line = line.strip()
+    # 忽略空行、注释、引用
+    if not line or line.startswith("#") or line.startswith("//") or line.startswith("include:"):
+        return None
+    
+    # 忽略 Clash 的非域名规则
+    if any(k in line for k in ["IP-CIDR", "PROCESS-NAME", "USER-AGENT"]):
+        return None
+
+    # 1. 处理 Clash 格式 (逗号分隔: DOMAIN-SUFFIX,douyin.com,Proxy)
+    if "," in line:
+        parts = line.split(",")
+        if len(parts) >= 2:
+            return parts[1].strip()
+    
+    # 2. 处理 v2fly 格式 (full:douyin.com)
+    if "full:" in line:
+        return line.replace("full:", "").strip()
+    
+    # 3. 处理纯域名 (可能带有注释)
+    parts = line.split()
+    if parts:
+        domain = parts[0]
+        # 简单合法性检查: 必须包含点，且不含冒号
+        if "." in domain and ":" not in domain:
+            return domain
+            
+    return None
+
 def fetch_and_process():
     # 1. 确定 DNS
     target_dns = determine_target_dns()
     if not target_dns:
-        exit(1) # 非 0 退出码会让 GitHub Action 报错提醒你
-
-    # 2. 获取数据
-    print(f"正在下载规则源: {SOURCE_URL}")
-    try:
-        response = requests.get(SOURCE_URL, timeout=15)
-        response.raise_for_status()
-        content = response.text
-    except Exception as e:
-        print(f"❌ 下载失败: {e}")
         exit(1)
 
-    valid_lines = []
-    # 手动补充的关键域名
+    unique_domains = set()
+    
+    # 手动补充的关键域名 (确保这些一定存在)
     custom_domains = [
         "douyin.com", "snssdk.com", "ixigua.com", "pstatp.com", 
-        "toutiao.com", "byteimg.com", "amemv.com"
+        "toutiao.com", "byteimg.com", "amemv.com", "douyinvod.com"
     ]
+    unique_domains.update(custom_domains)
 
-    print("正在清洗并验证数据...")
+    # 2. 遍历下载所有源
+    print(f"开始处理 {len(SOURCE_URLS)} 个规则源...")
     
-    # 3. 数据清洗
-    temp_domains = set(custom_domains) # 使用集合自动去重
-    
-    for line in content.splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or line.startswith("include:"):
+    for url in SOURCE_URLS:
+        print(f"⬇️ 正在下载: {url}")
+        try:
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            content = response.text
+            
+            count = 0
+            for line in content.splitlines():
+                domain = parse_domain(line)
+                if domain:
+                    unique_domains.add(domain)
+                    count += 1
+            print(f"   -> 提取到 {count} 条有效记录")
+            
+        except Exception as e:
+            print(f"   ❌ 下载或解析失败: {e}")
+            # 一个源失败不影响整体，继续下一个
             continue
-        
-        # 提取域名 (移除 @!cn, full: 等修饰符)
-        parts = line.split()
-        if not parts: continue
-        domain = parts[0].replace("full:", "")
-        
-        # 基础域名合法性检查 (至少包含一个点)
-        if "." in domain:
-            temp_domains.add(domain)
 
-    # 4. 生成并进行最终格式校验
+    if not unique_domains:
+        print("❌ 错误：所有源处理完毕后，有效域名数量为 0，终止写入！")
+        exit(1)
+
+    print("正在进行最终验证与生成...")
+
+    # 3. 生成并进行格式正则校验
     final_rules = []
     
-    for domain in sorted(list(temp_domains)):
-        # 组装配置行
+    for domain in sorted(list(unique_domains)):
         rule_line = f"{domain}@{target_dns}"
         
-        # --- 关键步骤：最终格式正则校验 ---
+        # 正则校验
         if VALID_RULE_PATTERN.match(rule_line):
             final_rules.append(rule_line)
         else:
-            print(f"⚠️ 警告：检测到非法格式，已丢弃: {rule_line}")
+            # 仅在调试时开启，避免日志过多
+            # print(f"⚠️ 丢弃非法格式: {rule_line}")
+            pass
 
-    if not final_rules:
-        print("❌ 错误：生成的有效规则数量为 0，终止写入！")
-        exit(1)
+    print(f"🔍 校验通过: {len(final_rules)} 条")
 
-    # 5. 写入文件 (带头部信息)
+    # 4. 写入文件
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-            # 写入 Header
             f.write(f"# ==========================================\n")
             f.write(f"# PaoPaoDNS Force TTL Rules (Bytedance)\n")
             f.write(f"# Updated: {get_current_time_str()} (Beijing Time)\n")
             f.write(f"# Count:   {len(final_rules)} domains\n")
             f.write(f"# DNS:     {target_dns}\n")
-            f.write(f"# Source:  {SOURCE_URL}\n")
+            f.write(f"# Sources: {len(SOURCE_URLS)} URLs aggregated\n")
             f.write(f"# Author:  GitHub Action Bot\n")
             f.write(f"# ==========================================\n\n")
             
-            # 写入规则
             f.write("\n".join(final_rules))
             
-        print(f"✅ 成功生成文件: {OUTPUT_FILE} (共 {len(final_rules)} 条)")
+        print(f"✅ 成功生成文件: {OUTPUT_FILE}")
         
     except Exception as e:
         print(f"❌ 写入文件失败: {e}")
