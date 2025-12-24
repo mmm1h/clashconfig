@@ -161,7 +161,23 @@ proxy-groups:
       - 云洞
     filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|流量|剩余|应急|官网|套餐)).*$'
 
+rule-anchor:
+  ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
+  domain: &domain { type: http, interval: 86400, behavior: domain, format: mrs }
+  class: &class { type: http, interval: 86400, behavior: classical, format: text }
+
 rule-providers:
+
+  cn_ip:
+    <<: *ip
+    url: "https://gh-proxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+
+  # 用于 Fake IP 过滤
+  fakeip_filter:
+    <<: *domain
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"
+
+    
   Direct:
     type: http
     behavior: classical
@@ -321,6 +337,7 @@ rules:
   - RULE-SET,GoogleCN,🎯 全球直连
   - RULE-SET,SteamCN,🎯 全球直连
   - RULE-SET,ChinaMerged,🎯 全球直连
+
   
   # --- 默认规则 ---
   - RULE-SET,AIMerged,🤖 AI节点
@@ -332,13 +349,8 @@ rules:
   - RULE-SET,Telegram,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
 
-  # Google&CloudFlare DNS
-  - IP-CIDR,8.8.8.8/32,🚀 节点选择,no-resolve
-  - IP-CIDR,8.8.4.4/32,🚀 节点选择,no-resolve
-  - IP-CIDR,1.1.1.1/32,🚀 节点选择,no-resolve
-  - IP-CIDR,1.0.0.1/32,🚀 节点选择,no-resolve
-  
   # --- GEOIP兜底 ---
+  - RULE-SET,cn_ip,🎯 全球直连
   - GEOIP,CN,🎯 全球直连
   
   # --- 最终匹配 ---
