@@ -171,7 +171,7 @@ rule-anchor:
   class: &class { type: http, interval: 86400, behavior: classical, format: text }
 
 rule-providers:
-
+  # 中国 IP 段，用于 GEOIP 规则匹配
   cn_ip:
     <<: *ip
     url: "https://gh-proxy.com/raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
