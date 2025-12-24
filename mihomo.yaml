@@ -4,6 +4,8 @@ proxy-providers:
     url: "__MEIYING_URL__"
     interval: 7200
     path: "./providers/魅影.yaml"
+    override:
+      udp: true
     health-check:
       enable: true
       interval: 300
@@ -14,6 +16,8 @@ proxy-providers:
     url: "__YUNDONG_URL__"
     interval: 7200
     path: "./providers/云洞.yaml"
+    override:
+      udp: true
     health-check:
       enable: true
       interval: 300
