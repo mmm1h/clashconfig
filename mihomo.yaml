@@ -232,14 +232,6 @@ rule-providers:
     interval: 86400
     # format: text payload格式，无须转换
     proxy: DIRECT
-  Steam_CDN:
-    type: http
-    behavior: classical
-    url: "https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Steam_CDN_Classical.yaml"
-    path: ./rule_provider/Steam_CDN_Classical.yaml
-    interval: 86400
-    # format: text payload格式，无须转换
-    proxy: DIRECT
 
 rules:
   # --- 广告屏蔽 ---
@@ -253,7 +245,6 @@ rules:
   - RULE-SET,Custom_JP,🇯🇵 日本
   - RULE-SET,Custom_Rules,🚀 节点选择
   - RULE-SET,Custom_Direct,🎯 全球直连
-  - RULE-SET,Steam_CDN,🎯 全球直连
 
   # --- 直连规则 ---
   - GEOSITE,private,🎯 全球直连

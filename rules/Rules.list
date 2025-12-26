@@ -1,19 +1,7 @@
-# --- 第一道防线：域名规则 (针对 Sniffer 嗅探结果) ---
-DOMAIN,dns.google
-DOMAIN,cloudflare-dns.com
-DOMAIN,1.1.1.1
-DOMAIN,8.8.8.8
-
-# --- 第二道防线：IP 规则 (针对嗅探失败的情况) ---
-IP-CIDR,8.8.8.8/32,no-resolve
-IP-CIDR,8.8.4.4/32,no-resolve
-IP-CIDR,1.1.1.1/32,no-resolve
-IP-CIDR,1.0.0.1/32,no-resolve
 
 # 个人列表
 DOMAIN-SUFFIX,maying.co
 
-#蜜柑
 DOMAIN-SUFFIX,hmhi.ac.cn
 DOMAIN-SUFFIX,bangumi.tv
 DOMAIN-SUFFIX,api.bgm.tv
