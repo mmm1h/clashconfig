@@ -39,6 +39,14 @@ proxy-groups:
       - 🎮 游戏专用
 
   - name: ♻️ 自动选择
+    type: fallback
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    proxies:
+      - ♻️ 自动选择-测速
+      - 🇭🇰 香港(云洞)
+
+  - name: ♻️ 自动选择-测速
     type: url-test
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
@@ -164,11 +172,12 @@ proxy-groups:
       - 魅影
       - 云洞
     filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|流量|剩余|应急|官网|套餐)).*$'
+
   - name: "🔀 非标端口"
     type: select
     proxies:
-    - 🐟 漏网之鱼
-    - DIRECT
+      - 🐟 漏网之鱼
+      - DIRECT
 
 rule-anchor:
   ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
@@ -332,7 +341,7 @@ rules:
 
   # 其他
   - GEOSITE,gfw,🚀 节点选择
-  - GEOSITE,tracker, 🚀 节点选择
+  - GEOSITE,tracker,🚀 节点选择
   - GEOSITE,paypal,🚀 节点选择
   - GEOSITE,nvidia,🚀 节点选择
   - GEOSITE,docker,🚀 节点选择
