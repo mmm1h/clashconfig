@@ -164,6 +164,11 @@ proxy-groups:
       - 魅影
       - 云洞
     filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|流量|剩余|应急|官网|套餐)).*$'
+  - name: "🔀 非标端口"
+    type: select
+    proxies:
+    - 🐟 漏网之鱼
+    - DIRECT
 
 rule-anchor:
   ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
@@ -182,180 +187,170 @@ rule-providers:
     url: "https://gh-proxy.com/https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"
 
     
-  Direct:
+  Custom_Direct:
     type: http
     behavior: classical
     url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Direct.list'
     path: ./ruleset/Direct.yaml
     interval: 86400
     format: text
-  GameDownload:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/GameDownload.list'
-    path: ./ruleset/GameDownload.yaml
-    interval: 86400
-    format: text
-  US:
+
+  Custom_US:
     type: http
     behavior: classical
     url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/US.list'
     path: ./ruleset/US.yaml
     interval: 86400
     format: text
-  AI:
+  Custom_AI:
     type: http
     behavior: classical
     url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/AI.list'
     path: ./ruleset/AI.yaml
     interval: 86400
     format: text
-  JP:
+  Custom_JP:
     type: http
     behavior: classical
     url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/refs/heads/main/rules/JP.list'
     path: ./ruleset/JP.yaml
     interval: 86400
     format: text
-  Rules:
+  Custom_Rules:
     type: http
     behavior: classical
     url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Rules.list'
     path: ./ruleset/Rules.yaml
     interval: 86400
     format: text
-  GoogleFCM:
+  Custom_Port_Direct:
     type: http
     behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list'
-    path: ./ruleset/GoogleFCM.yaml
+    url: "https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Port_Direct.yaml"
+    path: ./rule_provider/Custom_Port_Direct.yaml
     interval: 86400
-    format: text
-  GoogleCN:
+    # format: text payload格式，无须转换
+    proxy: DIRECT
+  Steam_CDN:
     type: http
     behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list'
-    path: ./ruleset/GoogleCN.yaml
+    url: "https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Steam_CDN_Classical.yaml"
+    path: ./rule_provider/Steam_CDN_Classical.yaml
     interval: 86400
-    format: text
-  SteamCN:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list'
-    path: ./ruleset/SteamCN.yaml
-    interval: 86400
-    format: text
-  OneDrive:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OneDrive.list'
-    path: ./ruleset/OneDrive.yaml
-    interval: 86400
-    format: text
-  ChinaMerged:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/ChinaMerged.list'
-    path: ./ruleset/ChinaMerged.yaml
-    interval: 86400
-    format: text
-  Microsoft:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list'
-    path: ./ruleset/Microsoft.yaml
-    interval: 86400
-    format: text
-  AIMerged:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/AIMerged.list'
-    path: ./ruleset/AIMerged.yaml
-    interval: 86400
-    format: text
-  Apple:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list'
-    path: ./ruleset/Apple.yaml
-    interval: 86400
-    format: text
-  GameMerged:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/GameMerged.list'
-    path: ./ruleset/GameMerged.yaml
-    interval: 86400
-    format: text
-  AdBlockMerged:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/AdBlockMerged.list'
-    path: ./ruleset/AdBlockMerged.yaml
-    interval: 86400
-    format: text
-  ProxyMediaMerged:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/mmm1h/clashconfig/main/ProxyMediaMerged.list'
-    path: ./ruleset/ProxyMediaMerged.yaml
-    interval: 86400
-    format: text
-  Bahamut:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Bahamut.list'
-    path: ./ruleset/Bahamut.yaml
-    interval: 86400
-    format: text
-  ProxyGFWlist:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list'
-    path: ./ruleset/ProxyGFWlist.yaml
-    interval: 86400
-    format: text
-  Telegram:
-    type: http
-    behavior: classical
-    url: 'https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list'
-    path: ./ruleset/Telegram.yaml
-    interval: 86400
-    format: text
+    # format: text payload格式，无须转换
+    proxy: DIRECT
 
 rules:
   # --- 广告屏蔽 ---
-  - RULE-SET,AdBlockMerged,🚫 广告屏蔽
-  
+  - GEOSITE,category-ads-all,🚫 广告屏蔽
+    # 测速
+  - GEOSITE,category-speedtest,🚀 节点选择
+
   # --- 自定义规则 ---
-  - RULE-SET,AI,🤖 AI节点
-  - RULE-SET,US,🇺🇸 美国
-  - RULE-SET,JP,🇯🇵 日本
-  - RULE-SET,Rules,🚀 节点选择
-  - RULE-SET,Direct,🎯 全球直连
-  - RULE-SET,GameDownload,🎯 全球直连
+  - RULE-SET,Custom_AI,🤖 AI节点
+  - RULE-SET,Custom_US,🇺🇸 美国
+  - RULE-SET,Custom_JP,🇯🇵 日本
+  - RULE-SET,Custom_Rules,🚀 节点选择
+  - RULE-SET,Custom_Direct,🎯 全球直连
+  - RULE-SET,Steam_CDN,🎯 全球直连
 
   # --- 直连规则 ---
-  - RULE-SET,Apple,🎯 全球直连
-  - RULE-SET,GoogleFCM,🎯 全球直连
-  - RULE-SET,GoogleCN,🎯 全球直连
-  - RULE-SET,SteamCN,🎯 全球直连
-  - RULE-SET,ChinaMerged,🎯 全球直连
+  - GEOSITE,private,🎯 全球直连
+  - GEOSITE,category-ntp,🎯 全球直连
+  - GEOSITE,jsdelivr,🎯 全球直连
+  # BT/PT
+  - GEOSITE,category-public-tracker,🎯 全球直连
+  # 游戏平台
+  - GEOSITE,steam@cn,🎯 全球直连
+  - GEOSITE,category-game-platforms-download,🎯 全球直连
+  - GEOSITE,category-game-accelerator-cn,🎯 全球直连
+  - GEOSITE,category-games-cn,🎯 全球直连
+  - GEOSITE,category-games@cn,🎯 全球直连
+  # Apple
+  - GEOSITE,apple-cn,🎯 全球直连
+  - GEOSITE,apple@cn,🎯 全球直连
+  - GEOSITE,apple-update,🎯 全球直连
+  - GEOSITE,icloud@cn,🎯 全球直连
+  # Apple2
+  - GEOSITE,icloud,🎯 全球直连
+  - GEOSITE,apple,🎯 全球直连
+  - GEOSITE,apple-tvplus,🎯 全球直连
 
+  # Microsoft
+  - GEOSITE,microsoft@cn,🎯 全球直连
+  # Google
+  - GEOSITE,google-play@cn,🎯 全球直连
+  - GEOSITE,google-cn,🎯 全球直连
+  # 其他
+  - GEOSITE,nvidia@cn,🎯 全球直连
+  - GEOSITE,paypal@cn,🎯 全球直连
+  - GEOSITE,category-ddns,🎯 全球直连
+  - GEOSITE,cn,🎯 全球直连
   
-  # --- 默认规则 ---
-  - RULE-SET,AIMerged,🤖 AI节点
-  - RULE-SET,GameMerged,🎮 游戏专用
-  - RULE-SET,ProxyMediaMerged,📺 国外媒体
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,OneDrive,Ⓜ️ 微软服务
-  - RULE-SET,Bahamut,🇹🇼 台湾
-  - RULE-SET,Telegram,🚀 节点选择
-  - RULE-SET,ProxyGFWlist,🚀 节点选择
 
-  # --- GEOIP兜底 ---
-  - RULE-SET,cn_ip,🎯 全球直连
-  - GEOIP,CN,🎯 全球直连
+  # AI
+  - GEOSITE,openai,🤖 AI节点
+  - GEOSITE,google-gemini,🤖 AI节点
+  - GEOSITE,apple-intelligence,🤖 AI节点
+  - GEOSITE,category-ai-chat-!cn,🤖 AI节点
+  - GEOSITE,category-ai-!cn,🤖 AI节点
+
+  # 游戏
+  - GEOSITE,steam,🎮 游戏专用
+  - GEOSITE,epicgames,🎮 游戏专用
+  - GEOSITE,origin,🎮 游戏专用
+  - GEOSITE,category-games-!cn,🎮 游戏专用
+  # - GEOSITE,category-game-platforms-download,🎮 游戏专用
+  - GEOSITE,category-games,🎮 游戏专用
+
+  # 国外媒体
+  - GEOSITE,hbo,📺 国外媒体
+  - GEOSITE,disney,📺 国外媒体
+  - GEOSITE,netflix,📺 国外媒体
+  - GEOSITE,youtube,📺 国外媒体
+  - GEOSITE,spotify,📺 国外媒体
+  - GEOSITE,primevideo,📺 国外媒体
+  - GEOSITE,category-entertainment,📺 国外媒体
+
+  # 社交平台
+  - GEOSITE,tiktok,📺 国外媒体
+  - GEOSITE,twitter,📺 国外媒体
+  - GEOSITE,category-social-media-!cn,📺 国外媒体
+  - GEOSITE,category-communication,📺 国外媒体
   
+  # Microsoft
+  - GEOSITE,github,🚀 节点选择
+  - GEOSITE,onedrive,Ⓜ️ 微软服务
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,bing,Ⓜ️ 微软服务
+
+  # Google
+  - GEOSITE,google-play,🚀 节点选择
+  - GEOSITE,google,🚀 节点选择
+  - GEOSITE,googlefcm,🚀 节点选择
+
+
+  # 其他
+  - GEOSITE,gfw,🚀 节点选择
+  - GEOSITE,tracker, 🚀 节点选择
+  - GEOSITE,paypal,🚀 节点选择
+  - GEOSITE,nvidia,🚀 节点选择
+  - GEOSITE,docker,🚀 节点选择
+  - GEOSITE,bahamut,🇹🇼 台湾
+  - GEOSITE,category-ecommerce,🚀 节点选择
+
+  # 其他国外域名
+  - GEOSITE,geolocation-!cn,🚀 节点选择
+
+  # --- IP ---
+  - GEOIP,google,🚀 节点选择,no-resolve
+  - GEOIP,telegram,🚀 节点选择,no-resolve
+  - GEOIP,netflix,🚀 节点选择,no-resolve
+  - GEOIP,twitter,🚀 节点选择,no-resolve
+  - GEOIP,facebook,🚀 节点选择,no-resolve
+  - GEOIP,private,🎯 全球直连,no-resolve
+  - RULE-SET,cn_ip,🎯 全球直连,no-resolve
+
   # --- 最终匹配 ---
+  - RULE-SET,Custom_Port_Direct,🔀 非标端口
   - MATCH,🐟 漏网之鱼
