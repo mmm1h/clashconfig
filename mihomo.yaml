@@ -285,7 +285,7 @@ rules:
   # 其他
   - GEOSITE,nvidia@cn,🎯 全球直连
   - GEOSITE,paypal@cn,🎯 全球直连
-  - GEOSITE,category-ddns,🎯 全球直连
+  # - GEOSITE,category-ddns,🎯 全球直连
   - GEOSITE,cn,🎯 全球直连
   
 
