@@ -39,14 +39,6 @@ proxy-groups:
       - 🎮 游戏专用
 
   - name: ♻️ 自动选择
-    type: fallback
-    url: 'https://www.gstatic.com/generate_204'
-    interval: 300
-    proxies:
-      - ♻️ 自动选择-测速
-      - 🇭🇰 香港(云洞)
-
-  - name: ♻️ 自动选择-测速
     type: url-test
     url: 'https://www.gstatic.com/generate_204'
     interval: 300
