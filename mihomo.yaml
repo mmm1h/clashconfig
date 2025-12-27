@@ -28,6 +28,14 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
 
 # ----------------- Clash 高级参数配置 start ----------------- #
+geodata-mode: true
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip-lite.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+
 dns:
   default-nameserver:
   - https://223.5.5.5/dns-query#h3=true
@@ -46,6 +54,50 @@ dns:
   - "https://114514.dns.nextdns.io/dns-query#🚀 节点选择&h3=true"
   - "https://dns.twnic.tw/dns-query#🚀 节点选择&h3=true"
 
+  fake-ip-range: 198.18.0.0/15
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    # 常用 Fake IP filter 域名
+    - ruleset:fakeip_filter
+    # BT/PT
+    - "geosite: category-public-tracker,tracker"
+    # Microsoft && Apple
+    - "geosite: microsoft,onedrive,apple,icloud"
+    # 游戏平台（Steam、Epic、PS等）
+    - "geosite: steam,epicgames,xbox,playstation,origin,category-games-cn,category-games-!cn,category-games,category-game-accelerator-cn,category-game-platforms-download"
+    # Google
+    - "geosite: google-cn,google-play@cn"
+    # 其他
+    - "geosite: private,jsdelivr,category-ntp@cn,category-ddns,category-speedtest@cn,nvidia@cn,paypal@cn,cn"
+    - "+.lan"
+    - "+.local"
+    - "+.push.apple.com"
+    - "+.pub.3gppnetwork.org"
+    # 解决 Windows 连通性检测问题
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+  fallback-filter:
+    geoip: true
+    geoip-code: cn
+    ipcidr:
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/3
+      - ::/127
+      - fc00::/7
+      - fe80::/10
+      - ff00::/8
 
 # ----------------- Clash 高级参数配置 end ----------------- #
 proxy-groups:

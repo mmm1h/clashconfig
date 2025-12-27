@@ -1,4 +1,4 @@
-#预安装的软件包
-e2fsprogs parted zram-swap kmod-tcp-bbr lm-sensors-detect lsblk htop bash luci-app-openclash curl wget-ssl libcap-bin ruby ruby-yaml unzip kmod-tun sshpass luci-app-wol luci-theme-argon luci-i18n-base-zh-cn luci-i18n-wol-zh-cn luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn luci-i18n-argon-config-zh-cn
+#预安装的软件包后面追加以下软件包
+parted e2fsprogs openssh-sftp-server cfdisk kmod-tcp-bbr lm-sensors-detect lsblk htop bash luci-app-openclash curl wget-ssl libcap-bin ruby ruby-yaml unzip kmod-tun sshpass luci-app-wol luci-theme-argon luci-i18n-base-zh-cn luci-i18n-wol-zh-cn luci-i18n-opkg-zh-cn luci-i18n-firewall-zh-cn luci-i18n-argon-config-zh-cn
 
 #luci-app-nikki 无法构建，需要单独安装
