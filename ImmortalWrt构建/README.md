@@ -59,8 +59,8 @@
 # 解压缩镜像文件
 gzip -kd immortalwrt.img.gz
 
-# 在镜像末尾填充 2GB 空数据（count=2000 表示 +2GB）
-dd if=/dev/zero bs=1M count=2000 >> immortalwrt.img
+# 在镜像末尾填充 1GB 空数据（count=1000 表示 +1GB）
+dd if=/dev/zero bs=1M count=1000 >> immortalwrt.img
 
 # 使用 parted 调整分区，让新增空间生效
 parted immortalwrt.img
