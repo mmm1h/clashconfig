@@ -96,4 +96,5 @@ quit
    - HomePage验证：
       - /usr/share/rpcd/acl.d/homepage.json
       - /etc/config/rpcd
-   - 待补充
+   - etc/config/* （看实际情况）
+   - etc/openclash（内核、配置）
