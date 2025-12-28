@@ -87,4 +87,13 @@ quit
 
 ## 后续步骤
 
-- 配置上传巴啦巴啦（待补充）
+- 迁移物料：
+   - root目录下：
+      - .ssh文件夹（便于sshpass连接）
+      - .bash_history
+      - .wget-hsts
+   - openclash文件夹（内核、配置）
+   - HomePage验证：
+      - /usr/share/rpcd/acl.d/homepage.json
+      - /etc/config/rpcd
+   - 待补充
