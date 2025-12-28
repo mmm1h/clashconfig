@@ -377,6 +377,7 @@ rules:
   - GEOSITE,category-games,🎮 游戏专用
 
   # 国外媒体
+  - GEOSITE,bahamut,🇹🇼 台湾
   - GEOSITE,hbo,📺 国外媒体
   - GEOSITE,disney,📺 国外媒体
   - GEOSITE,netflix,📺 国外媒体
@@ -409,7 +410,6 @@ rules:
   - GEOSITE,paypal,🚀 节点选择
   - GEOSITE,nvidia,🚀 节点选择
   - GEOSITE,docker,🚀 节点选择
-  - GEOSITE,bahamut,🇹🇼 台湾
   - GEOSITE,category-ecommerce,🚀 节点选择
 
   # 其他国外域名
