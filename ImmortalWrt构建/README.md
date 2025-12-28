@@ -1,5 +1,7 @@
 # ImmortalWrt 构建与 ESXi 部署（未完待续）
 
+记录 ImmortalWrt 镜像构建、转换与 ESXi 部署流程，包含镜像扩容。
+
 ## 入口
 
 - 固件构建网站：https://firmware-selector.immortalwrt.org/
@@ -8,8 +10,9 @@
 
 - 自定义软件包：`packages.list`
 - UCI 脚本：`uci-defaults.sh`
+- 工具：StarWind V2V Converter（`.img` → `.vmdk`）、ESXi 7/8
 
-## 构建流程
+## 构建与转换
 
 1. 在固件选择器中选择 `COMBINED-EFI (SQUASHFS)` 并下载。
 2. 使用 StarWind V2V Converter 将镜像从 `.img` 转换为 `.vmdk`：
@@ -18,7 +21,7 @@
    - 选择 vmdk
    - 选择 ESXi Server image
    - 选择 ESXi Pre-allocated image
-3. 运行 convert，上传生成的文件到 ESXi。
+3. 运行 convert，上传生成的 `.vmdk` 到 ESXi 数据存储。
 
 ## ESXi 创建虚拟机
 
@@ -37,21 +40,50 @@
 4. 添加硬盘：
    - 添加硬盘 → 现有硬盘
    - 选择上传的 `.vmdk` 文件
-   - 完成后关闭虚拟机选项，再次编辑以修改硬盘容量
-
-
-## 关键操作：直接扩容
-
-- 硬盘添加后只有默认大小（几百兆）。
-- 直接在该界面修改容量，例如 10 GB（或更大）。
+   - 完成后关闭虚拟机选项，再次编辑以修改硬盘容量（可选）
 
 ## 虚拟机选项（VM Options）
 
 - 展开 引导选项 (Boot Options)。
 - 固件 (Firmware)：必须选择 EFI（镜像名包含 combined-efi）。
 - 若不选 EFI，开机会找不到引导盘。
-- 取消勾选为此虚拟机启用 UEFI 安全引导（关键）
+- 取消勾选为此虚拟机启用 UEFI 安全引导（关键）。
+
+## 镜像扩容（套娃）
+
+- 适用：需要扩大镜像容量（示例为 +2GB）。
+- 环境：任意 Linux/OpenWrt，空余容量需大于扩容目标；确保已安装 `parted`、`gzip`。
+- 建议在转换为 `.vmdk` 之前完成扩容，避免重复转换。
+
+```bash
+# 解压缩镜像文件
+gzip -kd immortalwrt.img.gz
+
+# 在镜像末尾填充 2GB 空数据（count=2000 表示 +2GB）
+dd if=/dev/zero bs=1M count=2000 >> immortalwrt.img
+
+# 使用 parted 调整分区，让新增空间生效
+parted immortalwrt.img
+
+# 出现提示时输入 OK、Fix
+Error: The backup GPT table is corrupt, but the primary appears OK, so that will be used.
+OK
+Warning: Not all of the space available to /root/immortalwrt.img appears to be used, you can fix the GPT to use all of the space (an extra 2048030 blocks) or continue with the current
+setting?
+Fix/Ignore? Fix
+
+# 查看分区情况
+print
+# 调整分区大小（将第 2 个分区扩展至 100%）
+resizepart 2 100%
+# 查看是否扩展成功
+print
+# 退出分区工具
+quit
+```
+
+扩容后的镜像再转换/导入 ESXi 使用。
 
 ## 后续步骤
 
-- 预留：首次启动、网口绑定、分区/扩容检查、网络配置等。
+- 配置上传巴啦巴啦（待补充）

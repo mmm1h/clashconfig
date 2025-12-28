@@ -58,6 +58,11 @@ uci set firewall.@zone[0].input='ACCEPT'
 uci set firewall.@zone[0].output='ACCEPT'
 uci set firewall.@zone[0].forward='ACCEPT'
 
+# LAN/WAN zones
+uci set firewall.@zone[1].input='ACCEPT'
+uci set firewall.@zone[1].output='ACCEPT'
+uci set firewall.@zone[1].forward='ACCEPT'
+
 uci commit firewall
 
 # 4. System/SSH
