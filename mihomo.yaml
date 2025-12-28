@@ -135,10 +135,16 @@ proxy-groups:
       - 🇺🇸 美国
 
   - name: "🎮 游戏专用"
-    type: select
+    type: url-test
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 50
+    proxies:
+      - DIRECT
     use:
       - 魅影
-    filter: '(?i)(U-4x|U-2x)'
+      - 云洞
+    filter: '(?i)(U-4x-BGP-HK|U-2x-BGP-HK|香港-IEPL-Pro)'
 
   - name: "Ⓜ️ 微软服务"
     type: select
@@ -149,7 +155,7 @@ proxy-groups:
 
   - name: "🤖 AI节点"
     type: url-test
-    url: 'https://api.openai.com/v1/completions'
+    url: 'https://chatgpt.com/favicon.ico'
     interval: 300
     tolerance: 100
     use:
@@ -243,8 +249,8 @@ proxy-groups:
   - name: "🔀 非标端口"
     type: select
     proxies:
-      - 🐟 漏网之鱼
       - DIRECT
+      - 🐟 漏网之鱼
 
 rule-anchor:
   ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
