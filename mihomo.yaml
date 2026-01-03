@@ -47,10 +47,10 @@ dns:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query#h3=true"
   fallback:
-  - "https://208.67.220.220/dns-query#🚀 节点选择&h3=true"
-  - "https://101.101.101.101/dns-query#🚀 节点选择&h3=true"
-  - "https://114514.dns.nextdns.io/dns-query#🚀 节点选择&h3=true"
-  - "https://dns.twnic.tw/dns-query#🚀 节点选择&h3=true"
+  - "https://dns.cloudflare.com/dns-query#🇭🇰 香港(云洞)&h3=true"
+  - "https://doh.dns.sb/dns-query#🇭🇰 香港(云洞)&h3=true"
+  - "https://dns.twnic.tw/dns-query#🇹🇼 台湾&h3=true"
+#  - "tls://8.8.8.8:853#🇭🇰 香港(云洞)"
 
   fake-ip-range: 198.18.0.0/15
   fake-ip-filter-mode: blacklist
