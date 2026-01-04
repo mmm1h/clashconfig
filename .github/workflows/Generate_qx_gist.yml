@@ -63,6 +63,6 @@ jobs:
             echo "------------------------------------------------------------------"
           else
             echo "GIST_ID found. Updating existing Gist..."
-            gh gist edit "$GIST_ID" QuantumultX.conf --filename "QuantumultX.conf"
+            gh gist edit "$GIST_ID" --add QuantumultX.conf --filename "QuantumultX.conf"
             echo "Gist updated successfully."
           fi
