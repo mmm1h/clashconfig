@@ -1,0 +1,68 @@
+name: Generate Private QuantumultX Gist
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'QuantumultX.conf'
+  workflow_dispatch:
+
+jobs:
+  build-and-gist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Inject private values
+        env:
+          MEIYING_URL: ${{ secrets.MEIYING_URL }}
+          YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
+          QX_MITM_P12: ${{ secrets.QX_MITM_P12 }}
+        run: |
+          python - <<'PY'
+          import os
+          path = "QuantumultX.conf"
+          with open(path, "r", encoding="utf-8") as f:
+              data = f.read()
+
+          replacements = {
+              "__MEIYING_URL__": os.environ.get("MEIYING_URL", ""),
+              "__YUNDONG_URL__": os.environ.get("YUNDONG_URL", ""),
+              "__QX_MITM_P12__": os.environ.get("QX_MITM_P12", ""),
+          }
+
+          missing = [k for k, v in replacements.items() if k in data and not v]
+          if missing:
+              raise SystemExit(
+                  "Missing secrets for placeholders: " + ", ".join(missing)
+              )
+
+          for placeholder, value in replacements.items():
+              if value:
+                  data = data.replace(placeholder, value)
+
+          with open(path, "w", encoding="utf-8", newline="\n") as f:
+              f.write(data)
+          PY
+
+      - name: Create or Update Private Gist using GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.QX_GIST_ID }}
+        run: |
+          if [[ -z "$GIST_ID" ]]; then
+            echo "GIST_ID not found. Creating a new secret Gist..."
+            gh gist create QuantumultX.conf --desc "Private QuantumultX Configuration"
+            echo "------------------------------------------------------------------"
+            echo "IMPORTANT: A new Gist has been created."
+            echo "Please go to your Gist page (https://gist.github.com), find the new Gist,"
+            echo "and copy its ID from the URL (e.g., a0b1c2d3e4f5...)."
+            echo "Then, create a new repository secret named 'QX_GIST_ID' with this value for future updates."
+            echo "------------------------------------------------------------------"
+          else
+            echo "GIST_ID found. Updating existing Gist..."
+            gh gist edit "$GIST_ID" QuantumultX.conf --filename "QuantumultX.conf"
+            echo "Gist updated successfully."
+          fi
