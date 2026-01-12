@@ -9,6 +9,7 @@ DOMAIN-SUFFIX,notebooklm.google
 DOMAIN-SUFFIX,notebooklm.google.com
 
 #内容：gemini
+DOMAIN-SUFFIX,accounts.google.com
 DOMAIN-SUFFIX,play.googleapis.com
 DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com
 DOMAIN-SUFFIX,oauth2.googleapis.com
