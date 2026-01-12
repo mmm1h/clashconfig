@@ -1,0 +1,34 @@
+name: Sync Direct from CN.txt
+
+on:
+  push:
+    paths:
+      - "rules/CN.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update Direct.list from CN.txt
+        run: python scripts/update_direct_from_cn.py
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto update Direct.list from CN.txt"
+          file_pattern: "rules/Direct.list"
+          commit_user_name: GitHub Actions Bot
+          commit_user_email: actions@github.com
+          commit_author: GitHub Actions Bot <actions@github.com>

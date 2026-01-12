@@ -42,3 +42,19 @@ IP-CIDR,205.196.6.0/24,no-resolve
 IP-CIDR,208.64.200.0/22,no-resolve
 IP-CIDR,208.78.164.0/22,no-resolve
 IP-CIDR,45.121.184.0/24,no-resolve
+
+# --- CN.txt START (auto) ---
+IP-CIDR,43.160.0.0/16,no-resolve
+IP-CIDR,101.32.0.0/16,no-resolve
+IP-CIDR,43.156.0.0/16,no-resolve
+IP-CIDR,43.159.0.0/16,no-resolve
+IP-CIDR,43.152.0.0/16,no-resolve
+IP-CIDR,43.153.0.0/16,no-resolve
+IP-CIDR,43.163.0.0/16,no-resolve
+IP-CIDR,129.226.0.0/16,no-resolve
+IP-CIDR,103.179.45.0/24,no-resolve
+IP-CIDR,157.20.105.0/24,no-resolve
+IP-CIDR,23.225.148.0/24,no-resolve
+IP-CIDR,23.133.64.0/24,no-resolve
+IP-CIDR,11.147.75.31/32,no-resolve
+# --- CN.txt END (auto) ---
