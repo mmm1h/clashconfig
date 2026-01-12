@@ -57,5 +57,4 @@ IP-CIDR,157.20.105.0/24,no-resolve
 IP-CIDR,23.225.148.0/24,no-resolve
 IP-CIDR,23.133.64.0/24,no-resolve
 IP-CIDR,11.147.75.31/32,no-resolve
-IP-CIDR,1.1.16.0/20,no-resolve
 # --- CN.txt END (auto) ---
