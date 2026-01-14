@@ -19,3 +19,6 @@ DOMAIN-SUFFIX,api.wcc.best
 DOMAIN-SUFFIX,api.github.com
 DOMAIN-SUFFIX,api.ttt.sh
 DOMAIN-SUFFIX,api.mousegesturesapi.com
+#Notion 客户端用于上传遥测数据和日志的接口
+DOMAIN,http-inputs-notion.splunkcloud.com
+DOMAIN-SUFFIX,statsigapi.net
