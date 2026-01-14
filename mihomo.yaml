@@ -33,8 +33,8 @@ geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
 geox-url:
-  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip-lite.dat"
-  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  geoip: "https://proxy.hmhi.ac.cn/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  geosite: "https://proxy.hmhi.ac.cn/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
 
 dns:
   direct-nameserver:
