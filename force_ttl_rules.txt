@@ -1,6 +1,6 @@
 # ==========================================
 # PaoPaoDNS Force TTL Rules (Bytedance)
-# Updated: 2026-01-29 04:41:43 (北京时间)
+# Updated: 2026-01-30 04:40:52 (北京时间)
 # Count:   320 domains
 # DNS:     180.184.1.1:53
 # Source 1:  https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance
