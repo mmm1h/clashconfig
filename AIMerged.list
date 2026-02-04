@@ -1,5 +1,5 @@
-# 更新时间：2026-02-03 11:35:01
-# 数量：60条
+# 更新时间：2026-02-04 11:32:31
+# 数量：62条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ClaudeAI.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Gemini.list
@@ -56,6 +56,8 @@ DOMAIN-SUFFIX,jetbrains.ai
 DOMAIN-SUFFIX,makersuite.google.com
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,mistral.ai
+DOMAIN-SUFFIX,notebooklm.google
+DOMAIN-SUFFIX,notebooklm.google.com
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,openai.com
