@@ -1,5 +1,5 @@
-# 更新时间：2026-02-06 12:06:00
-# 数量：88228条
+# 更新时间：2026-02-07 12:00:06
+# 数量：88239条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
@@ -139,6 +139,7 @@ DOMAIN,adx.op.cp18.ott.cibntv.net
 DOMAIN,adx.sogaha.cn
 DOMAIN,adx.yiche.com
 DOMAIN,adxlog.vivo.com.cn
+DOMAIN,aedns.weixin.qq.com
 DOMAIN,afd.baidu.com
 DOMAIN,al.autohome.com.cn
 DOMAIN,als.baidu.com
@@ -174,6 +175,9 @@ DOMAIN,dns.jd.com
 DOMAIN,dns.weibo.cn
 DOMAIN,dns.weixin.qq.com
 DOMAIN,dns.weixin.qq.com.cn
+DOMAIN,dnspod.meituan.httpdns.qcloud.com
+DOMAIN,dnspod.meituan.httpdns.start.qcloud.com
+DOMAIN,doh.iqiyi.com
 DOMAIN,dsp.fcbox.com
 DOMAIN,dsp.toutiao.com
 DOMAIN,duclick.baidu.com
@@ -198,18 +202,23 @@ DOMAIN,hm.baidu.com
 DOMAIN,hmma.baidu.com
 DOMAIN,httpdns-api.aliyuncs.com
 DOMAIN,httpdns-sc.aliyuncs.com
+DOMAIN,httpdns-sdk.n.netease.com
 DOMAIN,httpdns.alicdn.com
 DOMAIN,httpdns.baidu.com
 DOMAIN,httpdns.baidubce.com
 DOMAIN,httpdns.bilivideo.com
 DOMAIN,httpdns.c.cdnhwc2.com
 DOMAIN,httpdns.calorietech.com
+DOMAIN,httpdns.immomo.com
+DOMAIN,httpdns.kg.qq.com
 DOMAIN,httpdns.meituan.com
 DOMAIN,httpdns.music.163.com
 DOMAIN,httpdns.n.netease.com
 DOMAIN,httpdns.push.oppomobile.com
 DOMAIN,httpdns.volcengineapi.com
 DOMAIN,httpdns.yunxindns.com
+DOMAIN,httpdnsmultiapi.meituan.com
+DOMAIN,httpdnsmultiapivip.meituan.com
 DOMAIN,httpsdns.baidu.com
 DOMAIN,hui.sohu.com
 DOMAIN,iad.g.163.com
@@ -273,6 +282,7 @@ DOMAIN,pvnapp.zol.com.cn
 DOMAIN,r.51wnl-cq.com
 DOMAIN,rd.autohome.com.cn
 DOMAIN,regist.fotoable.com
+DOMAIN,resolvers-cn.httpdns.aliyuncs.com
 DOMAIN,rich.kuwo.cn
 DOMAIN,richmanapi.jxedt.com
 DOMAIN,richmanapi.ksedt.com
@@ -325,6 +335,7 @@ DOMAIN,wxsnsdythumb.wxs.qq.com
 DOMAIN,ykad-data.youku.com
 DOMAIN,yt-adp.nosdn.127.net
 DOMAIN,yt-adp.ws.126.net
+DOMAIN,yuyin-httpdns.gslb.yy.com
 DOMAIN,zgsdk.zhugeio.com
 DOMAIN-KEYWORD,admarvel
 DOMAIN-KEYWORD,admaster
