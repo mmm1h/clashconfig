@@ -6,7 +6,7 @@ proxy-providers:
   魅影:
     type: http
     url: "__MEIYING_URL__"
-    interval: 7200
+    interval: 3600
     path: "./providers/魅影.yaml"
     override:
       udp: true
