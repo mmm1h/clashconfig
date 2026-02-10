@@ -1,7 +1,7 @@
 # ==========================================
 # PaoPaoDNS Force TTL Rules (Bytedance)
-# Updated: 2026-02-10 04:53:57 (北京时间)
-# Count:   320 domains
+# Updated: 2026-02-11 04:55:34 (北京时间)
+# Count:   346 domains
 # DNS:     223.5.5.5:53
 # Source 1:  https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance
 # Source 2:  https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin.list
@@ -18,6 +18,7 @@ activity03.com@223.5.5.5:53
 activity04.com@223.5.5.5:53
 activity05.com@223.5.5.5:53
 activitybyte.com@223.5.5.5:53
+ad.toutiao.com@223.5.5.5:53
 ali-api-test.net@223.5.5.5:53
 ali-gtm-01.net@223.5.5.5:53
 ali-gtm-pressure.com@223.5.5.5:53
@@ -39,6 +40,7 @@ bdns-restore.net@223.5.5.5:53
 bdns-test.com@223.5.5.5:53
 bdns-test.net@223.5.5.5:53
 bdppe.net@223.5.5.5:53
+bds.snssdk.com@223.5.5.5:53
 bdsagslb.com@223.5.5.5:53
 bdsagslbtest.com@223.5.5.5:53
 bdxiguaimg.com@223.5.5.5:53
@@ -74,6 +76,7 @@ byteactivity13.com@223.5.5.5:53
 byteactivity14.com@223.5.5.5:53
 byteactivity15.com@223.5.5.5:53
 byteactivity16.com@223.5.5.5:53
+byteadverts.com@223.5.5.5:53
 byteapi.com@223.5.5.5:53
 bytecdn.cn@223.5.5.5:53
 bytecdn.com@223.5.5.5:53
@@ -151,6 +154,8 @@ cdnbuild.com@223.5.5.5:53
 cdnbuild.net@223.5.5.5:53
 cdndns1.com@223.5.5.5:53
 cdndns2.com@223.5.5.5:53
+ctobsnssdk.com@223.5.5.5:53
+dig.bdurl.net@223.5.5.5:53
 doubo03.com@223.5.5.5:53
 douyin.com@223.5.5.5:53
 douyincdn.com@223.5.5.5:53
@@ -162,6 +167,7 @@ draftstatic.com@223.5.5.5:53
 druid.vip@223.5.5.5:53
 ecombdapi.com@223.5.5.5:53
 ecombdstatic.com@223.5.5.5:53
+extlog.snssdk.com@223.5.5.5:53
 faceu.com@223.5.5.5:53
 fedlearner.net@223.5.5.5:53
 feelgood.cn@223.5.5.5:53
@@ -174,6 +180,7 @@ hapipixia.com@223.5.5.5:53
 hapiyixia.com@223.5.5.5:53
 huaxiong.com@223.5.5.5:53
 hypercachenet.com@223.5.5.5:53
+i.snssdk.com@223.5.5.5:53
 ibdxiguaimg.com@223.5.5.5:53
 ibdxigualive.com@223.5.5.5:53
 ibdxiguastatic.com@223.5.5.5:53
@@ -199,7 +206,9 @@ kuailepipixia.com@223.5.5.5:53
 lf3-static.bytednsdoc.com@223.5.5.5:53
 livecdnstatic.com@223.5.5.5:53
 local-ip.online@223.5.5.5:53
+log.zijieapi.com@223.5.5.5:53
 luckysf.net@223.5.5.5:53
+mcs.snssdk.com@223.5.5.5:53
 modernjs.cn@223.5.5.5:53
 myimis.com@223.5.5.5:53
 ndcpp.com@223.5.5.5:53
@@ -214,6 +223,21 @@ originalimg.com@223.5.5.5:53
 originalstatic.com@223.5.5.5:53
 originalvod.com@223.5.5.5:53
 pacmantwo.com@223.5.5.5:53
+pangolin-dsp-toutiao-b.com@223.5.5.5:53
+pangolin-dsp-toutiao.com@223.5.5.5:53
+pangolin-hl.snssdk.com@223.5.5.5:53
+pangolin-lf.snssdk.com@223.5.5.5:53
+pangolin-lq.snssdk.com@223.5.5.5:53
+pangolin-sdk-toutiao-b.com@223.5.5.5:53
+pangolin-sdk-toutiao.com@223.5.5.5:53
+pangolin-sdk-toutiao1.com@223.5.5.5:53
+pangolin.snssdk.com@223.5.5.5:53
+panplayable-toutiao-b.com@223.5.5.5:53
+panplayable-toutiao.com@223.5.5.5:53
+pglstatp-sdk-toutiao.com@223.5.5.5:53
+pglstatp-snssdk-toutiao.com@223.5.5.5:53
+pglstatp-toutiao-b.com@223.5.5.5:53
+pglstatp-toutiao.com@223.5.5.5:53
 pipix.com@223.5.5.5:53
 pipixiaha.com@223.5.5.5:53
 piyipiba.com@223.5.5.5:53
@@ -228,7 +252,9 @@ rsproxy.cn@223.5.5.5:53
 samasty.com@223.5.5.5:53
 searchstatic.com@223.5.5.5:53
 searchtoutiaolive.com@223.5.5.5:53
+sf3-ttcdn-tos.pstatp.com@223.5.5.5:53
 shidianguji.com@223.5.5.5:53
+shoppingads.cn@223.5.5.5:53
 sinf-test.net@223.5.5.5:53
 sinf.net@223.5.5.5:53
 sinflb.net@223.5.5.5:53
