@@ -77,6 +77,9 @@ dns:
     # 解决 Windows 连通性检测问题
     - "+.msftconnecttest.com"
     - "+.msftncsi.com"
+    # 解决 返回ip地址的域名被误判为国外域名的问题
+    - "+.hmhi.top"
+
   fallback-filter:
     geoip: true
     geoip-code: cn
