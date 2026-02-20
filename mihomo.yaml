@@ -45,8 +45,8 @@ dns:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
   default-nameserver:
-  - 223.5.5.5
-  - 119.29.29.29
+  - https://223.5.5.5/dns-query#h3=true
+  - https://119.29.29.29/dns-query#h3=true
   nameserver:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
@@ -357,9 +357,7 @@ rules:
 
   # Microsoft
   - GEOSITE,microsoft@cn,🎯 全球直连
-  # Google
-  - GEOSITE,google-play@cn,🎯 全球直连
-  - GEOSITE,google-cn,🎯 全球直连
+
   # 其他
   - GEOSITE,nvidia@cn,🎯 全球直连
   - GEOSITE,paypal@cn,🎯 全球直连
@@ -406,7 +404,9 @@ rules:
   - GEOSITE,google-play,🚀 节点选择
   - GEOSITE,google,🚀 节点选择
   - GEOSITE,googlefcm,🚀 节点选择
-
+  # Google
+  - GEOSITE,google-play@cn,🚀 节点选择
+  - GEOSITE,google-cn,🚀 节点选择
 
   # 其他
   - GEOSITE,gfw,🚀 节点选择
