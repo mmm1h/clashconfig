@@ -164,7 +164,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '^(?=.*(?i)(US|America|United States|GPT|美国|SG|Singapore|狮城))(?!.*(?i)(4x)).*$'
+    filter: '(?i)(US|America|United States|美国|美)'
 
   - name: "🎯 全球直连"
     type: select
