@@ -28,6 +28,10 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
 
 # ----------------- Clash 高级参数配置 start ----------------- #
+profile:
+  store-selected: true         # 记忆并恢复之前所选的代理节点
+  store-fake-ip: true          # 持久化 Fake-IP 数据，防止软路由/系统重启时内网 IP 紊乱
+
 geodata-mode: true
 geodata-loader: standard
 geo-auto-update: true
@@ -41,8 +45,8 @@ dns:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
   default-nameserver:
-  - "https://223.5.5.5/dns-query#h3=true"
-  - "https://119.29.29.29/dns-query#h3=true"
+  - 223.5.5.5
+  - 119.29.29.29
   nameserver:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
@@ -50,9 +54,9 @@ dns:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
   fallback:
-  - "https://dns.cloudflare.com/dns-query#🇭🇰 香港(云洞)&h3=true"
-  - "https://doh.dns.sb/dns-query#🇭🇰 香港(云洞)&h3=true"
-  - "https://dns.twnic.tw/dns-query#🇭🇰 香港(云洞)&h3=true"
+  - "https://dns.cloudflare.com/dns-query#🇭🇰 香港(云洞)"
+  - "https://doh.dns.sb/dns-query#🇭🇰 香港(云洞)"
+  - "https://dns.twnic.tw/dns-query#🇭🇰 香港(云洞)"
   - "tls://8.8.8.8:853#🇭🇰 香港(云洞)"
 
   fake-ip-range: 198.18.0.0/15
@@ -347,14 +351,9 @@ rules:
   - GEOSITE,category-games-cn,🎯 全球直连
   - GEOSITE,category-games@cn,🎯 全球直连
   # Apple
-  - GEOSITE,apple-cn,🎯 全球直连
-  - GEOSITE,apple@cn,🎯 全球直连
-  - GEOSITE,apple-update,🎯 全球直连
-  - GEOSITE,icloud@cn,🎯 全球直连
-  # Apple2
   - GEOSITE,icloud,🎯 全球直连
   - GEOSITE,apple,🎯 全球直连
-  - GEOSITE,apple-tvplus,🎯 全球直连
+
 
   # Microsoft
   - GEOSITE,microsoft@cn,🎯 全球直连
@@ -379,8 +378,6 @@ rules:
   - GEOSITE,steam,🎮 游戏专用
   - GEOSITE,epicgames,🎮 游戏专用
   - GEOSITE,origin,🎮 游戏专用
-  - GEOSITE,category-games-!cn,🎮 游戏专用
-  # - GEOSITE,category-game-platforms-download,🎮 游戏专用
   - GEOSITE,category-games,🎮 游戏专用
 
   # 国外媒体
