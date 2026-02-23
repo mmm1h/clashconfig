@@ -171,7 +171,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '(?i)(US|America|United States|美国|美)'
+    filter: '(?i)(US|America|United States|美国|gpt|openai|美)'
 
   - name: "🎯 全球直连"
     type: select
