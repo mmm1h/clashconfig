@@ -111,7 +111,7 @@ function main(config) {
       interval: 300,
       tolerance: 100,
       "include-all": true,
-      filter: "(?=.*(gpt|GPT))^((?!(4X)).)*$"
+      filter: "(?=.*(gpt|GPT|openai|OpenAI|US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本))^((?!(4X)).)*$"
       // proxies: [] // Implies filtering from all available proxies
     },
     {
