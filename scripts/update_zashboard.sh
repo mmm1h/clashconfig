@@ -8,7 +8,7 @@ set -eu
 
 # ===================== Config =====================
 # Zashboard release asset (latest dist.zip)
-DOWNLOAD_URL="https://proxy.hmhi.ac.cn/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+DOWNLOAD_URL="https://proxy.hmhi.top/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
 # Download tool preference: auto | uclient-fetch | wget | curl
 DOWNLOAD_TOOL="wget"
 

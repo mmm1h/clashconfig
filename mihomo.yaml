@@ -37,8 +37,8 @@ geodata-loader: standard
 geo-auto-update: true
 geo-update-interval: 24
 geox-url:
-  geoip: "https://proxy.hmhi.ac.cn/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-  geosite: "https://proxy.hmhi.ac.cn/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  geoip: "https://proxy.hmhi.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+  geosite: "https://proxy.hmhi.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
 
 dns:
   direct-nameserver:
@@ -271,18 +271,18 @@ rule-providers:
   # 中国 IP 段，用于 GEOIP 规则匹配
   cn_ip:
     <<: *ip
-    url: "https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
+    url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
 
   # 用于 Fake IP 过滤
   fakeip_filter:
     <<: *domain
-    url: "https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"
+    url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"
 
     
   Custom_Direct:
     type: http
     behavior: classical
-    url: 'https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Direct.list'
+    url: 'https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Direct.list'
     path: ./ruleset/Direct.yaml
     interval: 86400
     format: text
@@ -290,35 +290,35 @@ rule-providers:
   Custom_US:
     type: http
     behavior: classical
-    url: 'https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/US.list'
+    url: 'https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/US.list'
     path: ./ruleset/US.yaml
     interval: 86400
     format: text
   Custom_AI:
     type: http
     behavior: classical
-    url: 'https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/AI.list'
+    url: 'https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/AI.list'
     path: ./ruleset/AI.yaml
     interval: 86400
     format: text
   Custom_JP:
     type: http
     behavior: classical
-    url: 'https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/mmm1h/clashconfig/refs/heads/main/rules/JP.list'
+    url: 'https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/refs/heads/main/rules/JP.list'
     path: ./ruleset/JP.yaml
     interval: 86400
     format: text
   Custom_Rules:
     type: http
     behavior: classical
-    url: 'https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Rules.list'
+    url: 'https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Rules.list'
     path: ./ruleset/Rules.yaml
     interval: 86400
     format: text
   Custom_Port_Direct:
     type: http
     behavior: classical
-    url: "https://proxy.hmhi.ac.cn/https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Port_Direct.yaml"
+    url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Port_Direct.yaml"
     path: ./rule_provider/Custom_Port_Direct.yaml
     interval: 86400
     # format: text payload格式，无须转换
