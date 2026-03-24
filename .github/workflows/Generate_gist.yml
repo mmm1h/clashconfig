@@ -18,18 +18,40 @@ jobs:
   build-and-gist:
     runs-on: ubuntu-latest
     steps:
-      # 检出您的仓库代码
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 使用 sed 命令替换占位符
-      - name: Replace URL placeholders
-        run: |
-          sed -i 's|__MEIYING_URL__|${{ secrets.MEIYING_URL }}|g' mihomo.yaml
-          sed -i 's|__YUNDONG_URL__|${{ secrets.YUNDONG_URL }}|g' mihomo.yaml
+      - name: Inject private values
         env:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
+          JP_PRIVATE_URL: ${{ secrets.JP_PRIVATE_URL }}
+        run: |
+          python - <<'PY'
+          import os
+          path = "mihomo.yaml"
+          with open(path, "r", encoding="utf-8") as f:
+              data = f.read()
+
+          replacements = {
+              "__MEIYING_URL__": os.environ.get("MEIYING_URL", ""),
+              "__YUNDONG_URL__": os.environ.get("YUNDONG_URL", ""),
+              "__JP_PRIVATE_URL__": os.environ.get("JP_PRIVATE_URL", ""),
+          }
+
+          missing = [k for k, v in replacements.items() if k in data and not v]
+          if missing:
+              raise SystemExit(
+                  "Missing secrets for placeholders: " + ", ".join(missing)
+              )
+
+          for placeholder, value in replacements.items():
+              if value:
+                  data = data.replace(placeholder, value)
+
+          with open(path, "w", encoding="utf-8", newline="\n") as f:
+              f.write(data)
+          PY
 
       # 使用官方 GitHub CLI 创建或更新 Gist
       - name: Create or Update Private Gist using GitHub CLI
