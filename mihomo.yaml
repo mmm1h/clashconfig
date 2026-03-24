@@ -143,7 +143,7 @@ proxy-groups:
     use:
       - 魅影
       - 爪云
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP))(?!.*(?i)(2x|4x)).*$'
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2))(?!.*(?i)(2x|4x)).*$'
 
   - name: "📺 国外媒体"
     type: select
@@ -167,7 +167,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '(?i)(U-4x-BGP-HK|U-2x-BGP-HK|香港-IEPL-Pro)'
+    filter: '(?i)(U-4x-BGP-HK|U-2x-BGP-HK|香港-IEPL-Pro|JP-HY2)'
 
   - name: "Ⓜ️ 微软服务"
     type: select
@@ -226,7 +226,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
-    filter: '(?i)(HK|Hong Kong|香港|港|JP)'
+    filter: '(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2)'
 
   - name: 🇹🇼 台湾
     type: url-test
