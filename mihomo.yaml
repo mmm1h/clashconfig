@@ -27,12 +27,11 @@ proxy-providers:
       interval: 300
       url: https://www.gstatic.com/generate_204
 
-  自建JP:
-    # 保留占位符，避免将私有订阅 token 提交到公开仓库
+  爪云:
     type: http
     url: "__JP_PRIVATE_URL__"
     interval: 3600
-    path: "./providers/自建JP.yaml"
+    path: "./providers/爪云.yaml"
     override:
       udp: true
     health-check:
@@ -143,7 +142,8 @@ proxy-groups:
     tolerance: 50
     use:
       - 魅影
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(2x|4x)).*$'
+      - 爪云
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP))(?!.*(?i)(2x|4x)).*$'
 
   - name: "📺 国外媒体"
     type: select
@@ -177,14 +177,14 @@ proxy-groups:
       - 🎮 游戏专用
 
   - name: "🤖 AI节点"
-    type: url-test
+    type: select
     url: 'https://chatgpt.com/favicon.ico'
     interval: 300
     tolerance: 100
     use:
       - 魅影
       - 云洞
-      - 自建JP
+      - 爪云
     filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|gpt|openai)'
 
   - name: "🎯 全球直连"
@@ -225,7 +225,8 @@ proxy-groups:
     interval: 300
     use:
       - 云洞
-    filter: '(?i)(HK|Hong Kong|香港|港)'
+      - 爪云
+    filter: '(?i)(HK|Hong Kong|香港|港|JP)'
 
   - name: 🇹🇼 台湾
     type: url-test
@@ -247,22 +248,11 @@ proxy-groups:
 
   - name: 🇯🇵 日本
     type: select
-    proxies:
-      - 🇯🇵 日本(自动)
-    use:
-      - 魅影
-      - 云洞
-      - 自建JP
-    filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(2x|4x)).*$'
-
-  - name: 🇯🇵 日本(自动)
-    type: url-test
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 魅影
       - 云洞
-      - 自建JP
     filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(2x|4x)).*$'
 
   - name: 🇺🇸 美国
