@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'QuantumultX.conf'
+      - '.github/workflows/Generate_qx_gist.yml'
   workflow_dispatch:
 
 jobs:
@@ -18,6 +19,7 @@ jobs:
       - name: Inject private values
         env:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
+          JP_PRIVATE_URL: ${{ secrets.JP_PRIVATE_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
           QX_MITM_P12: ${{ secrets.QX_MITM_P12 }}
         run: |
@@ -29,6 +31,7 @@ jobs:
 
           replacements = {
               "__MEIYING_URL__": os.environ.get("MEIYING_URL", ""),
+              "__JP_PRIVATE_URL__": os.environ.get("JP_PRIVATE_URL", ""),
               "__YUNDONG_URL__": os.environ.get("YUNDONG_URL", ""),
               "__QX_MITM_P12__": os.environ.get("QX_MITM_P12", ""),
           }
