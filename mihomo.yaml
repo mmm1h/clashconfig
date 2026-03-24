@@ -13,7 +13,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: https://www.gstatic.com/generate_204
+      url: https://cp.cloudflare.com/generate_204
 
   云洞:
     type: http
@@ -25,7 +25,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: https://www.gstatic.com/generate_204
+      url: https://cp.cloudflare.com/generate_204
 
   爪云:
     type: http
@@ -137,7 +137,7 @@ proxy-groups:
 
   - name: ♻️ 自动选择
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     tolerance: 50
     use:
@@ -159,7 +159,7 @@ proxy-groups:
 
   - name: "🎮 游戏专用"
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     tolerance: 50
     proxies:
@@ -213,7 +213,7 @@ proxy-groups:
 
   - name: 🇭🇰 香港(魅影)
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 魅影
@@ -221,7 +221,7 @@ proxy-groups:
 
   - name: 🇭🇰 香港(云洞)
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 云洞
@@ -230,7 +230,7 @@ proxy-groups:
 
   - name: 🇹🇼 台湾
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 魅影
@@ -239,7 +239,7 @@ proxy-groups:
 
   - name: 🇸🇬 新加坡
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 魅影
@@ -257,7 +257,7 @@ proxy-groups:
 
   - name: 🇺🇸 美国
     type: url-test
-    url: 'https://www.gstatic.com/generate_204'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 魅影
