@@ -27,6 +27,19 @@ proxy-providers:
       interval: 300
       url: https://www.gstatic.com/generate_204
 
+  自建JP:
+    # 保留占位符，避免将私有订阅 token 提交到公开仓库
+    type: http
+    url: "__JP_PRIVATE_URL__"
+    interval: 3600
+    path: "./providers/自建JP.yaml"
+    override:
+      udp: true
+    health-check:
+      enable: true
+      interval: 300
+      url: https://www.gstatic.com/generate_204
+
 # ----------------- Clash 高级参数配置 start ----------------- #
 profile:
   store-selected: true         # 记忆并恢复之前所选的代理节点
@@ -171,6 +184,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
+      - 自建JP
     filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|gpt|openai)'
 
   - name: "🎯 全球直连"
@@ -238,6 +252,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
+      - 自建JP
     filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(2x|4x)).*$'
 
   - name: 🇺🇸 美国
