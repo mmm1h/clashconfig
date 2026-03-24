@@ -38,7 +38,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: https://www.cloudflare.com/cdn-cgi/trace
+      url: https://cp.cloudflare.com/generate_204
 
 # ----------------- Clash 高级参数配置 start ----------------- #
 profile:
@@ -246,8 +246,18 @@ proxy-groups:
     filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡))(?!.*(?i)(2x|4x)).*$'
 
   - name: 🇯🇵 日本
+    type: select
+    proxies:
+      - 🇯🇵 日本(自动)
+    use:
+      - 魅影
+      - 云洞
+      - 自建JP
+    filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(2x|4x)).*$'
+
+  - name: 🇯🇵 日本(自动)
     type: url-test
-    url: 'https://www.cloudflare.com/cdn-cgi/trace'
+    url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 魅影
