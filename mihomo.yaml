@@ -69,7 +69,7 @@ dns:
   - "https://dns.cloudflare.com/dns-query#🇭🇰 香港(云洞)"
   - "https://doh.dns.sb/dns-query#🇭🇰 香港(云洞)"
   - "https://dns.twnic.tw/dns-query#🇭🇰 香港(云洞)"
-  - "tls://8.8.8.8:853#🇭🇰 香港(云洞)"
+
 
   fake-ip-range: 198.18.0.0/15
   fake-ip-filter-mode: blacklist
