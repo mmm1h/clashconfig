@@ -8,9 +8,11 @@ set -eu
 
 # ===================== Config =====================
 # Zashboard release asset (latest dist.zip)
-DOWNLOAD_URL="https://proxy.hmhi.top/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"
+DOWNLOAD_URL="${DOWNLOAD_URL:-https://proxy.hmhi.top/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip}"
+# Direct GitHub fallback when the proxy host changes or is unavailable.
+FALLBACK_DOWNLOAD_URL="${FALLBACK_DOWNLOAD_URL:-https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip}"
 # Download tool preference: auto | uclient-fetch | wget | curl
-DOWNLOAD_TOOL="wget"
+DOWNLOAD_TOOL="${DOWNLOAD_TOOL:-wget}"
 
 # OpenClash UI directory and name
 DASHBOARD_DIR="/usr/share/openclash/ui"
@@ -20,9 +22,9 @@ DASHBOARD_NAME="zashboard"
 CRON_SCHEDULE="0 5 * * *"
 CRON_FILE="/etc/crontabs/root"
 # Cron output redirection (set empty for normal output)
-CRON_REDIRECT=">/dev/null 2>&1"
+CRON_REDIRECT="${CRON_REDIRECT:->/dev/null 2>&1}"
 # Log control: 1 = silent, 0 = verbose
-QUIET=1
+QUIET="${QUIET:-1}"
 # ==================================================
 
 log() {
@@ -113,12 +115,29 @@ trap cleanup EXIT
 
 mkdir -p "$EXTRACT_DIR"
 
-log "Downloading Zashboard: $DOWNLOAD_URL"
-$DOWNLOAD_CMD "$ZIP_FILE" "$DOWNLOAD_URL" || die "Download failed."
+download_zashboard() {
+    local dest url
+    dest="$1"
 
-if [ ! -s "$ZIP_FILE" ]; then
-    die "Downloaded file is empty."
-fi
+    for url in "$DOWNLOAD_URL" "$FALLBACK_DOWNLOAD_URL"; do
+        [ -n "$url" ] || continue
+        log "Downloading Zashboard: $url"
+        if $DOWNLOAD_CMD "$dest" "$url"; then
+            if [ -s "$dest" ]; then
+                return 0
+            fi
+            rm -f "$dest"
+            log "Downloaded file is empty: $url"
+            continue
+        fi
+        rm -f "$dest"
+        log "Download failed: $url"
+    done
+
+    die "Download failed for both preferred and fallback URLs."
+}
+
+download_zashboard "$ZIP_FILE"
 
 log "Extracting package"
 $UNZIP_CMD "$ZIP_FILE" -d "$EXTRACT_DIR" || die "Unzip failed."
