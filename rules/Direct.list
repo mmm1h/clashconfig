@@ -1,7 +1,6 @@
 # 个人直连列表
 
 #直连
-DOMAIN,proxy.hmhi.ac.cn
 #DOMAIN-KEYWORD,gdstudio
 DOMAIN-SUFFIX,ntfy.sh
 DOMAIN-KEYWORD,wallpaperengine
