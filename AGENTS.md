@@ -63,7 +63,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 
 ## Scripts
 - `scripts/update_direct_from_cn.py`
-  - Legacy helper: reads `rules/CN.txt`, updates the auto-managed CN block in `rules/Direct.list`.
+  - Legacy helper kept only for explicit compatibility maintenance: reads `rules/CN.txt`, updates the auto-managed CN block in `rules/Direct.list`.
 - `scripts/update_dns.py`
   - Generates `force_ttl_rules.txt` from multiple sources.
   - Requires Python 3, `requests`, and network access.
@@ -78,9 +78,11 @@ Keep this managed block so 'openspec update' can refresh the instructions.
   1) Edit the appropriate file in `rules/`.
   2) Ensure the list is referenced in `mihomo.yaml` and/or `mihomo.js`.
   3) If relevant for Quantumult X, update `QuantumultX.conf` remote list entries.
-- Update CN IPs (legacy compatibility only):
-  1) Edit `rules/CN.txt`.
-  2) Run `python scripts/update_direct_from_cn.py` to refresh `rules/Direct.list`.
+- Update CN IPs (legacy compatibility only; frozen by default):
+  1) Do nothing in the normal control-plane workflow.
+  2) Only if an explicit legacy compatibility fix is required, edit `rules/CN.txt`.
+  3) Run `python scripts/update_direct_from_cn.py` to refresh `rules/Direct.list`.
+  4) Do not restore the old automation or treat this path as part of the standard publish chain.
 - Update PaoPaoDNS rules:
   1) Run `python scripts/update_dns.py` to refresh `force_ttl_rules.txt`.
 - Refresh OpenClash Zashboard on OpenWrt:
