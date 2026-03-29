@@ -5,6 +5,7 @@
 ## 定位
 
 - 这个目录在 `network_debug` 中是 authoritative source tree。
+- 这个目录按主仓普通目录管理；当前维护模型不使用 `git subtree` / `submodule`。
 - 同名公开仓库 `mmm1h/clashconfig` 只作为 artifact repo / distribution shell 使用。
 - 日常编辑只应发生在私有主仓 `network_debug`，不要在公开 repo 直接手改。
 - 现网可继续使用现有 raw / Gist / Worker 地址；这些地址现在被视为“公开分发面”，而不是源码真源。
