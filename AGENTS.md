@@ -45,7 +45,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 ## Rule list conventions
 - One rule per line, no empty lines, no trailing spaces.
 - Use Clash classical keywords: `DOMAIN`, `DOMAIN-SUFFIX`, `DOMAIN-KEYWORD`, `IP-CIDR`, `IP-CIDR6` (optional `,no-resolve`).
-- `rules/CN.txt` is the CN IP list (used for iKuai and for direct routing updates).
+- `rules/CN.txt` is a legacy compatibility feed kept for existing iKuai bypass consumers; do not expand new dependencies around it.
 - `rules/Direct.list` contains an auto-managed block delimited by:
   - `# --- CN.txt START (auto) ---`
   - `# --- CN.txt END (auto) ---`
@@ -58,7 +58,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 
 ## Scripts
 - `scripts/update_direct_from_cn.py`
-  - Reads `rules/CN.txt`, updates the auto-managed CN block in `rules/Direct.list`.
+  - Legacy helper: reads `rules/CN.txt`, updates the auto-managed CN block in `rules/Direct.list`.
 - `scripts/update_dns.py`
   - Generates `force_ttl_rules.txt` from multiple sources.
   - Requires Python 3, `requests`, and network access.
@@ -73,7 +73,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
   1) Edit the appropriate file in `rules/`.
   2) Ensure the list is referenced in `mihomo.yaml` and/or `mihomo.js`.
   3) If relevant for Quantumult X, update `QuantumultX.conf` remote list entries.
-- Update CN IPs:
+- Update CN IPs (legacy compatibility only):
   1) Edit `rules/CN.txt`.
   2) Run `python scripts/update_direct_from_cn.py` to refresh `rules/Direct.list`.
 - Update PaoPaoDNS rules:

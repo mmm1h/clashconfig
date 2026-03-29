@@ -7,6 +7,7 @@
 用途：
 - 读取 `rules/CN.txt`，把中国 IP 段合并到 `rules/Direct.list` 中。
 - 自动维护 `# --- CN.txt START (auto) ---` 与 `# --- CN.txt END (auto) ---` 标记之间的区块。
+- 当前定位：legacy compatibility helper；`rules/CN.txt` 已不再纳入主迁移目标。
 
 使用：
 ```bash
