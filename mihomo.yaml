@@ -342,7 +342,7 @@ rule-providers:
 rules:
 
   #pixel 单独分流，解决某些 AI 服务
-  - SRC-IP-CIDR,192.168.9.31/32,🤖 AI节点
+  - SRC-IP-CIDR,192.168.9.31/32,🇺🇸 美国
   # --- 广告屏蔽 ---
   - GEOSITE,category-ads-all,🚫 广告屏蔽
     # 测速
