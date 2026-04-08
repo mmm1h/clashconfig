@@ -39,6 +39,19 @@ proxy-providers:
       interval: 300
       url: https://cp.cloudflare.com/generate_204
 
+  CF备用:
+    type: http
+    url: "__CF_PRIVATE_URL__"
+    interval: 3600
+    path: "./providers/CF备用.yaml"
+    override:
+      udp: true
+    health-check:
+      enable: true
+      interval: 300
+      url: https://cp.cloudflare.com/generate_204
+
+
 # ----------------- Clash 高级参数配置 start ----------------- #
 profile:
   store-selected: true         # 记忆并恢复之前所选的代理节点
@@ -128,6 +141,7 @@ proxy-groups:
       - DIRECT
       - 🇭🇰 香港(魅影)
       - 🇭🇰 香港(云洞)
+      - 🌐 CF备用
       - 🇹🇼 台湾
       - 🇸🇬 新加坡
       - 🇯🇵 日本
@@ -144,6 +158,14 @@ proxy-groups:
       - 魅影
       - 爪云
     filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2))(?!.*(?i)(2x|4x)).*$'
+
+  - name: 🌐 CF备用
+    type: url-test
+    url: 'https://cp.cloudflare.com/generate_204'
+    interval: 300
+    tolerance: 50
+    use:
+      - CF备用
 
   - name: "📺 国外媒体"
     type: select

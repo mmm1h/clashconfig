@@ -26,6 +26,7 @@ jobs:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
           JP_PRIVATE_URL: ${{ secrets.JP_PRIVATE_URL }}
+          CF_PRIVATE_URL: ${{ secrets.CF_PRIVATE_URL }}
         run: |
           python - <<'PY'
           import os
@@ -37,6 +38,7 @@ jobs:
               "__MEIYING_URL__": os.environ.get("MEIYING_URL", ""),
               "__YUNDONG_URL__": os.environ.get("YUNDONG_URL", ""),
               "__JP_PRIVATE_URL__": os.environ.get("JP_PRIVATE_URL", ""),
+              "__CF_PRIVATE_URL__": os.environ.get("CF_PRIVATE_URL", ""),
           }
 
           missing = [k for k, v in replacements.items() if k in data and not v]

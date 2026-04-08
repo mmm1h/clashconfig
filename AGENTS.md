@@ -44,7 +44,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - Group names often include emoji/CJK characters; copy/paste exact strings to avoid subtle mismatches.
 - `QuantumultX.conf` shares policy group names with Mihomo; keep overlaps consistent.
 - Preserve placeholder values unless explicitly updating:
-  - `__MEIYING_URL__`, `__YUNDONG_URL__` (subscription URLs)
+  - `__MEIYING_URL__`, `__YUNDONG_URL__`, `__JP_PRIVATE_URL__`, `__CF_PRIVATE_URL__` (subscription URLs)
   - `__QX_MITM_P12__` (Quantumult X MITM cert placeholder)
 
 ## Rule list conventions
