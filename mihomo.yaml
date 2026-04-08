@@ -66,9 +66,9 @@ dns:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
   fallback:
-  - "https://dns.cloudflare.com/dns-query#🇭🇰 香港(云洞)"
-  - "https://doh.dns.sb/dns-query#🇭🇰 香港(云洞)"
-  - "https://dns.twnic.tw/dns-query#🇭🇰 香港(云洞)"
+  - "https://dns.cloudflare.com/dns-query#♻️ 自动选择"
+  - "https://doh.dns.sb/dns-query#♻️ 自动选择"
+  - "https://dns.twnic.tw/dns-query#♻️ 自动选择"
 
 
   fake-ip-range: 198.18.0.0/15
