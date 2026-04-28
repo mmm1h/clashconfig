@@ -1,5 +1,5 @@
-# 更新时间：2026-04-27 13:15:00
-# 数量：88240条
+# 更新时间：2026-04-28 13:22:37
+# 数量：88245条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
@@ -8156,6 +8156,7 @@ DOMAIN-SUFFIX,advisorservicesfpc.etradefinancial.com
 DOMAIN-SUFFIX,advisorthrowbible.com
 DOMAIN-SUFFIX,advisorycloud-dev.actonservice.com
 DOMAIN-SUFFIX,adviva.net
+DOMAIN-SUFFIX,advlion.com
 DOMAIN-SUFFIX,advmaker.ru
 DOMAIN-SUFFIX,advmaker.su
 DOMAIN-SUFFIX,advmob.cn
@@ -26443,6 +26444,7 @@ DOMAIN-SUFFIX,etl.springbot.com
 DOMAIN-SUFFIX,etlz1mt67.com
 DOMAIN-SUFFIX,etobeasasile.org
 DOMAIN-SUFFIX,etobepartouk.com
+DOMAIN-SUFFIX,etoolads.cn
 DOMAIN-SUFFIX,etooqcedvlzyh.space
 DOMAIN-SUFFIX,etop.ro
 DOMAIN-SUFFIX,etoqel.nordicnest.de
@@ -78830,6 +78832,7 @@ DOMAIN-SUFFIX,ubfokqqlwcggb.space
 DOMAIN-SUFFIX,ubgneblgrosii.site
 DOMAIN-SUFFIX,ubhoryjlvjfux.website
 DOMAIN-SUFFIX,ubilinkbin.com
+DOMAIN-SUFFIX,ubixioe.com
 DOMAIN-SUFFIX,ubjzmnbnhtdjj.site
 DOMAIN-SUFFIX,ublasklnrnifs.site
 DOMAIN-SUFFIX,ubm.docu.info
@@ -86874,6 +86877,7 @@ DOMAIN-SUFFIX,yunjiasu.com
 DOMAIN-SUFFIX,yunpifu.cn
 DOMAIN-SUFFIX,yunqingugm.com
 DOMAIN-SUFFIX,yunshipei.com
+DOMAIN-SUFFIX,yunxish.com
 DOMAIN-SUFFIX,yuoyan.finanzen.de
 DOMAIN-SUFFIX,yupfiles.net
 DOMAIN-SUFFIX,yuppads.com
@@ -87411,6 +87415,7 @@ DOMAIN-SUFFIX,zgzmomikxzwzk.online
 DOMAIN-SUFFIX,zgzxm.weathercn.com
 DOMAIN-SUFFIX,zh-tw.siemensplmevents.com
 DOMAIN-SUFFIX,zhaner.xyz
+DOMAIN-SUFFIX,zhangyuyidong.cn
 DOMAIN-SUFFIX,zhaozecheng.cn
 DOMAIN-SUFFIX,zhbhivvoid.com
 DOMAIN-SUFFIX,zhcftryddgsyg.website
