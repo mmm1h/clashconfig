@@ -1,0 +1,4 @@
+# Project Instructions
+
+@AGENTS.md
+
