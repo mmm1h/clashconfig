@@ -1,5 +1,5 @@
-# 更新时间：2026-05-06 13:20:56
-# 数量：88245条
+# 更新时间：2026-05-07 13:23:28
+# 数量：88249条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
@@ -215,9 +215,11 @@ DOMAIN,httpdns.kg.qq.com
 DOMAIN,httpdns.meituan.com
 DOMAIN,httpdns.music.163.com
 DOMAIN,httpdns.n.netease.com
+DOMAIN,httpdns.ocloud.oppomobile.com
 DOMAIN,httpdns.push.oppomobile.com
 DOMAIN,httpdns.volcengineapi.com
 DOMAIN,httpdns.yunxindns.com
+DOMAIN,httpdns.yunxinfw.com
 DOMAIN,httpdnsmultiapi.meituan.com
 DOMAIN,httpdnsmultiapivip.meituan.com
 DOMAIN,httpsdns.baidu.com
@@ -88131,7 +88133,9 @@ IP-CIDR,172.255.6.248/32,no-resolve
 IP-CIDR,172.255.6.252/32,no-resolve
 IP-CIDR,172.255.6.254/32,no-resolve
 IP-CIDR,172.255.6.59/32,no-resolve
+IP-CIDR,180.76.76.112/32
 IP-CIDR,180.76.76.200/32
+IP-CIDR,180.76.76.220/32
 IP-CIDR,182.254.116.117/32
 IP-CIDR,182.254.118.119/32
 IP-CIDR,185.149.120.173/32,no-resolve
