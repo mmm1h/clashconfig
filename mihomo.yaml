@@ -157,7 +157,7 @@ proxy-groups:
     use:
       - 魅影
       - 爪云
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2))(?!.*(?i)(2x|4x)).*$'
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2))(?!.*(?i)(4x)).*$'
 
   - name: 🌐 CF备用
     type: url-test
