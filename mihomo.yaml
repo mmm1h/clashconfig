@@ -239,7 +239,7 @@ proxy-groups:
     interval: 300
     use:
       - 魅影
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(2x|4x)).*$'
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(4x)).*$'
 
   - name: 🇭🇰 香港(云洞)
     type: url-test
@@ -266,7 +266,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡))(?!.*(?i)(2x|4x)).*$'
+    filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡))(?!.*(?i)(4x)).*$'
 
   - name: 🇯🇵 日本
     type: select
@@ -276,7 +276,7 @@ proxy-groups:
       - 魅影
       - 云洞
       - 爪云
-    filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(2x|4x)).*$'
+    filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(4x)).*$'
 
   - name: 🇺🇸 美国
     type: url-test
@@ -285,7 +285,7 @@ proxy-groups:
     use:
       - 魅影
       - 云洞
-    filter: '^(?=.*(?i)(US|America|United States|美国|美))(?!.*(?i)(2x|4x)).*$'
+    filter: '^(?=.*(?i)(US|America|United States|美国|美))(?!.*(?i)(4x)).*$'
 
   - name: 🌐 其他地区
     type: select
