@@ -368,6 +368,7 @@ rules:
   - SRC-IP-CIDR,192.168.9.31/32,🇺🇸 美国
   # --- 广告屏蔽 ---
   - GEOSITE,category-ads-all,🚫 广告屏蔽
+  - GEOSITE,adobe,🚫 广告屏蔽
     # 测速
   - GEOSITE,category-speedtest,🚀 节点选择
 
