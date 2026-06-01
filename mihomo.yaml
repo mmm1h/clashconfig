@@ -269,7 +269,7 @@ proxy-groups:
     filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡))(?!.*(?i)(4x)).*$'
 
   - name: 🇯🇵 日本
-    type: select
+    type: url-test
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
