@@ -6,6 +6,11 @@ DOMAIN-SUFFIX,ntfy.sh
 DOMAIN-KEYWORD,wallpaperengine
 DOMAIN-SUFFIX,assets1.xboxlive.com
 DOMAIN-SUFFIX,assets2.xboxlive.com
+DOMAIN-SUFFIX,assets2.xboxlive.com
+
+#工作
+DOMAIN-SUFFIX,mijingcn.com
+
 #huggingface模型下载
 #DOMAIN-SUFFIX,cdn-lfs.huggingface.co
 #DOMAIN-SUFFIX,cdn-lfs-us-1.huggingface.co
