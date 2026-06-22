@@ -157,7 +157,7 @@ proxy-groups:
     use:
       - 魅影
       - 爪云
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2))(?!.*(?i)(4x)).*$'
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|DediOne-LAX-CN))(?!.*(?i)(4x)).*$'
 
   - name: 🌐 CF备用
     type: url-test
@@ -207,7 +207,7 @@ proxy-groups:
       - 魅影
       - 云洞
       - 爪云
-    filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|gpt|openai)'
+    filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|DediOne-LAX-CN|gpt|openai)'
 
   - name: "🎯 全球直连"
     type: select
@@ -248,7 +248,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
-    filter: '(?i)(HK|Hong Kong|香港|港|JP-Reality|JP-HY2)'
+    filter: '(?i)(HK|Hong Kong|香港|港|DediOne-LAX-CN)'
 
   - name: 🇹🇼 台湾
     type: url-test
