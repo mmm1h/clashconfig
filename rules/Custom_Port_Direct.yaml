@@ -1,0 +1,7 @@
+# Non-80/443 port direct rules
+# Classical rule-provider format for Mihomo/Clash.
+
+payload:
+  - DST-PORT,1-79
+  - DST-PORT,81-442
+  - DST-PORT,444-65535

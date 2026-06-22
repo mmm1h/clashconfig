@@ -7,6 +7,7 @@
 - CN.txt：用于 iKuai 的自定义运营商 IP 分流，内容为国内 IP。
 - Direct.list：直连规则。
 - GameDownload.list：游戏下载/更新相关规则。
+- Custom_Port_Direct.yaml：非 80/443 端口直连规则，供 Mihomo/Clash rule-provider 使用。
 - JP.list：日本相关规则。
 - Rules.list：通用补充规则。
 - US.list：美国相关规则。
