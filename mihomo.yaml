@@ -37,7 +37,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
-      url: https://cp.cloudflare.com/generate_204
+      url: https://www.gstatic.com/generate_204
 
   CF备用:
     type: http
