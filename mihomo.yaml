@@ -356,7 +356,7 @@ rule-providers:
   Custom_Port_Direct:
     type: http
     behavior: classical
-    url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/Aethersailor/Custom_OpenClash_Rules/refs/heads/main/rule/Custom_Port_Direct.yaml"
+    url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Custom_Port_Direct.yaml"
     path: ./rule_provider/Custom_Port_Direct.yaml
     interval: 86400
     # format: text payload格式，无须转换
