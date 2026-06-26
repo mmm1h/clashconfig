@@ -376,8 +376,8 @@ rules:
   - RULE-SET,Custom_AI,🤖 AI节点
   - RULE-SET,Custom_US,🇺🇸 美国
   - RULE-SET,Custom_JP,🇯🇵 日本
-  - RULE-SET,Custom_Direct,🎯 全球直连
   - RULE-SET,Custom_Rules,🚀 节点选择
+  - RULE-SET,Custom_Direct,🎯 全球直连
 
 
   # --- 直连规则 ---
