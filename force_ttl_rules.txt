@@ -1,7 +1,7 @@
 # ==========================================
 # PaoPaoDNS Force TTL Rules (Bytedance)
-# Updated: 2026-07-07 05:42:50 (北京时间)
-# Count:   349 domains
+# Updated: 2026-07-08 05:35:46 (北京时间)
+# Count:   350 domains
 # DNS:     180.184.1.1:53
 # Source 1:  https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance
 # Source 2:  https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin.list
@@ -357,3 +357,4 @@ zjbyte.net@180.184.1.1:53
 zjcdn.com@180.184.1.1:53
 zjfcdn.com@180.184.1.1:53
 zjgslb.com@180.184.1.1:53
+zlinkurl.cn@180.184.1.1:53
