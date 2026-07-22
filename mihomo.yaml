@@ -198,6 +198,14 @@ proxy-groups:
       - 🚀 节点选择
       - 🎮 游戏专用
 
+  - name: "🪟 微软下载"
+    type: select
+    proxies:
+      - DIRECT
+      - 🇸🇬 新加坡
+      - 🇭🇰 香港(云洞)
+      - 🚀 节点选择
+
   - name: "🤖 AI节点"
     type: select
     url: 'https://chatgpt.com/favicon.ico'
@@ -363,6 +371,11 @@ rule-providers:
     proxy: DIRECT
 
 rules:
+
+  # Microsoft Store / Delivery Optimization
+  - DOMAIN-SUFFIX,do.dsp.mp.microsoft.com,DIRECT
+  - DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com,🪟 微软下载
+  - DOMAIN-SUFFIX,delivery.mp.microsoft.com,DIRECT
 
   #pixel 单独分流，解决某些 AI 服务
   - SRC-IP-CIDR,192.168.9.31/32,🇺🇸 美国
