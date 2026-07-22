@@ -2,6 +2,7 @@
 DOMAIN-SUFFIX,hmhi.top
 
 #直连
+DOMAIN-SUFFIX,api.pindo.cc
 #DOMAIN-KEYWORD,gdstudio
 DOMAIN-SUFFIX,ntfy.sh
 DOMAIN-KEYWORD,wallpaperengine
@@ -16,10 +17,14 @@ DOMAIN-SUFFIX,mijingcn.com
 #DOMAIN-SUFFIX,cdn-lfs.huggingface.co
 #DOMAIN-SUFFIX,cdn-lfs-us-1.huggingface.co
 
+
+
 #播客
 DOMAIN-SUFFIX,fireside.fm
 
 #steam下载
+
+
 DOMAIN-SUFFIX,cm.steampowered.com
 DOMAIN-SUFFIX,steamcdn-a.akamaihd.net
 DOMAIN-SUFFIX,steamserver.net
