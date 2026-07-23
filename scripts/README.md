@@ -2,6 +2,29 @@
 
 本目录存放本仓库的辅助脚本。建议在仓库根目录执行脚本，以保证相对路径正确。
 
+## analyze_qx_har.py
+
+用途：
+- 分析 Quantumult X 导出的 HAR，汇总广告候选接口、时间线、素材下载与上报请求。
+- 同时传入多个 HAR 时，对比新增、消失和次数变化的候选接口。
+- 默认严格脱敏：不输出 headers、Cookie、Authorization、query value 或原始请求/响应正文。
+
+使用：
+```bash
+python scripts/analyze_qx_har.py capture.har
+python scripts/analyze_qx_har.py old.har new.har --app-package com.gemd.iting
+python scripts/analyze_qx_har.py capture.har --format json --output report.json
+python scripts/analyze_qx_har.py capture.har --show-hosts
+```
+
+说明：
+- 仅依赖 Python 3.10+ 标准库，不修改输入 HAR；`--output` 不允许指向输入文件。
+- 报告以 `HAR A`、`HAR B` 标识输入，不显示原文件名。
+- 已知公共广告 host 原样保留，其他 host 使用单次运行内稳定的随机别名；非白名单 path 段统一脱敏。
+- 只有在可信本机环境需要定位未知域名时才使用 `--show-hosts`；该选项可能暴露账号、设备或租户型子域。
+- 报告只保留状态、大小、标准化 MIME，以及白名单字段（广告位、包名、placement type）。
+- 原始 HAR 可能包含账号、设备标识和认证信息，不要提交到 Git。
+
 ## update_direct_from_cn.py
 
 用途：
