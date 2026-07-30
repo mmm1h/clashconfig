@@ -1,7 +1,7 @@
 # ==========================================
 # PaoPaoDNS Force TTL Rules (Bytedance)
-# Updated: 2026-07-30 05:04:57 (北京时间)
-# Count:   354 domains
+# Updated: 2026-07-31 05:18:11 (北京时间)
+# Count:   357 domains
 # DNS:     180.184.1.1:53
 # Source 1:  https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance
 # Source 2:  https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin.list
@@ -155,6 +155,7 @@ cdnbuild.com@180.184.1.1:53
 cdnbuild.net@180.184.1.1:53
 cdndns1.com@180.184.1.1:53
 cdndns2.com@180.184.1.1:53
+csjplatform.com@180.184.1.1:53
 ctobsnssdk.com@180.184.1.1:53
 dig.bdurl.net@180.184.1.1:53
 doubo03.com@180.184.1.1:53
@@ -227,6 +228,7 @@ originalimg.com@180.184.1.1:53
 originalstatic.com@180.184.1.1:53
 originalvod.com@180.184.1.1:53
 pacmantwo.com@180.184.1.1:53
+pangle.cn@180.184.1.1:53
 pangolin-dsp-toutiao-b.com@180.184.1.1:53
 pangolin-dsp-toutiao.com@180.184.1.1:53
 pangolin-hl.snssdk.com@180.184.1.1:53
@@ -336,6 +338,7 @@ xiguashipin.net@180.184.1.1:53
 xiguavideo.cn@180.184.1.1:53
 xiguavideo.net@180.184.1.1:53
 xsgtvacct.com@180.184.1.1:53
+yhgfb-cn-static.com@180.184.1.1:53
 zijieapi.cn@180.184.1.1:53
 zijieapi.com@180.184.1.1:53
 zijieapi.net@180.184.1.1:53
