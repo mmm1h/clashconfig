@@ -1,5 +1,5 @@
-# 更新时间：2026-08-01 13:18:10
-# 数量：88249条
+# 更新时间：2026-08-02 13:17:20
+# 数量：88243条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
@@ -11,7 +11,6 @@
 # 来源9：https://raw.githubusercontent.com/w37fhy/QuantumultX/master/Rules/Tracking.list
 # 作者：mmm1h
 
-DOMAIN,118.89.204.198
 DOMAIN,a.wkanx.com
 DOMAIN,a0.app.xiaomi.com
 DOMAIN,abema-adx.ameba.jp
@@ -150,7 +149,6 @@ DOMAIN,api.adnet.mob.com
 DOMAIN,api.installer.xiaomi.com
 DOMAIN,api.newad.ifeng.com
 DOMAIN,app-ad.variflight.com
-DOMAIN,appcloud2.in.zhihu.com
 DOMAIN,applogapi.autohome.com.cn
 DOMAIN,appnext-a.akamaihd.net
 DOMAIN,appnext.hs.llnwd.net
@@ -265,7 +263,6 @@ DOMAIN,mobilead.kuwo.cn
 DOMAIN,mobileads.msn.com
 DOMAIN,mobilelog.kugou.com
 DOMAIN,mopnativeadv.037201.com
-DOMAIN,mqtt.zhihu.com
 DOMAIN,music.httpdns.c.163.com
 DOMAIN,n.3g.163.com
 DOMAIN,nadvideo2.baidu.com
@@ -307,7 +304,6 @@ DOMAIN,sdk.51.la
 DOMAIN,splashimgbssdl.yun.kugou.com
 DOMAIN,splashqqlive.gtimg.com
 DOMAIN,stat.10jqka.com.cn
-DOMAIN,sugar.zhihu.com
 DOMAIN,t-ads.xiaohongshu.com
 DOMAIN,t7z.cupid.iqiyi.com
 DOMAIN,t7z.cupid.ptqy.gitv.tv
@@ -88106,7 +88102,6 @@ IP-CIDR,115.236.121.51/32
 IP-CIDR,117.177.248.17/32,no-resolve
 IP-CIDR,117.177.248.41/32,no-resolve
 IP-CIDR,118.89.204.198/32
-IP-CIDR,118.89.204.198/32,no-resolve
 IP-CIDR,119.29.29.98/32
 IP-CIDR,119.29.29.99/32
 IP-CIDR,123.151.54.50/32
@@ -88256,7 +88251,6 @@ IP-CIDR,60.190.139.164/32,no-resolve
 IP-CIDR,77.162.125.199/32,no-resolve
 IP-CIDR,88.42.84.136/32,no-resolve
 IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128
-IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,no-resolve
 IP-CIDR6,2402:4e00:1900:1700:0:9554:1ad9:c3a/128
 IP-CIDR6,2402:db40:5100:1011::5/128
 IP-CIDR6,240e:928:1400:10::25/128
