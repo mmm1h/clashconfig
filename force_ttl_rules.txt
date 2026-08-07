@@ -1,7 +1,7 @@
 # ==========================================
 # PaoPaoDNS Force TTL Rules (Bytedance)
-# Updated: 2026-08-07 08:54:10 (北京时间)
-# Count:   359 domains
+# Updated: 2026-08-08 04:50:28 (北京时间)
+# Count:   367 domains
 # DNS:     180.184.1.1:53
 # Source 1:  https://raw.githubusercontent.com/v2fly/domain-list-community/refs/heads/master/data/bytedance
 # Source 2:  https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/DouYin/DouYin.list
@@ -53,6 +53,7 @@ betadance.net@180.184.1.1:53
 bfcdnbf.com@180.184.1.1:53
 bfcdnrd.com@180.184.1.1:53
 bfcdnsc.com@180.184.1.1:53
+buydouke.com@180.184.1.1:53
 bvfcdn.com@180.184.1.1:53
 bx0byte.com@180.184.1.1:53
 byte-edge.com@180.184.1.1:53
@@ -147,10 +148,12 @@ bytetos.com@180.184.1.1:53
 bytetraffic.net@180.184.1.1:53
 bytetstatic.com@180.184.1.1:53
 bytetstatic.net@180.184.1.1:53
+byteurl.cn@180.184.1.1:53
 bytevalk.com@180.184.1.1:53
 bytevcloudapi.com@180.184.1.1:53
 bytevcloudvod.com@180.184.1.1:53
 bytexservice.com@180.184.1.1:53
+capcut.cn@180.184.1.1:53
 capcut.com@180.184.1.1:53
 capcutcdn-us.com@180.184.1.1:53
 cdnbuild.com@180.184.1.1:53
@@ -159,20 +162,23 @@ cdndns1.com@180.184.1.1:53
 cdndns2.com@180.184.1.1:53
 csjplatform.com@180.184.1.1:53
 ctobsnssdk.com@180.184.1.1:53
+dailygn.com@180.184.1.1:53
 dig.bdurl.net@180.184.1.1:53
 doubo03.com@180.184.1.1:53
 douyin.com@180.184.1.1:53
 douyincdn.com@180.184.1.1:53
-douyinec.com@180.184.1.1:53
 douyinpic.com@180.184.1.1:53
 douyinstatic.com@180.184.1.1:53
 douyinvod.com@180.184.1.1:53
 draftstatic.com@180.184.1.1:53
 druid.vip@180.184.1.1:53
 ecombdapi.com@180.184.1.1:53
+ecombdimg.com@180.184.1.1:53
 ecombdstatic.com@180.184.1.1:53
+ecombdvod.com@180.184.1.1:53
 extlog.snssdk.com@180.184.1.1:53
 faceu.com@180.184.1.1:53
+faceu.mobi@180.184.1.1:53
 fedlearner.net@180.184.1.1:53
 feelgood.cn@180.184.1.1:53
 gcloudcache.com@180.184.1.1:53
@@ -223,6 +229,8 @@ neihancommunity.cn@180.184.1.1:53
 neihancommunity.com@180.184.1.1:53
 neihancommunity.net@180.184.1.1:53
 neyetwatcher.com@180.184.1.1:53
+nvsgames.cn@180.184.1.1:53
+oceanengine.com@180.184.1.1:53
 oortgslb.com@180.184.1.1:53
 openbcs.com@180.184.1.1:53
 openve.cn@180.184.1.1:53
