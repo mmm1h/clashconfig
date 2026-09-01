@@ -1,5 +1,5 @@
 # 个人直连列表
-DOMAIN-SUFFIX,hmhi.top
+#DOMAIN-SUFFIX,hmhi.top
 
 #直连
 DOMAIN-SUFFIX,argotunnel.com,DIRECT

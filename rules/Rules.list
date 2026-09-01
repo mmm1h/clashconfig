@@ -1,10 +1,9 @@
 
 # 个人列表
+DOMAIN-SUFFIX,hmhi.top
 DOMAIN-SUFFIX,maying.co
 DOMAIN-SUFFIX,jina.ai
-DOMAIN-SUFFIX,img.hmhi.top
-DOMAIN-SUFFIX,proxy.hmhi.top
-DOMAIN-SUFFIX,mail.hmhi.top
+
 DOMAIN-SUFFIX,bangumi.tv
 DOMAIN-SUFFIX,api.bgm.tv
 #c站不显示大图
