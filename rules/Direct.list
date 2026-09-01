@@ -2,6 +2,12 @@
 DOMAIN-SUFFIX,hmhi.top
 
 #直连
+DOMAIN-SUFFIX,argotunnel.com,DIRECT
+DOMAIN-SUFFIX,cftunnel.com,DIRECT
+DOMAIN,api.cloudflare.com,DIRECT
+IP-CIDR,198.41.192.0/24,DIRECT,no-resolve
+IP-CIDR,198.41.200.0/24,DIRECT,no-resolve
+
 DOMAIN-SUFFIX,api.pindo.cc
 #DOMAIN-KEYWORD,gdstudio
 DOMAIN-SUFFIX,ntfy.sh

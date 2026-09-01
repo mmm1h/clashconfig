@@ -108,6 +108,8 @@ dns:
     - "+.msftncsi.com"
     # 解决 返回ip地址的域名被误判为国外域名的问题
     - "+.hmhi.top"
+    - "+.argotunnel.com"
+    - "+.cftunnel.com"
 
   fallback-filter:
     geoip: true
