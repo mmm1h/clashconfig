@@ -388,6 +388,8 @@ rules:
   - GEOSITE,category-speedtest,🚀 节点选择
 
   # --- 自定义规则 ---
+  - DOMAIN-REGEX,^r+[0-9]+---sn-(2x3|ni5|j5o)[a-z0-9]+\.xn--ngstr-lra8j\.com$,DIRECT
+  - DOMAIN,services.googleapis.cn,🎮 游戏专用
   - RULE-SET,Custom_AI,🤖 AI节点
   - RULE-SET,Custom_US,🇺🇸 美国
   - RULE-SET,Custom_JP,🇯🇵 日本
