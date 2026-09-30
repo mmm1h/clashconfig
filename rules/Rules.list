@@ -1,5 +1,8 @@
 
 # 个人列表
+DOMAIN-SUFFIX,play.googleapis.com
+DOMAIN-SUFFIX,play.google.com
+DOMAIN-SUFFIX,googleusercontent.com
 DOMAIN-SUFFIX,hmhi.top
 DOMAIN-SUFFIX,maying.co
 DOMAIN-SUFFIX,jina.ai
