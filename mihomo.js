@@ -482,9 +482,6 @@ function main(config) {
 
   // Populate rules from the YAML configuration
   config["rules"] = [
-    // Android Play downloads: keep mainland CDN direct and proxy the dispatcher.
-    "DOMAIN-REGEX,^r+[0-9]+---sn-(2x3|ni5|j5o)[a-z0-9]+\\.xn--ngstr-lra8j\\.com$,DIRECT",
-    "DOMAIN,services.googleapis.cn,🚀 节点选择",
     // ;自定义规则
     "RULE-SET,mmm1h_Direct,🎯 全球直连",
     "RULE-SET,mmm1h_GameDownload,⚽ 游戏下载",
