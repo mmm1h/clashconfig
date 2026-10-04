@@ -2,6 +2,22 @@
 
 本目录存放本仓库的辅助脚本。建议在仓库根目录执行脚本，以保证相对路径正确。
 
+## update_chatgpt_voice.py
+
+从 `https://openai.com/chatgpt-voice.json` 拉取官方语音 IP 清单，更新 `rules/AI.list` 的 `ChatGPT Voice START/END (auto)` 区块，保留区块外的手工规则。该区块是生成数据，不要手工补地址。
+
+```bash
+python scripts/update_chatgpt_voice.py
+python -m unittest discover -s tests -p 'test_update_chatgpt_voice.py'
+```
+
+- 仅依赖 Python 3.10+ 标准库；默认输出路径相对脚本定位，也可用 `--output <path>` 指定现有 AI 列表。
+- 校验非空官方清单、CIDR、地址族和公网范围；下载、解析、标记或写入失败时退出非零并保留旧文件。
+- 输出排序去重，重复运行不产生变化。初次执行仅移除本次排障的两个临时地址区块，再建立完整官方区块。
+- 公开 `mmm1h/clashconfig` 的 `Sync ChatGPT Voice Rules` Actions 每天北京时间 04:23 更新，支持手动执行及相关文件 push 触发；只有地址变化才提交 `AI.list`。
+- 人工代码和规则仍在 `network_debug/clashconfig` 维护；公开仓只自动刷新官方生成区块。定向发布手工 AI 规则前，运行脚本刷新源码中的生成区块。
+- 沿用现有 `Custom_AI` 订阅 URL，不修改主 YAML。客户端按原刷新周期拉取；需要马上使用时刷新 `Custom_AI`。
+
 ## analyze_qx_har.py
 
 用途：
