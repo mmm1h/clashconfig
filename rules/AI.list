@@ -1,4 +1,7 @@
 DOMAIN-SUFFIX,chat.openai.com
+# Observed ChatGPT dot voice media endpoints (2026-10-04)
+IP-CIDR,20.184.36.134/32,no-resolve
+IP-CIDR,4.197.172.116/32,no-resolve
 
 # 内容：Claude
 DOMAIN-SUFFIX,claude.ai
