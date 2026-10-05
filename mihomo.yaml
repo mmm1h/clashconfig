@@ -66,6 +66,9 @@ geox-url:
   geosite: "https://proxy.hmhi.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
 
 dns:
+  enable: true
+  enhanced-mode: fake-ip
+  ipv6: false
   direct-nameserver:
   - "https://dns.alidns.com/dns-query#h3=true"
   - "https://doh.pub/dns-query"
