@@ -10,6 +10,42 @@ function main(config) {
     config['rules'] = [];
   }
 
+  // Match mihomo.yaml's DNS policy while retaining the input's Fake-IP exclusions.
+  const domesticDns = [
+    "https://223.5.5.5/dns-query#DIRECT",
+    "https://223.6.6.6/dns-query#DIRECT"
+  ];
+  const proxyDns = [
+    "https://1.1.1.1/dns-query#♻️ 自动选择",
+    "https://8.8.8.8/dns-query#♻️ 自动选择"
+  ];
+  config.ipv6 = false;
+  config.dns = Object.assign({}, config.dns, {
+    enable: true,
+    ipv6: false,
+    "enhanced-mode": "fake-ip",
+    "fake-ip-range": config.dns?.["fake-ip-range"] || "198.18.0.0/15",
+    listen: "127.0.0.1:1053",
+    "prefer-h3": false,
+    "respect-rules": true,
+    "default-nameserver": domesticDns,
+    "proxy-server-nameserver": domesticDns,
+    nameserver: proxyDns,
+    "direct-nameserver": proxyDns,
+    "direct-nameserver-follow-policy": true,
+    "nameserver-policy": {
+      "geosite:geolocation-!cn": proxyDns,
+      "geosite:cn": domesticDns
+    }
+  });
+  delete config.dns.fallback;
+  delete config.dns["fallback-filter"];
+  delete config.dns["fallback-lazy-query"];
+  config.tun = Object.assign({}, config.tun, {
+    "dns-hijack": ["any:53", "tcp://any:53"],
+    "strict-route": true
+  });
+
   // Populate proxy-groups from the YAML configuration
   config["proxy-groups"] = [
     {
@@ -29,6 +65,7 @@ function main(config) {
     {
       name: "♻️ 自动选择",
       type: "url-test",
+      "empty-fallback": "REJECT",
       url: "http://www.gstatic.com/generate_204",
       interval: 300,
       tolerance: 50,
@@ -482,6 +519,20 @@ function main(config) {
 
   // Populate rules from the YAML configuration
   config["rules"] = [
+    // Keep encrypted DNS ahead of direct rules; the group must contain proxies only.
+    "DOMAIN-SUFFIX,dns.google,♻️ 自动选择",
+    "DOMAIN-SUFFIX,cloudflare-dns.com,♻️ 自动选择",
+    "DOMAIN-SUFFIX,dns.cloudflare.com,♻️ 自动选择",
+    "DOMAIN-SUFFIX,dns.quad9.net,♻️ 自动选择",
+    "DOMAIN-SUFFIX,dns.sb,♻️ 自动选择",
+    "DOMAIN-SUFFIX,dns.twnic.tw,♻️ 自动选择",
+    "IP-CIDR,1.1.1.1/32,♻️ 自动选择,no-resolve",
+    "IP-CIDR,1.0.0.1/32,♻️ 自动选择,no-resolve",
+    "IP-CIDR,8.8.8.8/32,♻️ 自动选择,no-resolve",
+    "IP-CIDR,8.8.4.4/32,♻️ 自动选择,no-resolve",
+    "IP-CIDR,9.9.9.9/32,♻️ 自动选择,no-resolve",
+    "IP-CIDR,149.112.112.112/32,♻️ 自动选择,no-resolve",
+    "DST-PORT,853,♻️ 自动选择",
     // ;自定义规则
     "RULE-SET,mmm1h_Direct,🎯 全球直连",
     "RULE-SET,mmm1h_GameDownload,⚽ 游戏下载",

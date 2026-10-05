@@ -20,9 +20,9 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 # Agent Guide
 
 ## Source-of-truth rule
-- The authoritative editable source now lives in `network_debug/clashconfig/`.
-- The public `mmm1h/clashconfig` repo is an artifact/distribution shell. Do not treat it as the primary authoring repo.
-- When changes are needed, edit this in-repo directory in `network_debug` first, then sync the artifact repo mirror.
+- Maintain this local `clashconfig` checkout directly, as instructed by the owner.
+- The old `network_debug/clashconfig/` authoring workflow is retired.
+- Preserve subscription placeholders; GitHub Actions injects private URLs into the distributed Gist.
 
 ## Project summary
 - This repo stores Clash/Mihomo configuration, custom rule lists, and generated merged lists.
