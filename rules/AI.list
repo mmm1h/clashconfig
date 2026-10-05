@@ -1,13 +1,28 @@
 DOMAIN-SUFFIX,chat.openai.com
-
 # 内容：Claude
 DOMAIN-SUFFIX,claude.ai
 DOMAIN-SUFFIX,anthropic.com
-
+# Claude: web, OAuth, artifacts, MCP, native updates and auxiliary services.
+# Sources: https://github.com/v2fly/domain-list-community/blob/master/data/anthropic
+# https://code.claude.com/docs/en/network-config
+# https://platform.claude.com/docs/en/api/ip-addresses
+# https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Claude/Claude.list
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.dev
+DOMAIN-SUFFIX,claudeusercontent.com
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN,cdn.usefathom.com
+DOMAIN,cdn.growthbook.io
+DOMAIN,storage.googleapis.com
+DOMAIN,http-intake.logs.us5.datadoghq.com
+IP-CIDR,160.79.104.0/23,no-resolve
+IP-CIDR6,2607:6bc0::/48,no-resolve
 #notebooklm
 DOMAIN-SUFFIX,notebooklm.google
 DOMAIN-SUFFIX,notebooklm.google.com
-
 #内容：gemini
 DOMAIN-SUFFIX,one.google.com
 DOMAIN-SUFFIX,accounts.google.com
