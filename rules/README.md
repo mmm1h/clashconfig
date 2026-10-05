@@ -18,7 +18,9 @@
 
 ## Claude / Claude Code
 
-`AI.list` 的 Claude 规则通过主配置中的 `Custom_AI` 分流到 `🤖 AI节点`，覆盖 Claude 网页、Claude Code 认证、内容预览、MCP 服务、更新和辅助服务。`anthropic.com` 已覆盖 API、`statsig.anthropic.com` 和 `mcp-proxy.anthropic.com` 等子域名；`claude.com` 覆盖 `platform.claude.com` 的 OAuth 令牌交换与刷新。
+Claude 域名优先使用 `Claude_Community` 规则提供器：直接订阅 [MetaCubeX 的 Anthropic MRS](https://github.com/MetaCubeX/meta-rules-dat/blob/meta/geo/geosite/anthropic.list)，客户端每 86400 秒拉取更新，并分流到 `🤖 AI节点`。这份规则来自持续维护的社区域名数据；[v2fly 上游](https://github.com/v2fly/domain-list-community/commits/master/data/anthropic) 在 2026-10-02 新增了 `claude.dev`，核对时 MetaCubeX 的发布记录为 2026-10-05。
+
+`AI.list` 通过 `Custom_AI` 保留官方服务 IP、辅助服务及兼容补充项，同样使用 `🤖 AI节点`。`anthropic.com` 已覆盖 API、`statsig.anthropic.com` 和 `mcp-proxy.anthropic.com` 等子域名；`claude.com` 覆盖 `platform.claude.com` 的 OAuth 令牌交换与刷新。主 YAML 与 JS 生成器均接入上述两个规则提供器；JS 的 `🤖 AI节点` 转交现有 `🥦 OPENAI` 组选择出口。
 
 补充清单核对日期：2026-10-06。
 
@@ -32,6 +34,6 @@
 
 Google Cloud Storage 是共享服务，`storage.googleapis.com` 规则会将这个主机的所有连接交给 AI 节点；域名规则无法按存储桶路径区分 Claude 下载。Anthropic 的 `160.79.104.0/21` 是服务端发起工具调用等请求的出口范围，本清单使用官方公布的接入范围 `/23`。
 
-来源：[Claude Code 官方网络清单](https://code.claude.com/docs/en/network-config#network-access-requirements)、[官方 IP 地址](https://platform.claude.com/docs/en/api/ip-addresses)、[v2fly 社区 Anthropic 域名](https://github.com/v2fly/domain-list-community/blob/master/data/anthropic)、[blackmatrix7 Claude 规则](https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Claude/Claude.list)、[社区扩展规则](https://github.com/xiaolai/anthropic-claude-surge-rules-set/blob/main/domains.yaml)。`cdn.growthbook.io` 和 Datadog 的具体主机也核对过本机 Claude Code 2.1.220 的二进制域名字符串。
+来源：[MetaCubeX Anthropic 规则](https://github.com/MetaCubeX/meta-rules-dat/blob/meta/geo/geosite/anthropic.list)、[Claude Code 官方网络清单](https://code.claude.com/docs/en/network-config#network-access-requirements)、[官方 IP 地址](https://platform.claude.com/docs/en/api/ip-addresses)、[v2fly 社区 Anthropic 域名](https://github.com/v2fly/domain-list-community/blob/master/data/anthropic)、[blackmatrix7 Claude 规则](https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Claude/Claude.list)、[社区扩展规则](https://github.com/xiaolai/anthropic-claude-surge-rules-set/blob/main/domains.yaml)。`cdn.growthbook.io` 和 Datadog 的具体主机也核对过 Claude Code 2.1.220 的二进制域名字符串。ACL4SSR 的 Claude 清单核对时仅有两个基础域名；blackmatrix7 的清单有三个目标，作为辅助服务参考。
 
-更新后刷新 Clash 的 `Custom_AI` 规则提供器即可生效，无需重启 TUN。第三方 API 网关不属于这些官方域名，需要按实际网关另行设置规则；这份清单覆盖网络分流，无法保证服务端的账号或地区判定结果。
+首次接入需要更新配置订阅；此后刷新 Clash 的 `Claude_Community` / `Custom_AI` 规则提供器即可生效，无需重启 TUN。第三方 API 网关不属于这些官方域名，需要按实际网关另行设置规则；这份清单覆盖网络分流，无法保证服务端的账号或地区判定结果。

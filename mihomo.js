@@ -74,6 +74,12 @@ function main(config) {
       // proxies: [] // Implies filtering from all available proxies
     },
     {
+      // Keep the shared Claude/AI rules compatible with the legacy AI group.
+      name: "🤖 AI节点",
+      type: "select",
+      proxies: ["🥦 OPENAI"]
+    },
+    {
       name: "🎥 油管奈飞",
       type: "select",
       proxies: [
@@ -354,6 +360,22 @@ function main(config) {
       interval: 86400,
       format: "text"
     },
+    "Claude_Community": {
+      type: "http",
+      behavior: "domain",
+      format: "mrs",
+      url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.mrs",
+      path: "./ruleset/Claude_Community.mrs",
+      interval: 86400
+    },
+    "Custom_AI": {
+      type: "http",
+      behavior: "classical",
+      format: "text",
+      url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/AI.list",
+      path: "./ruleset/AI.yaml",
+      interval: 86400
+    },
     "ACL4SSR_AI": {
       type: "http",
       behavior: "classical",
@@ -533,6 +555,8 @@ function main(config) {
     "IP-CIDR,9.9.9.9/32,♻️ 自动选择,no-resolve",
     "IP-CIDR,149.112.112.112/32,♻️ 自动选择,no-resolve",
     "DST-PORT,853,♻️ 自动选择",
+    "RULE-SET,Claude_Community,🤖 AI节点",
+    "RULE-SET,Custom_AI,🤖 AI节点",
     // ;自定义规则
     "RULE-SET,mmm1h_Direct,🎯 全球直连",
     "RULE-SET,mmm1h_GameDownload,⚽ 游戏下载",
