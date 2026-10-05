@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: chatgpt-voice-rules
+  group: ai-rule-updates
   cancel-in-progress: false
 
 jobs:

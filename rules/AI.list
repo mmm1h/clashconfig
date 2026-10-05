@@ -1,19 +1,22 @@
 DOMAIN-SUFFIX,chat.openai.com
 # 内容：Claude
-DOMAIN-SUFFIX,claude.ai
+# --- Claude START (auto) ---
+# Source: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.list
+DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,clau.de
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claude.com
+DOMAIN-SUFFIX,claude.dev
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudemcpcontent.com
+DOMAIN-SUFFIX,claudeusercontent.com
+# --- Claude END (auto) ---
 # Claude: web, OAuth, artifacts, MCP, native updates and auxiliary services.
 # Sources: https://github.com/v2fly/domain-list-community/blob/master/data/anthropic
 # https://code.claude.com/docs/en/network-config
 # https://platform.claude.com/docs/en/api/ip-addresses
 # https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Clash/Claude/Claude.list
-DOMAIN-SUFFIX,claude.com
-DOMAIN-SUFFIX,claude.dev
-DOMAIN-SUFFIX,claudeusercontent.com
-DOMAIN-SUFFIX,claudemcpclient.com
-DOMAIN-SUFFIX,claudemcpcontent.com
-DOMAIN-SUFFIX,clau.de
-DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN,cdn.usefathom.com
 DOMAIN,cdn.growthbook.io
 DOMAIN,storage.googleapis.com

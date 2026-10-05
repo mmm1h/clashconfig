@@ -342,13 +342,6 @@ rule-providers:
     path: ./ruleset/US.yaml
     interval: 86400
     format: text
-  Claude_Community:
-    type: http
-    behavior: domain
-    format: mrs
-    url: 'https://proxy.hmhi.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.mrs'
-    path: ./ruleset/Claude_Community.mrs
-    interval: 86400
   Custom_AI:
     type: http
     behavior: classical
@@ -414,7 +407,6 @@ rules:
   - DOMAIN,services.googleapis.cn,🎮 游戏专用
   # Android Play Store only; other Google clients keep their existing AI route.
   - PROCESS-NAME,com.android.vending,🇺🇸 美国
-  - RULE-SET,Claude_Community,🤖 AI节点
   - RULE-SET,Custom_AI,🤖 AI节点
   - RULE-SET,Custom_US,🇺🇸 美国
   - RULE-SET,Custom_JP,🇯🇵 日本

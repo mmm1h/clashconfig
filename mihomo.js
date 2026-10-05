@@ -360,14 +360,6 @@ function main(config) {
       interval: 86400,
       format: "text"
     },
-    "Claude_Community": {
-      type: "http",
-      behavior: "domain",
-      format: "mrs",
-      url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/anthropic.mrs",
-      path: "./ruleset/Claude_Community.mrs",
-      interval: 86400
-    },
     "Custom_AI": {
       type: "http",
       behavior: "classical",
@@ -555,7 +547,6 @@ function main(config) {
     "IP-CIDR,9.9.9.9/32,♻️ 自动选择,no-resolve",
     "IP-CIDR,149.112.112.112/32,♻️ 自动选择,no-resolve",
     "DST-PORT,853,♻️ 自动选择",
-    "RULE-SET,Claude_Community,🤖 AI节点",
     "RULE-SET,Custom_AI,🤖 AI节点",
     // ;自定义规则
     "RULE-SET,mmm1h_Direct,🎯 全球直连",

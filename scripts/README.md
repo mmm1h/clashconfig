@@ -15,8 +15,24 @@ python -m unittest discover -s tests -p 'test_update_chatgpt_voice.py'
 - 校验非空官方清单、CIDR、地址族和公网范围；下载、解析、标记或写入失败时退出非零并保留旧文件。
 - 输出排序去重，重复运行不产生变化。初次执行仅移除本次排障的两个临时地址区块，再建立完整官方区块。
 - 公开 `mmm1h/clashconfig` 的 `Sync ChatGPT Voice Rules` Actions 每天北京时间 04:23 更新，支持手动执行及相关文件 push 触发；只有地址变化才提交 `AI.list`。
-- 人工代码和规则仍在 `network_debug/clashconfig` 维护；公开仓只自动刷新官方生成区块。定向发布手工 AI 规则前，运行脚本刷新源码中的生成区块。
+- 人工代码和规则直接在本机 `clashconfig` 仓库维护；公开仓自动刷新官方生成区块。定向发布手工 AI 规则前，运行脚本刷新生成区块。
 - 沿用现有 `Custom_AI` 订阅 URL，不修改主 YAML。客户端按原刷新周期拉取；需要马上使用时刷新 `Custom_AI`。
+
+## update_ai_rules.py
+
+延续 `AIMerged.yml` 的四个 ACL4SSR 来源，并加入 MetaCubeX 持续维护的 Anthropic 域名列表：转换其 `+.域名` / 精确域名格式，更新 `rules/AI.list` 的 `Claude START/END (auto)` 区块，同时重新生成根目录 `AIMerged.list`。
+
+```bash
+python -B scripts/update_ai_rules.py
+python -B -m unittest discover -s tests -p 'test_update_ai_rules.py'
+```
+
+- 只依赖 Python 3.10+ 标准库；下载或校验失败时不发布部分清单，保留旧文件。
+- 保留 auto 区块外的手工辅助域名、官方 IP、Gemini 及 ChatGPT Voice 规则；首次迁移只移动已知的九条 Claude 社区规则。
+- 校验规则语法、核心 Claude 域名和区块标记，排序去重；来源和内容均无变化时不更新合并清单的时间戳。
+- 现有 `AIMerged.yml` 每天北京时间 09:00 执行，支持手动运行及相关文件 push 触发，只有内容变化才提交两个清单。
+- 与 ChatGPT Voice 工作流共用 `ai-rule-updates` 并发组，避免同时改写 `AI.list`。
+- Clash 仅通过原有 `Custom_AI` 拉取本仓库 `rules/AI.list`；社区更新先进入 GitHub 仓库，再按客户端原有 86400 秒周期生效，也可手动刷新规则。
 
 ## analyze_qx_har.py
 
