@@ -3,18 +3,6 @@
 
 #订阅链接
 proxy-providers:
-  魅影:
-    type: http
-    url: "__MEIYING_URL__"
-    interval: 3600
-    path: "./providers/魅影.yaml"
-    override:
-      udp: true
-    health-check:
-      enable: true
-      interval: 300
-      url: https://cp.cloudflare.com/generate_204
-
   云洞:
     type: http
     url: "__YUNDONG_URL__"
@@ -38,19 +26,6 @@ proxy-providers:
       enable: true
       interval: 300
       url: https://www.gstatic.com/generate_204
-
-  CF备用:
-    type: http
-    url: "__CF_PRIVATE_URL__"
-    interval: 3600
-    path: "./providers/CF备用.yaml"
-    override:
-      udp: true
-    health-check:
-      enable: true
-      interval: 300
-      url: https://cp.cloudflare.com/generate_204
-
 
 # ----------------- Clash 高级参数配置 start ----------------- #
 profile:
@@ -140,9 +115,7 @@ proxy-groups:
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - 🇭🇰 香港(魅影)
       - 🇭🇰 香港(云洞)
-      - 🌐 CF备用
       - 🇹🇼 台湾
       - 🇸🇬 新加坡
       - 🇯🇵 日本
@@ -157,23 +130,14 @@ proxy-groups:
     interval: 300
     tolerance: 50
     use:
-      - 魅影
+      - 云洞
       - 爪云
     filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|DediOne|Lightsail))(?!.*(?i)(4x)).*$'
-
-  - name: 🌐 CF备用
-    type: url-test
-    url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
-    tolerance: 50
-    use:
-      - CF备用
 
   - name: "📺 国外媒体"
     type: select
     proxies:
       - ♻️ 自动选择
-      - 🇭🇰 香港(魅影)
       - 🚀 节点选择
       - 🇭🇰 香港(云洞)
       - 🇹🇼 台湾
@@ -189,7 +153,6 @@ proxy-groups:
     proxies:
       - DIRECT
     use:
-      - 魅影
       - 云洞
     filter: '(?i)(U-4x-BGP-HK|U-2x-BGP-HK|香港-IEPL-Pro|JP-HY2)'
 
@@ -214,7 +177,6 @@ proxy-groups:
     interval: 300
     tolerance: 100
     use:
-      - 魅影
       - 云洞
       - 爪云
     filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|DediOne|Lightsail|gpt|openai)'
@@ -238,18 +200,9 @@ proxy-groups:
       - 🚀 节点选择
       - DIRECT
       - ♻️ 自动选择
-      - 🇭🇰 香港(魅影)
       - 🇯🇵 日本
       - 🇺🇸 美国
       - 🎮 游戏专用
-
-  - name: 🇭🇰 香港(魅影)
-    type: url-test
-    url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
-    use:
-      - 魅影
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(4x)).*$'
 
   - name: 🇭🇰 香港(云洞)
     type: url-test
@@ -265,7 +218,6 @@ proxy-groups:
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
-      - 魅影
       - 云洞
     filter: '(?i)(TW|Taiwan|台湾|台)'
 
@@ -274,7 +226,6 @@ proxy-groups:
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
-      - 魅影
       - 云洞
     filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡))(?!.*(?i)(4x)).*$'
 
@@ -283,7 +234,6 @@ proxy-groups:
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
-      - 魅影
       - 云洞
       - 爪云
     filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(4x)).*$'
@@ -293,14 +243,12 @@ proxy-groups:
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
-      - 魅影
       - 云洞
     filter: '^(?=.*(?i)(US|America|United States|美国|美))(?!.*(?i)(4x)).*$'
 
   - name: 🌐 其他地区
     type: select
     use:
-      - 魅影
       - 云洞
     filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|流量|剩余|应急|官网|套餐)).*$'
 
