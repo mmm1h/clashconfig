@@ -97,6 +97,8 @@ OpenClash 适配已于 2026-10-27 部署到当前路由器（`0.48.002` / `Mihom
 
 原设置备份保留在路由器 `/root/openclash-migration-20261027-125927`，验证通过后已确认保留新配置。命令行访问 Claude 官网返回 Cloudflare 人机验证（HTTP 403、`cf-mitigated: challenge`），尚未验证浏览器登录和实际会话。上述现网验证仅覆盖当前 OpenClash；仓库和 Gist 分发不代表其他设备已完成客户端设置或验证。外层 AdGuardHome / PaoPaoDNS 和终端自带 DNS 未纳入这次现网验证，不能据此断言整个家庭网络不存在 DNS 泄露。
 
+同日 15:46，已将自定义适配脚本替换为 [OpenClash 原生订阅模块](openclash/README.md)，模块及绕行列表由主 YAML 自动生成并发布。原生处理链、核心校验及现网 DNS/AI 连接、TUN、防火墙绕行均通过验证；旧脚本已停用，切换前备份另存于 `/root/openclash-subscription-20261027-152414`。资源下载失败与 HTTP 304 的缓存行为也已验证，平时无需在路由器维护 Shell/Ruby。
+
 参考资料：
 
 - [Mihomo DNS 配置](https://wiki.metacubex.one/config/dns/)、[TUN 配置](https://wiki.metacubex.one/config/inbound/tun/)、[代理组空组回退](https://wiki.metacubex.one/config/proxy-groups/#empty-fallback)。

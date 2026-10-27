@@ -52,3 +52,14 @@ python -B -m unittest discover -s tests -p 'test_generate_openclash_overwrite.py
 ```
 
 生成器拒绝非法网段、覆盖 Fake-IP 的绕行范围，以及会被 OpenClash 展开为环境变量的 `$` 字符；验证失败时保留已有产物。IPv6 排除不写入这份 IPv4 列表。
+
+## 当前部署
+
+2026-10-27 已在当前 OpenClash `0.48.002` / Mihomo `alpha-gbc76c13` 切换并验证：HTTP 模块 `clashconfig.conf` 已启用，仅关联 `gist_github.yaml`；旧自定义脚本已移出插件目录，源文件也从仓库退役。配置备份保留在路由器 `/root/openclash-subscription-20261027-152414`。
+
+- 原生模块解析、配置生成和核心检查通过；最终 DNS 保持主 YAML 的加密上游，没有插件自动追加的明文 DNS。
+- `claude.ai` 实际命中 `Custom_AI`，与 AI DoH 同走 `🤖 AI节点 → Lightsail-SG`；普通代理返回 HTTP 204，Claude API 根路径返回 HTTP 404。浏览器登录和外层 DNS 链路仍不在此次验证范围内。
+- 国内 IP、Apple 推送原生绕行生效；端口、面板、控制密钥、原有分组选择及无关 cron 条目保持原值。
+- 启动使用已有绕行列表时不下载；隔离测试确认下载失败保留旧文件。现网首次资源同步成功，随后请求返回 304，验证不会因列表未变化而重启。
+
+模块的自动定时更新默认关闭，由用户刷新订阅后应用；绕行资源的每日 04:17 更新任务已安装。自动回滚保护已在验证通过后确认保留新配置，备份继续保留。
