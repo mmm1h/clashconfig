@@ -1,6 +1,6 @@
 ---
 name: maintain-clash-mihomo-config
-description: Maintain and update this Clash/Mihomo configuration repo (mihomo.yaml, mihomo.js, rules/*.list, *Merged.list, force_ttl_rules.txt). Use when editing proxy groups, rule providers, DNS/TTL rules, or regenerating merged lists in this project.
+description: Maintain and update this Clash/Mihomo configuration repo (mihomo.yaml, rules/*.list, *Merged.list, force_ttl_rules.txt). Use when editing proxy groups, rule providers, DNS/TTL rules, or regenerating merged lists in this project.
 ---
 
 # Maintain Clash Mihomo Config
@@ -12,7 +12,6 @@ Keep the Mihomo/Clash config, custom rules, and generated lists consistent in th
 ## Key files
 
 - `mihomo.yaml`: primary Mihomo/Clash config (providers, DNS, proxy groups, rule providers, rules)
-- `mihomo.js`: JS config generator; keep group and rule names identical to `mihomo.yaml`
 - `rules/*.list`: custom rule lists in Clash classical text format
 - `*Merged.list`: generated/merged rule lists with source headers
 - `force_ttl_rules.txt`: generated PaoPaoDNS rules
@@ -25,12 +24,12 @@ Keep the Mihomo/Clash config, custom rules, and generated lists consistent in th
 ### Custom rules
 
 - Edit the relevant file in `rules/`.
-- Ensure the rule list is referenced in `mihomo.yaml` or `mihomo.js`.
+- Ensure the rule list is referenced in `mihomo.yaml`.
 - Keep one rule per line using Clash keywords `DOMAIN`, `DOMAIN-SUFFIX`, `DOMAIN-KEYWORD`, `IP-CIDR`, `IP-CIDR6` with optional `,no-resolve`.
 
 ### Mihomo config
 
-- Keep proxy group names and rule targets identical across `mihomo.yaml` and `mihomo.js`.
+- Keep rule targets aligned with the proxy group names in `mihomo.yaml`.
 - Keep placeholders `__MEIYING_URL__` and `__YUNDONG_URL__` intact unless updating subscription URLs.
 
 ### PaoPaoDNS rules
@@ -46,5 +45,4 @@ Keep the Mihomo/Clash config, custom rules, and generated lists consistent in th
 ## Validation
 
 - Validate YAML syntax for `mihomo.yaml`.
-- Validate JS syntax for `mihomo.js`.
 - Verify rule list formatting (one rule per line, valid Clash keywords).

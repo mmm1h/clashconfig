@@ -1,6 +1,6 @@
 ---
 name: maintain-clash-rule-lists
-description: Maintain custom Clash rule lists in rules/*.list for this repo. Use when adding or removing domain/IP rules, adjusting list contents, or wiring rule lists into mihomo.yaml/mihomo.js.
+description: Maintain custom Clash rule lists in rules/*.list for this repo. Use when adding or removing domain/IP rules, adjusting list contents, or wiring rule lists into mihomo.yaml.
 ---
 
 # Maintain Clash Rule Lists
@@ -17,8 +17,8 @@ Keep the custom rule lists in `rules/` consistent and correctly referenced by th
 
 ## Wiring into config
 
-- Ensure every custom list you change is referenced in `mihomo.yaml` or `mihomo.js`.
-- Keep rule targets and group names aligned across `mihomo.yaml` and `mihomo.js`.
+- Ensure every custom list you change is referenced in `mihomo.yaml`.
+- Keep rule targets aligned with the proxy group names in `mihomo.yaml`.
 
 ## Guardrails
 

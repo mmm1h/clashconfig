@@ -1,6 +1,5 @@
 # Clash 配置文件 - mihomo.yaml
 
-
 #订阅链接
 proxy-providers:
   云洞:
@@ -27,7 +26,16 @@ proxy-providers:
       interval: 300
       url: https://www.gstatic.com/generate_204
 
-# ----------------- Clash 高级参数配置 start ----------------- #
+# ----------------- 通用基础参数 start ----------------- #
+# OpenClash / Clash Party 共用；端口、UI、控制接口与 TUN 启停由客户端管理。
+mode: rule
+tcp-concurrent: true
+unified-delay: true
+# 保留按需进程匹配，桌面端的 PROCESS-NAME 规则需要它。
+find-process-mode: strict
+keep-alive-interval: 15
+keep-alive-idle: 600
+
 profile:
   store-selected: true         # 记忆并恢复之前所选的代理节点
   store-fake-ip: true          # 持久化 Fake-IP 数据，防止软路由/系统重启时内网 IP 紊乱
@@ -41,65 +49,7 @@ geox-url:
   geoip: "https://proxy.hmhi.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
   geosite: "https://proxy.hmhi.top/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
 
-dns:
-  enable: true
-  enhanced-mode: fake-ip
-  ipv6: false
-  listen: 127.0.0.1:1053
-  prefer-h3: false
-  respect-rules: true
-  # 未命中国内策略的查询只通过代理发出；直连下载也遵循同一 DNS 策略。
-  direct-nameserver:
-  - "https://1.1.1.1/dns-query#♻️ 自动选择"
-  - "https://8.8.8.8/dns-query#♻️ 自动选择"
-  direct-nameserver-follow-policy: true
-  # 引导解析与节点域名使用 IP 形式的加密 DNS，避免依赖代理自身启动。
-  default-nameserver:
-  - "https://223.5.5.5/dns-query#DIRECT"
-  - "https://223.6.6.6/dns-query#DIRECT"
-  nameserver:
-  - "https://1.1.1.1/dns-query#♻️ 自动选择"
-  - "https://8.8.8.8/dns-query#♻️ 自动选择"
-  proxy-server-nameserver:
-  - "https://223.5.5.5/dns-query#DIRECT"
-  - "https://223.6.6.6/dns-query#DIRECT"
-  nameserver-policy:
-    "geosite:geolocation-!cn":
-    - "https://1.1.1.1/dns-query#♻️ 自动选择"
-    - "https://8.8.8.8/dns-query#♻️ 自动选择"
-    "geosite:cn":
-    - "https://223.5.5.5/dns-query#DIRECT"
-    - "https://223.6.6.6/dns-query#DIRECT"
-
-
-  fake-ip-range: 198.18.0.0/15
-  fake-ip-filter-mode: blacklist
-  fake-ip-filter:
-    # 常用 Fake IP filter 域名
-    - ruleset:fakeip_filter
-    # BT/PT
-    - "geosite: category-public-tracker,tracker"
-    # Microsoft && Apple
-    - "geosite: microsoft,onedrive,apple,icloud"
-    # 游戏平台（Steam、Epic、PS等）
-    - "geosite: steam,epicgames,xbox,playstation,origin,category-games-cn,category-games-!cn,category-games,category-game-accelerator-cn,category-game-platforms-download"
-    # Google
-    - "geosite: google-cn,google-play@cn"
-    # 其他
-    - "geosite: private,jsdelivr,category-ntp@cn,category-ddns,category-speedtest@cn,nvidia@cn,paypal@cn,cn"
-    - "+.lan"
-    - "+.local"
-    - "+.push.apple.com"
-    - "+.pub.3gppnetwork.org"
-    # 解决 Windows 连通性检测问题
-    - "+.msftconnecttest.com"
-    - "+.msftncsi.com"
-    # 解决 返回ip地址的域名被误判为国外域名的问题
-    - "+.hmhi.top"
-    - "+.argotunnel.com"
-    - "+.cftunnel.com"
-
-  # 不使用国内 nameserver + 国外 fallback，避免国外查询先暴露给国内上游。
+# ----------------- 通用基础参数 end ----------------- #
 
 # 客户端仍需开启 TUN；受控 TUN 设置也应保留 UDP/TCP 53 劫持与严格路由。
 tun:
@@ -107,12 +57,148 @@ tun:
     - any:53
     - tcp://any:53
   strict-route: true
+  # 国内 IP 集绕行仅限 Linux + nftables + auto-route + auto-redirect；
+  # 与 routing-mark 冲突，OpenClash 须由自身路由配置适配。Windows/macOS 不生效。
+  route-exclude-address-set:
+    - cn_ip
+  # 固定网段排除需要客户端启用 auto-route。
+  route-exclude-address:
+    # Apple 推送通知服务
+    - 17.249.0.0/16
+    - 17.252.0.0/16
+    - 17.57.144.0/22
+    - 17.188.128.0/18
+    - 17.188.20.0/23
+    # 私有、共享及保留地址，保持本地服务直接访问。
+    - 0.0.0.0/8
+    - 10.0.0.0/8
+    - 100.64.0.0/10
+    - 127.0.0.0/8
+    - 169.254.0.0/16
+    - 172.16.0.0/12
+    - 192.0.0.0/24
+    - 192.0.2.0/24
+    - 192.88.99.0/24
+    - 192.168.0.0/16
+    - 198.51.100.0/24
+    - 203.0.113.0/24
 
-# ----------------- Clash 高级参数配置 end ----------------- #
+sniffer:
+  enable: true
+  force-dns-mapping: false
+  parse-pure-ip: true
+  # 使用识别出的域名辅助规则匹配，保留原连接目标。
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-dst-address:
+    - 17.249.0.0/16
+    - 17.252.0.0/16
+    - 17.57.144.0/22
+    - 17.188.128.0/18
+    - 17.188.20.0/23
+  skip-domain:
+    - "*"
+    - "geosite:private"
+    - "Mijia Cloud"
+    - "+.mi.com"
+    - "+.oray.com"
+    - "+.sunlogin.net"
+    - "+.push.apple.com"
+
+# DNS 列表参考 Nikki v11；引导解析使用 IP，境外 DoH 明确指定代理组。
+AliDoH: &AliDoH
+  - "https://223.5.5.5/dns-query#DIRECT"
+  - "https://223.6.6.6/dns-query#DIRECT"
+DomesticDoH: &DomesticDoH
+  - "https://dns.alidns.com/dns-query#DIRECT"
+  - "https://doh.pub/dns-query#DIRECT"
+FreeDoH: &FreeDoH
+  - "https://1.1.1.1/dns-query#🔙 全节点故障转移"
+  - "https://8.8.8.8/dns-query#🔙 全节点故障转移"
+AIDoH: &AIDoH
+  - "https://1.1.1.1/dns-query#🤖 AI节点"
+  - "https://8.8.8.8/dns-query#🤖 AI节点"
+
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  ipv6: false
+  cache-algorithm: arc
+  use-system-hosts: false
+  # 保留回环监听，OpenClash 按自身 DNS 接管配置覆写。
+  listen: 127.0.0.1:1053
+  prefer-h3: false
+  respect-rules: true
+  default-nameserver: *AliDoH
+  proxy-server-nameserver: *AliDoH
+  # 与作者一致：未分类域名默认使用国内 DoH。
+  nameserver: *AliDoH
+  # direct-nameserver 留空，直连连接同样遵循 nameserver-policy。
+  nameserver-policy:
+    # 复用 AI 规则集中的域名；解析与连接同走 AI 组，不回退国内 DNS。
+    "rule-set:Custom_AI": *AIDoH
+    # 特例置于大类之前，避免 Steam 社区落到游戏平台的国内 DNS。
+    "+.steamcommunity.com": *FreeDoH
+    "+.push.apple.com": *DomesticDoH
+    "+.mi.com": *DomesticDoH
+    "+.sunlogin.net": *DomesticDoH
+    "+.pub.3gppnetwork.org": *DomesticDoH
+    "+.msftconnecttest.com": *DomesticDoH
+    "+.msftncsi.com": *DomesticDoH
+    "+.oray.com": *DomesticDoH
+    "rule-set:fakeip_filter": *DomesticDoH
+    "geosite:category-public-tracker,tracker": *DomesticDoH
+    "geosite:apple,icloud": *DomesticDoH
+    "geosite:steam,epicgames,xbox,playstation,origin,category-games-cn,category-games-!cn,category-game-accelerator-cn,category-game-platforms-download": *DomesticDoH
+    "geosite:google-cn,google-play@cn": *DomesticDoH
+    "geosite:jsdelivr,category-ntp,category-ddns,category-speedtest@cn,nvidia@cn,paypal@cn,cn": *DomesticDoH
+    # 境外分类兜底必须在国内服务特例之后。
+    "geosite:geolocation-!cn": *FreeDoH
+  fake-ip-range: 198.18.0.0/15
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+    # 常用 Fake IP filter 域名
+    - rule-set:fakeip_filter
+    # BT/PT
+    - "geosite: category-public-tracker,tracker"
+    # Microsoft && Apple
+    - "geosite: microsoft,onedrive,apple,icloud"
+    # 游戏平台（Steam、Epic、PS等）
+    - "geosite: steam,epicgames,xbox,playstation,origin,category-games-cn,category-games-!cn,category-game-accelerator-cn,category-game-platforms-download"
+    # Google
+    - "geosite: google-cn,google-play@cn"
+    # 其他
+    - "geosite: cloudflare,tailscale,github,private,jsdelivr,category-ntp,category-ddns,category-speedtest@cn,nvidia@cn,paypal@cn,cn"
+    - "+.push.apple.com"
+    - "+.pub.3gppnetwork.org"
+    # 系统连通性检测合集，包含 Windows、Android、Firefox 等。
+    - "geosite: connectivity-check"
+    - "+.oray.com"
+    # 解决 返回ip地址的域名被误判为国外域名的问题
+    - "+.hmhi.top"
+    - "+.argotunnel.com"
+    - "+.cftunnel.com"
+    # 保留原 OpenClash 手工设置的设备与密码库兼容例外。
+    - "+.ugreen.com"
+    - "+.ugreengroup.com"
+    - "+.bitwarden.com"
+
+  # 不配置 fallback；AI 规则集、境外分类与显式特例使用代理 DNS，其他未知域名使用国内 DNS。
+
 proxy-groups:
   - name: "🚀 节点选择"
     type: select
     proxies:
+      - 🔙 全节点故障转移
       - ♻️ 自动选择
       - DIRECT
       - 🇭🇰 香港(云洞)
@@ -132,11 +218,27 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|DediOne|Lightsail))(?!.*(?i)(4x)).*$'
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(4x)).*$'
+
+  - name: "🔙 全节点故障转移"
+    type: fallback
+    empty-fallback: REJECT
+    url: 'https://cp.cloudflare.com/generate_204'
+    interval: 300
+    timeout: 3000
+    lazy: false
+    proxies:
+      - 🇭🇰 香港(云洞)
+      - 🇯🇵 日本
+      - 🇸🇬 新加坡
+      - 🇹🇼 台湾
+      - 🇺🇸 美国
+      - 🌐 其他地区-自动
 
   - name: "📺 国外媒体"
     type: select
     proxies:
+      - 🔙 全节点故障转移
       - ♻️ 自动选择
       - 🚀 节点选择
       - 🇭🇰 香港(云洞)
@@ -146,11 +248,9 @@ proxy-groups:
       - 🇺🇸 美国
 
   - name: "🎮 游戏专用"
-    type: url-test
-    url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
-    tolerance: 50
+    type: select
     proxies:
+      - 🔙 全节点故障转移
       - DIRECT
     use:
       - 云洞
@@ -173,6 +273,7 @@ proxy-groups:
 
   - name: "🤖 AI节点"
     type: select
+    empty-fallback: REJECT
     url: 'https://chatgpt.com/favicon.ico'
     interval: 300
     tolerance: 100
@@ -196,6 +297,7 @@ proxy-groups:
   - name: "🐟 漏网之鱼"
     type: select
     proxies:
+      - 🔙 全节点故障转移
       - 🇭🇰 香港(云洞)
       - 🚀 节点选择
       - DIRECT
@@ -206,15 +308,17 @@ proxy-groups:
 
   - name: 🇭🇰 香港(云洞)
     type: url-test
+    empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 云洞
       - 爪云
-    filter: '(?i)(HK|Hong Kong|香港|港|DediOne|Lightsail)'
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(4x)).*$'
 
   - name: 🇹🇼 台湾
     type: url-test
+    empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
@@ -223,14 +327,17 @@ proxy-groups:
 
   - name: 🇸🇬 新加坡
     type: url-test
+    empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 云洞
-    filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡))(?!.*(?i)(4x)).*$'
+      - 爪云
+    filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡|Lightsail))(?!.*(?i)(4x)).*$'
 
   - name: 🇯🇵 日本
     type: url-test
+    empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
@@ -240,23 +347,32 @@ proxy-groups:
 
   - name: 🇺🇸 美国
     type: url-test
+    empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
     interval: 300
     use:
       - 云洞
-    filter: '^(?=.*(?i)(US|America|United States|美国|美))(?!.*(?i)(4x)).*$'
+      - 爪云
+    filter: '^(?=.*(?i)(US|America|United States|美国|美|DediOne))(?!.*(?i)(4x)).*$'
 
   - name: 🌐 其他地区
     type: select
+    empty-fallback: REJECT
     use:
       - 云洞
-    filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|流量|剩余|应急|官网|套餐)).*$'
+      - 爪云
+    filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|DediOne|Lightsail|流量|剩余|应急|官网|套餐)).*$'
 
-  - name: "🔀 非标端口"
-    type: select
-    proxies:
-      - DIRECT
-      - 🐟 漏网之鱼
+  - name: 🌐 其他地区-自动
+    type: url-test
+    empty-fallback: REJECT
+    url: 'https://cp.cloudflare.com/generate_204'
+    interval: 300
+    tolerance: 50
+    use:
+      - 云洞
+      - 爪云
+    filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|DediOne|Lightsail|4x|流量|剩余|应急|官网|套餐)).*$'
 
 rule-anchor:
   ip: &ip { type: http, interval: 86400, behavior: ipcidr, format: mrs }
@@ -274,7 +390,6 @@ rule-providers:
     <<: *domain
     url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/wwqgtxx/clash-rules/release/fakeip-filter.mrs"
 
-    
   Custom_Direct:
     type: http
     behavior: classical
@@ -311,56 +426,45 @@ rule-providers:
     path: ./ruleset/Rules.yaml
     interval: 86400
     format: text
-  Custom_Port_Direct:
-    type: http
-    behavior: classical
-    url: "https://proxy.hmhi.top/https://raw.githubusercontent.com/mmm1h/clashconfig/main/rules/Custom_Port_Direct.yaml"
-    path: ./rule_provider/Custom_Port_Direct.yaml
-    interval: 86400
-    # format: text payload格式，无须转换
-    proxy: DIRECT
 
 rules:
 
-  # 常见第三方加密 DNS 优先走代理，放在自定义直连与非标准端口规则之前。
-  - DOMAIN-SUFFIX,dns.google,♻️ 自动选择
-  - DOMAIN-SUFFIX,cloudflare-dns.com,♻️ 自动选择
-  - DOMAIN-SUFFIX,dns.cloudflare.com,♻️ 自动选择
-  - DOMAIN-SUFFIX,dns.quad9.net,♻️ 自动选择
-  - DOMAIN-SUFFIX,dns.sb,♻️ 自动选择
-  - DOMAIN-SUFFIX,dns.twnic.tw,♻️ 自动选择
-  - IP-CIDR,1.1.1.1/32,♻️ 自动选择,no-resolve
-  - IP-CIDR,1.0.0.1/32,♻️ 自动选择,no-resolve
-  - IP-CIDR,8.8.8.8/32,♻️ 自动选择,no-resolve
-  - IP-CIDR,8.8.4.4/32,♻️ 自动选择,no-resolve
-  - IP-CIDR,9.9.9.9/32,♻️ 自动选择,no-resolve
-  - IP-CIDR,149.112.112.112/32,♻️ 自动选择,no-resolve
-  - DST-PORT,853,♻️ 自动选择
+  # 保留 Android Play Store 的进程特例，其余 AI 连接优先于广告和服务大类。
+  - PROCESS-NAME,com.android.vending,🇺🇸 美国
+  - RULE-SET,Custom_AI,🤖 AI节点
+
+  # 常见第三方加密 DNS 优先走代理，放在自定义直连与最终端口兜底之前。
+  - DOMAIN-SUFFIX,dns.google,🔙 全节点故障转移
+  - DOMAIN-SUFFIX,cloudflare-dns.com,🔙 全节点故障转移
+  - DOMAIN-SUFFIX,dns.cloudflare.com,🔙 全节点故障转移
+  - DOMAIN-SUFFIX,dns.quad9.net,🔙 全节点故障转移
+  - DOMAIN-SUFFIX,dns.sb,🔙 全节点故障转移
+  - DOMAIN-SUFFIX,dns.twnic.tw,🔙 全节点故障转移
+  - IP-CIDR,1.1.1.1/32,🔙 全节点故障转移,no-resolve
+  - IP-CIDR,1.0.0.1/32,🔙 全节点故障转移,no-resolve
+  - IP-CIDR,8.8.8.8/32,🔙 全节点故障转移,no-resolve
+  - IP-CIDR,8.8.4.4/32,🔙 全节点故障转移,no-resolve
+  - IP-CIDR,9.9.9.9/32,🔙 全节点故障转移,no-resolve
+  - IP-CIDR,149.112.112.112/32,🔙 全节点故障转移,no-resolve
+  - IP-CIDR,208.67.222.222/32,🔙 全节点故障转移,no-resolve
+  - DST-PORT,853,🔙 全节点故障转移
 
   # Microsoft Store / Delivery Optimization
   - DOMAIN-SUFFIX,do.dsp.mp.microsoft.com,DIRECT
   - DOMAIN-SUFFIX,dl.delivery.mp.microsoft.com,🪟 微软下载
   - DOMAIN-SUFFIX,delivery.mp.microsoft.com,DIRECT
 
-  #pixel 单独分流，解决某些 AI 服务
-  - SRC-IP-CIDR,192.168.9.31/32,🇺🇸 美国
   # --- 广告屏蔽 ---
   - GEOSITE,category-ads-all,🚫 广告屏蔽
   - GEOSITE,adobe,🚫 广告屏蔽
-    # 测速
-  - GEOSITE,category-speedtest,🚀 节点选择
 
   # --- 自定义规则 ---
   - DOMAIN-REGEX,^r+[0-9]+---sn-(2x3|ni5|j5o)[a-z0-9]+\.xn--ngstr-lra8j\.com$,DIRECT
   - DOMAIN,services.googleapis.cn,🎮 游戏专用
-  # Android Play Store only; other Google clients keep their existing AI route.
-  - PROCESS-NAME,com.android.vending,🇺🇸 美国
-  - RULE-SET,Custom_AI,🤖 AI节点
   - RULE-SET,Custom_US,🇺🇸 美国
   - RULE-SET,Custom_JP,🇯🇵 日本
   - RULE-SET,Custom_Rules,🚀 节点选择
   - RULE-SET,Custom_Direct,🎯 全球直连
-
 
   # --- 直连规则 ---
   - GEOSITE,private,🎯 全球直连
@@ -369,15 +473,22 @@ rules:
   # BT/PT
   - GEOSITE,category-public-tracker,🎯 全球直连
   # 游戏平台
+  - DOMAIN-SUFFIX,steamcontent.com,🎯 全球直连
+  - DOMAIN-SUFFIX,xboxlive.com,🎯 全球直连
+  - DOMAIN-SUFFIX,playstation.net,🎯 全球直连
   - GEOSITE,steam@cn,🎯 全球直连
-  - GEOSITE,category-game-platforms-download,🎯 全球直连
+  - GEOSITE,epicgames@cn,🎯 全球直连
+  - GEOSITE,xbox@cn,🎯 全球直连
   - GEOSITE,category-game-accelerator-cn,🎯 全球直连
   - GEOSITE,category-games-cn,🎯 全球直连
   - GEOSITE,category-games@cn,🎯 全球直连
+  - GEOSITE,category-games-!cn@cn,🎯 全球直连
+  - GEOSITE,category-game-platforms-download@cn,🎯 全球直连
   # Apple
-  - GEOSITE,icloud,🎯 全球直连
-  - GEOSITE,apple,🎯 全球直连
-
+  - GEOSITE,apple-cn,🎯 全球直连
+  - GEOSITE,apple@cn,🎯 全球直连
+  - GEOSITE,icloud@cn,🎯 全球直连
+  - GEOSITE,apple-update,🎯 全球直连
 
   # Microsoft
   - GEOSITE,microsoft@cn,🎯 全球直连
@@ -385,9 +496,13 @@ rules:
   # 其他
   - GEOSITE,nvidia@cn,🎯 全球直连
   - GEOSITE,paypal@cn,🎯 全球直连
-  # - GEOSITE,category-ddns,🎯 全球直连
+  - GEOSITE,category-ddns,🎯 全球直连
+  - GEOSITE,tailscale,🎯 全球直连
   - GEOSITE,cn,🎯 全球直连
-  
+  - DOMAIN-SUFFIX,cn,🎯 全球直连
+
+  # 国内域名判断之后再处理测速，避免国内测速被大类规则提前代理。
+  - GEOSITE,category-speedtest,🚀 节点选择
 
   # AI
   - GEOSITE,openai,🤖 AI节点
@@ -399,8 +514,15 @@ rules:
   # 游戏
   - GEOSITE,steam,🎮 游戏专用
   - GEOSITE,epicgames,🎮 游戏专用
+  - GEOSITE,playstation,🎮 游戏专用
+  - GEOSITE,xbox,🎮 游戏专用
   - GEOSITE,origin,🎮 游戏专用
-  - GEOSITE,category-games,🎮 游戏专用
+  - GEOSITE,category-games-!cn,🎮 游戏专用
+  - GEOSITE,category-game-platforms-download,🎮 游戏专用
+
+  # Apple 的国内服务已在前面直连，其余跟随节点选择。
+  - GEOSITE,icloud,🚀 节点选择
+  - GEOSITE,apple,🚀 节点选择
 
   # 国外媒体
   - GEOSITE,bahamut,🇹🇼 台湾
@@ -415,9 +537,10 @@ rules:
   # 社交平台
   - GEOSITE,tiktok,📺 国外媒体
   - GEOSITE,twitter,📺 国外媒体
+  - GEOSITE,discord,📺 国外媒体
   - GEOSITE,category-social-media-!cn,📺 国外媒体
   - GEOSITE,category-communication,📺 国外媒体
-  
+
   # Microsoft
   - GEOSITE,github,🚀 节点选择
   - GEOSITE,onedrive,Ⓜ️ 微软服务
@@ -433,6 +556,8 @@ rules:
   - GEOSITE,google-cn,🚀 节点选择
 
   # 其他
+  - GEOSITE,telegram,🚀 节点选择
+  - GEOSITE,cloudflare,🚀 节点选择
   - GEOSITE,gfw,🚀 节点选择
   - GEOSITE,tracker,🚀 节点选择
   - GEOSITE,paypal,🚀 节点选择
@@ -445,6 +570,7 @@ rules:
 
   # --- IP ---
   - GEOIP,google,🚀 节点选择,no-resolve
+  - GEOIP,cloudflare,🚀 节点选择,no-resolve
   - GEOIP,telegram,🚀 节点选择,no-resolve
   - GEOIP,netflix,🚀 节点选择,no-resolve
   - GEOIP,twitter,🚀 节点选择,no-resolve
@@ -453,5 +579,5 @@ rules:
   - RULE-SET,cn_ip,🎯 全球直连,no-resolve
 
   # --- 最终匹配 ---
-  - RULE-SET,Custom_Port_Direct,🔀 非标端口
+  - DST-PORT,80/8080/443/8443,🚀 节点选择
   - MATCH,🐟 漏网之鱼

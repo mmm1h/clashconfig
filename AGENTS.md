@@ -30,7 +30,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 
 ## Repository layout
 - `mihomo.yaml`: primary Mihomo/Clash config (providers, DNS, proxy groups, rule providers, rules).
-- `mihomo.js`: JS config generator; keep group/rule names aligned with `mihomo.yaml`.
+- The shared YAML targets OpenClash and Clash Party. Client-specific ports, UI paths, controller access, and TUN enablement remain client-managed; consult README.md for Linux-only route exclusions.
 - `QuantumultX.conf`: Quantumult X policy/rule config and remote lists.
 - `rules/`: custom Clash rule lists and CN IP list (`rules/README.md` documents the set).
 - `*Merged.list`: generated merged rule lists with source headers.
@@ -40,7 +40,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - `alc4.ini`: ACL4SSR config snapshot/reference (treat as vendor data).
 
 ## Configuration linkage
-- `mihomo.yaml` and `mihomo.js` must reference the same proxy groups and rule targets.
+- `mihomo.yaml` is the maintained Mihomo configuration; the former JS generator has been retired.
 - Group names often include emoji/CJK characters; copy/paste exact strings to avoid subtle mismatches.
 - `QuantumultX.conf` shares policy group names with Mihomo; keep overlaps consistent.
 - Preserve placeholder values unless explicitly updating:
@@ -76,7 +76,7 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 ## Update flows
 - Add/update custom rules:
   1) Edit the appropriate file in `rules/`.
-  2) Ensure the list is referenced in `mihomo.yaml` and/or `mihomo.js`.
+  2) Ensure the list is referenced in `mihomo.yaml`.
   3) If relevant for Quantumult X, update `QuantumultX.conf` remote list entries.
 - Update CN IPs (legacy compatibility only; frozen by default):
   1) Do nothing in the normal control-plane workflow.
@@ -92,6 +92,5 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 - No automated tests.
 - Quick checks:
   - YAML syntax/indentation for `mihomo.yaml`.
-  - JS syntax for `mihomo.js`.
   - Rule list formatting (one rule per line, no trailing spaces).
   - Placeholder strings remain intact after edits.

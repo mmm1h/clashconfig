@@ -2,6 +2,21 @@
 
 本目录存放本仓库的辅助脚本。建议在仓库根目录执行脚本，以保证相对路径正确。
 
+## openclash_custom_overwrite.sh
+
+安装到 OpenClash 的 `/etc/openclash/custom/openclash_custom_overwrite.sh`，由 OpenClash 在生成运行配置后调用。脚本从 `openclash.config.config_path` 指向的导入 YAML 恢复 DNS 和嗅探策略，保留 OpenClash 生成的 DNS 监听地址、端口、控制接口和 UI。
+
+- OpenClash 继续负责 TUN、防火墙标记和路由；核心的 `auto-route` / `auto-redirect` 关闭。固定绕行地址同步到 `openclash_custom_localnetwork_ipv4.list` 的自动区块，保留区块外的手工地址；国内 IP 绕行使用 OpenClash 的 `china_ip_route=1`。
+- 配套设置：`enable_custom_dns=0`、`custom_name_policy=0`、`custom_fakeip_filter=0`、`custom_fallback_filter=0`、`custom_proxy_server_policy=0`、`enable_respect_rules=1`、`enable_meta_sniffer=1`、`enable_meta_sniffer_custom=0`。其他端口、DNS 接管方式和订阅周期保持原值。
+- 安装前备份 OpenClash UCI、原覆写脚本、原导入与运行 YAML、自定义本地网络列表；安装和重启应在允许短暂断网的时间进行。
+- 脚本不设置代理组选择、不更新订阅、不重启服务，也不改 AdGuardHome / PaoPaoDNS。私有订阅 URL 只保留在路由器上。
+
+隔离验证可传入全部三个路径，避免读写真实配置：
+
+```bash
+sh scripts/openclash_custom_overwrite.sh /tmp/runtime.yaml /tmp/source.yaml /tmp/localnetwork.list
+```
+
 ## update_chatgpt_voice.py
 
 从 `https://openai.com/chatgpt-voice.json` 拉取官方语音 IP 清单，更新 `rules/AI.list` 的 `ChatGPT Voice START/END (auto)` 区块，保留区块外的手工规则。该区块是生成数据，不要手工补地址。

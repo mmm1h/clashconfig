@@ -7,7 +7,7 @@
 - CN.txt：用于 iKuai 的自定义运营商 IP 分流，内容为国内 IP。
 - Direct.list：直连规则。
 - GameDownload.list：游戏下载/更新相关规则。
-- Custom_Port_Direct.yaml：非 80/443 端口直连规则，供 Mihomo/Clash rule-provider 使用。
+- Custom_Port_Direct.yaml：旧非 80/443 端口直连规则，保留供已有消费者兼容使用；主 `mihomo.yaml` 已改用常见 Web 端口与漏网之鱼兜底，不再订阅此清单。
 - JP.list：日本相关规则。
 - Rules.list：通用补充规则。
 - US.list：美国相关规则。
@@ -20,7 +20,9 @@
 
 Claude 域名由现有 `AIMerged.yml` 工作流每天北京时间 09:00 从 [MetaCubeX 的 Anthropic 列表](https://github.com/MetaCubeX/meta-rules-dat/blob/meta/geo/geosite/anthropic.list) 同步到 `AI.list` 的 `Claude START/END (auto)` 区块，同时加入根目录 `AIMerged.list`。这份规则来自持续维护的社区域名数据；[v2fly 上游](https://github.com/v2fly/domain-list-community/commits/master/data/anthropic) 在 2026-10-02 新增了 `claude.dev`。不要手工编辑该区块；下载或校验失败时保留旧清单。
 
-`AI.list` 保留区块外的官方服务 IP、辅助服务及兼容补充项，统一通过原有 `Custom_AI` 分流到 `🤖 AI节点`。`anthropic.com` 已覆盖 API、`statsig.anthropic.com` 和 `mcp-proxy.anthropic.com` 等子域名；`claude.com` 覆盖 `platform.claude.com` 的 OAuth 令牌交换与刷新。主 YAML 与 JS 生成器均使用这一个规则提供器；JS 的 `🤖 AI节点` 转交现有 `🥦 OPENAI` 组选择出口。
+`AI.list` 保留区块外的官方服务 IP、辅助服务及兼容补充项，统一通过 `mihomo.yaml` 的 `Custom_AI` 分流到 `🤖 AI节点`。`anthropic.com` 已覆盖 API、`statsig.anthropic.com` 和 `mcp-proxy.anthropic.com` 等子域名；`claude.com` 覆盖 `platform.claude.com` 的 OAuth 令牌交换与刷新。
+
+`mihomo.yaml` 同时通过 `nameserver-policy` 的 `rule-set:Custom_AI` 复用本清单中的域名规则，使用指定 `#🤖 AI节点` 的独立 DoH。连接规则优先于广告屏蔽和服务大类，保留 Android Play Store 的进程特例；IP 规则只用于连接分流，不参与 DNS 匹配。AI 组不可用时，该解析策略不回退国内 DNS。客户端覆写或外层 DNS 转发仍需核对实际运行配置。
 
 补充清单核对日期：2026-10-06。
 
