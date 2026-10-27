@@ -1,0 +1,50 @@
+name: Generate OpenClash Subscription Module
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'mihomo.yaml'
+      - 'openclash/**'
+      - 'scripts/generate_openclash_overwrite.py'
+      - 'tests/test_generate_openclash_overwrite.py'
+      - '.github/workflows/GenerateOpenClash.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: openclash-module-generation
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.repository == 'mmm1h/clashconfig'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install generator dependency
+        run: pip install -r openclash/requirements.txt
+      - name: Validate generator
+        run: python -B -m unittest discover -s tests -p 'test_generate_openclash_overwrite.py'
+      - name: Generate module and bypass feed
+        run: python -B scripts/generate_openclash_overwrite.py
+      - name: Commit only changed artifacts
+        run: |
+          if git diff --quiet -- openclash/overwrite.conf openclash/bypass_ipv4.list; then
+            echo "OpenClash artifacts unchanged."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- openclash/overwrite.conf openclash/bypass_ipv4.list
+          git commit -m 'chore: regenerate OpenClash subscription module'
+          git pull --rebase origin main
+          git push origin HEAD:main

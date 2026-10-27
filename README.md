@@ -31,7 +31,7 @@
 
 `route-exclude-address-set: [cn_ip]` 的国内 IP 集绕行仅支持 Linux + nftables，并要求 `auto-route`、`auto-redirect` 同时开启；它与 `routing-mark` 冲突。OpenClash 有自己的防火墙和路由管理，须结合实际模式设置，不能直接照搬 Nikki 的 `auto-redirect`。Windows/macOS 不应用这个规则集绕行，国内 IP 仍由规则层 `cn_ip` 直连处理。
 
-OpenClash 配套适配脚本改用其原生绕行：`china_ip_route=1` 负责国内 IP，固定绕行网段从 YAML 自动同步到本地网络列表；核心的自动路由关闭，避免两套接管并存。脚本和设置见 [scripts/README.md](scripts/README.md#openclash_custom_overwritesh)。
+OpenClash 配套订阅模块改用其原生绕行：`china_ip_route=1` 负责国内 IP，固定绕行网段从 YAML 自动生成原生列表；核心的自动路由关闭，避免两套接管并存。订阅地址、维护入口和资源更新方式见 [openclash/README.md](openclash/README.md)。
 
 参考：[Mihomo TUN 文档](https://wiki.metacubex.one/config/inbound/tun/#route-exclude-address-set)。
 
@@ -79,7 +79,7 @@ Fake-IP 过滤负责决定是否返回真实 IP，与 DNS 上游选择分别配�
 
 - Clash Party 按需开启 TUN 和自动路由，保留严格路由、UDP/TCP 53 劫持。配置文本不会替客户端打开 TUN。
 - OpenClash 负责自身的 DNS 监听、dnsmasq 接管和防火墙配置；共用 YAML 保留 `127.0.0.1:1053`，不直接暴露 LAN DNS 服务。导入后需检查最终运行配置，避免 GUI 覆写改变预期 DNS 策略。
-- 安装配套 `scripts/openclash_custom_overwrite.sh` 后，DNS 策略和嗅探设置从导入 YAML 恢复，仅保留 OpenClash 生成的 DNS 监听地址。原手工设置的绿联与 Bitwarden Fake-IP 例外已迁回 YAML；`fakeip_filter` 的引用统一使用有效的 `rule-set:` 前缀。
+- 使用配套 OpenClash 订阅模块后，DNS 与嗅探从主 YAML 自动生成并在插件处理后恢复，避免自动补入明文 DNS；模块补充 TUN DNS 劫持，保留设备管理的监听地址及端口。原手工设置的绿联与 Bitwarden Fake-IP 例外已迁回 YAML；`fakeip_filter` 的引用统一使用有效的 `rule-set:` 前缀。
 - `route-exclude-address-set` 的国内 IP 绕行有平台和路由条件，见上文；绕行流量不受核心内规则控制。Windows/macOS 也无法仅靠 TUN DNS 劫持自动接管发往局域网 DNS 的查询。
 - 旧配置于 2026-10-06 在 Windows 测试时，Clash Party 的 `post-up` 启动方式比 `log` 更可靠；这是客户端设置，当前配置尚未在各设备重做该项实测。
 

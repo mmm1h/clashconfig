@@ -31,6 +31,7 @@ Keep the Mihomo/Clash config, custom rules, and generated lists consistent in th
 
 - Keep rule targets aligned with the proxy group names in `mihomo.yaml`.
 - Keep placeholders `__MEIYING_URL__` and `__YUNDONG_URL__` intact unless updating subscription URLs.
+- OpenClash-specific options belong in `openclash/overwrite.template.conf`; shared sniffing and bypass ranges come from `mihomo.yaml`. Regenerate `openclash/overwrite.conf` and `openclash/bypass_ipv4.list` with `scripts/generate_openclash_overwrite.py` rather than editing outputs or restoring a router-side adapter script.
 
 ### PaoPaoDNS rules
 
