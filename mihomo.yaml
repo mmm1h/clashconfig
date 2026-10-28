@@ -1,6 +1,7 @@
 # Clash 配置文件 - mihomo.yaml
 
-#订阅链接
+# 订阅节点的检测周期也要缩短：use 引入的节点由 provider 执行健康检查。
+# interval 为秒，timeout 为毫秒；持续检测备用节点，避免使用时才发现已失效。
 proxy-providers:
   云洞:
     type: http
@@ -11,7 +12,10 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      interval: 300
+      interval: 30
+      timeout: 3000
+      lazy: false
+      expected-status: 204
       url: https://cp.cloudflare.com/generate_204
 
   爪云:
@@ -23,7 +27,10 @@ proxy-providers:
       udp: true
     health-check:
       enable: true
-      interval: 300
+      interval: 30
+      timeout: 3000
+      lazy: false
+      expected-status: 204
       url: https://www.gstatic.com/generate_204
 
 # ----------------- 通用基础参数 start ----------------- #
@@ -213,20 +220,27 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     tolerance: 50
     use:
       - 云洞
       - 爪云
-    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(4x)).*$'
+    # Xiaohai 按名称加入候选，不根据名称断言实际出口地区。
+    filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|xiaohai))(?!.*(?i)(4x)).*$'
 
   - name: "🔙 全节点故障转移"
     type: fallback
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
     timeout: 3000
     lazy: false
+    max-failed-times: 2
+    expected-status: 204
     proxies:
       - 🇭🇰 香港(云洞)
       - 🇯🇵 日本
@@ -272,6 +286,7 @@ proxy-groups:
       - 🚀 节点选择
 
   - name: "🤖 AI节点"
+    # 保持手动选择，节点故障时不自动换出口；Xiaohai 仅作为可选节点。
     type: select
     empty-fallback: REJECT
     url: 'https://chatgpt.com/favicon.ico'
@@ -280,7 +295,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
-    filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|DediOne|Lightsail|gpt|openai)'
+    filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|DediOne|Lightsail|xiaohai|gpt|openai)'
 
   - name: "🎯 全球直连"
     type: select
@@ -310,7 +325,11 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     use:
       - 云洞
       - 爪云
@@ -320,7 +339,11 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     use:
       - 云洞
     filter: '(?i)(TW|Taiwan|台湾|台)'
@@ -329,7 +352,11 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     use:
       - 云洞
       - 爪云
@@ -339,7 +366,11 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     use:
       - 云洞
       - 爪云
@@ -349,7 +380,11 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     use:
       - 云洞
       - 爪云
@@ -367,7 +402,11 @@ proxy-groups:
     type: url-test
     empty-fallback: REJECT
     url: 'https://cp.cloudflare.com/generate_204'
-    interval: 300
+    interval: 30
+    timeout: 3000
+    lazy: false
+    max-failed-times: 2
+    expected-status: 204
     tolerance: 50
     use:
       - 云洞
