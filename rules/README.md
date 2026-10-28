@@ -7,6 +7,7 @@
 - CN.txt：用于 iKuai 的自定义运营商 IP 分流，内容为国内 IP。
 - Direct.list：直连规则。
 - GameDownload.list：游戏下载/更新相关规则。
+- QXRewriteDirect.list：仅供 Quantumult X 使用的重写直连例外，让 12306、高德的指定广告接口先进入重写处理；必须位于广告屏蔽规则之前，不用于 Mihomo。
 - Custom_Port_Direct.yaml：旧非 80/443 端口直连规则，保留供已有消费者兼容使用；主 `mihomo.yaml` 已改用常见 Web 端口与漏网之鱼兜底，不再订阅此清单。
 - JP.list：日本相关规则。
 - Rules.list：通用补充规则。

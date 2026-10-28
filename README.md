@@ -89,6 +89,8 @@ Fake-IP 过滤负责决定是否返回真实 IP，与 DNS 上游选择分别配�
 
 ## 本次验证
 
+Quantumult X 的 iOS 配置、与 Mihomo 的差异及首次导入检查见 [QuanX 维护说明](quantumultx/README.md)。它使用独立的客户端语法；Mihomo 的运行验证不能替代 QuanX 实机验收。
+
 2026-10-27：YAML 语法、代理组及规则引用、组依赖无环和订阅占位符检查通过。Mihomo v1.19.33 使用本地替代节点、现有自定义规则及当前 GeoIP / GeoSite 数据完成配置检查；真实订阅下载和各设备网络未纳入此次测试。
 
 本地模拟确认 DediOne 归美国、Lightsail 归新加坡；香港组为空时回退到日本，日本故障后切到新加坡，全部节点不可用时最终拒绝连接。模拟关闭 TUN，仅验证分组与健康检查行为，未验证 OpenClash 防火墙和各设备 TUN 路由。
