@@ -1,5 +1,5 @@
-# 更新时间：2026-10-21 13:48:25
-# 数量：77条
+# 更新时间：2026-11-08 15:00:05
+# 数量：79条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/ClaudeAI.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Gemini.list
@@ -17,8 +17,10 @@ DOMAIN,console.groq.com
 DOMAIN,copilot-proxy.githubusercontent.com
 DOMAIN,gemini.google.com
 DOMAIN,generativelanguage.googleapis.com
+DOMAIN,http-intake.logs.us5.datadoghq.com
 DOMAIN,makersuite.google.com
 DOMAIN,notebooklm.google.com
+DOMAIN,o1158394.ingest.us.sentry.io
 DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN,sydney.bing.com
 DOMAIN-KEYWORD,anthropic
