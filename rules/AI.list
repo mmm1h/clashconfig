@@ -475,3 +475,4 @@ IP-CIDR,191.232.198.181/32,no-resolve
 IP-CIDR,191.233.251.27/32,no-resolve
 IP-CIDR,191.235.237.21/32,no-resolve
 # --- ChatGPT Voice END (auto) ---
+IP-CIDR,13.196.111.58/32,no-resolve
