@@ -25,6 +25,7 @@ jobs:
         env:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
+          MIJING_URL: ${{ secrets.MIJING_URL }}
           JP_PRIVATE_URL: ${{ secrets.JP_PRIVATE_URL }}
           CF_PRIVATE_URL: ${{ secrets.CF_PRIVATE_URL }}
         run: |
@@ -37,6 +38,7 @@ jobs:
           replacements = {
               "__MEIYING_URL__": os.environ.get("MEIYING_URL", ""),
               "__YUNDONG_URL__": os.environ.get("YUNDONG_URL", ""),
+              "__MIJING_URL__": os.environ.get("MIJING_URL", ""),
               "__JP_PRIVATE_URL__": os.environ.get("JP_PRIVATE_URL", ""),
               "__CF_PRIVATE_URL__": os.environ.get("CF_PRIVATE_URL", ""),
           }

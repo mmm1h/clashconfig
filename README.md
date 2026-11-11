@@ -20,7 +20,7 @@
 
 代理空组使用 `empty-fallback: REJECT`，需要 Mihomo v1.19.27 或更新版本。本次配置校验使用 v1.19.33。
 
-- 订阅沿用现有下载方式和更新间隔；节点健康检查每 30 秒执行，云洞与爪云的私有 URL 仍由 Actions 注入。
+- 云洞、爪云与密境的私有订阅 URL 由 Actions 注入；节点健康检查每 30 秒执行。
 - 通用参数启用 TCP 并发连接和统一延迟测量，连接保活参数参考 Nikki v11；保留 `find-process-mode: strict`，供桌面端按需匹配进程规则。
 - 代理端口、LAN 访问权限、UI 路径、控制接口、TUN 启停及自动路由由各客户端管理。路由器的 `device: nikki`、GSO 等平台专用调优和写系统时钟的 NTP 设置不纳入共用配置。
 - GeoIP / GeoSite 沿用现有下载地址与每日更新；保留完整 `geoip.dat`，供现有规则匹配使用。

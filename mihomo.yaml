@@ -33,6 +33,25 @@ proxy-providers:
       expected-status: 204
       url: https://www.gstatic.com/generate_204
 
+  密境:
+    type: http
+    url: "__MIJING_URL__"
+    interval: 7200
+    path: "./providers/密境.yaml"
+    # 订阅服务按客户端返回不同格式；此标识请求含 AnyTLS 和 Hysteria2 的 Clash YAML。
+    header:
+      User-Agent: ["Clash-Verge/2.4.5"]
+    exclude-filter: '流量|剩余|应急|官网|套餐'
+    override:
+      udp: true
+    health-check:
+      enable: true
+      interval: 30
+      timeout: 3000
+      lazy: false
+      expected-status: 204
+      url: https://cp.cloudflare.com/generate_204
+
 # ----------------- 通用基础参数 start ----------------- #
 # OpenClash / Clash Party 共用；端口、UI、控制接口与 TUN 启停由客户端管理。
 mode: rule
@@ -229,6 +248,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     # Xiaohai 按名称加入候选，不根据名称断言实际出口地区。
     filter: '^(?=.*(?i)(HK|Hong Kong|香港|港|xiaohai))(?!.*(?i)(4x)).*$'
 
@@ -295,6 +315,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '(?i)(US|America|United States|美国|美|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|DediOne|Lightsail|xiaohai|gpt|openai)'
 
   - name: "🎯 全球直连"
@@ -333,6 +354,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '^(?=.*(?i)(HK|Hong Kong|香港|港))(?!.*(?i)(4x)).*$'
 
   - name: 🇹🇼 台湾
@@ -346,6 +368,7 @@ proxy-groups:
     expected-status: 204
     use:
       - 云洞
+      - 密境
     filter: '(?i)(TW|Taiwan|台湾|台)'
 
   - name: 🇸🇬 新加坡
@@ -360,6 +383,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '^(?=.*(?i)(SG|Singapore|新加坡|狮城|坡|Lightsail))(?!.*(?i)(4x)).*$'
 
   - name: 🇯🇵 日本
@@ -374,6 +398,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '^(?=.*(?i)(JP|Japan|日本|川日|东京|大阪|泉日|埼玉|沪日|深日))(?!.*(?i)(4x)).*$'
 
   - name: 🇺🇸 美国
@@ -388,6 +413,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '^(?=.*(?i)(US|America|United States|美国|美|DediOne))(?!.*(?i)(4x)).*$'
 
   - name: 🌐 其他地区
@@ -396,6 +422,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|DediOne|Lightsail|流量|剩余|应急|官网|套餐)).*$'
 
   - name: 🌐 其他地区-自动
@@ -411,6 +438,7 @@ proxy-groups:
     use:
       - 云洞
       - 爪云
+      - 密境
     filter: '^(?!.*(?i)(HK|Hong Kong|香港|港|TW|Taiwan|台湾|台|SG|Singapore|新加坡|狮城|坡|JP|Japan|日本|US|America|United States|美国|美|DediOne|Lightsail|4x|流量|剩余|应急|官网|套餐)).*$'
 
 rule-anchor:

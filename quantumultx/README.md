@@ -1,6 +1,6 @@
 # Quantumult X 维护说明
 
-`../QuantumultX.conf` 面向 iOS 商店最新版，继续由现有 Actions 注入两个订阅 URL 和原 MITM 证书后发布到私有 Gist。公开配置中的占位符不能直接用作节点订阅，不另建发布流程。
+`../QuantumultX.conf` 面向 iOS 商店最新版，继续由现有 Actions 注入云洞、爪云、密境的订阅 URL 和原 MITM 证书后发布到私有 Gist。公开配置中的占位符不能直接用作节点订阅。
 
 ## 策略与使用方式
 

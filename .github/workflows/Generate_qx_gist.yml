@@ -21,6 +21,7 @@ jobs:
           MEIYING_URL: ${{ secrets.MEIYING_URL }}
           JP_PRIVATE_URL: ${{ secrets.JP_PRIVATE_URL }}
           YUNDONG_URL: ${{ secrets.YUNDONG_URL }}
+          MIJING_URL: ${{ secrets.MIJING_URL }}
           QX_MITM_P12: ${{ secrets.QX_MITM_P12 }}
         run: |
           python - <<'PY'
@@ -33,6 +34,7 @@ jobs:
               "__MEIYING_URL__": os.environ.get("MEIYING_URL", ""),
               "__JP_PRIVATE_URL__": os.environ.get("JP_PRIVATE_URL", ""),
               "__YUNDONG_URL__": os.environ.get("YUNDONG_URL", ""),
+              "__MIJING_URL__": os.environ.get("MIJING_URL", ""),
               "__QX_MITM_P12__": os.environ.get("QX_MITM_P12", ""),
           }
 
