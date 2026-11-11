@@ -8,6 +8,7 @@ proxy-providers:
     url: "__YUNDONG_URL__"
     interval: 7200
     path: "./providers/云洞.yaml"
+    exclude-filter: '(?i)^Vless测试节点$'
     override:
       udp: true
     health-check:
