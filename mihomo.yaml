@@ -499,6 +499,7 @@ rules:
 
   # 保留 Android Play Store 的进程特例，其余 AI 连接优先于广告和服务大类。
   - PROCESS-NAME,com.android.vending,🇺🇸 美国
+  - PROCESS-NAME,agy.exe,🤖 AI节点
   - RULE-SET,Custom_AI,🤖 AI节点
 
   # 常见第三方加密 DNS 优先走代理，放在自定义直连与最终端口兜底之前。
