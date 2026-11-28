@@ -1,5 +1,5 @@
-# 更新时间：2026-11-27 22:33:58
-# 数量：2082条
+# 更新时间：2026-11-28 21:47:37
+# 数量：2086条
 # 来源1：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list
 # 来源2：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list
 # 来源3：https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AmazonIp.list
@@ -267,6 +267,7 @@ DOMAIN-SUFFIX,seattlespheres.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,skyking.com.tw
 DOMAIN-SUFFIX,sndcdn.com
+DOMAIN-SUFFIX,soundcloud.cloud
 DOMAIN-SUFFIX,soundcloud.com
 DOMAIN-SUFFIX,spoti.fi
 DOMAIN-SUFFIX,spotify.com
@@ -731,6 +732,9 @@ IP-CIDR,15.248.176.0/20,no-resolve
 IP-CIDR,15.248.193.0/31,no-resolve
 IP-CIDR,15.248.194.0/23,no-resolve
 IP-CIDR,15.248.198.0/24,no-resolve
+IP-CIDR,15.248.200.0/26,no-resolve
+IP-CIDR,15.248.208.0/25,no-resolve
+IP-CIDR,15.248.208.128/26,no-resolve
 IP-CIDR,15.248.32.0/21,no-resolve
 IP-CIDR,15.248.40.0/22,no-resolve
 IP-CIDR,15.248.48.0/20,no-resolve
